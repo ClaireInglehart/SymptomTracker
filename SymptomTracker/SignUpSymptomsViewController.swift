@@ -12,9 +12,14 @@ class SignUpSymptomsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        struct ContentView: View {
 
-
-}
     }
+    
+    @IBAction func onContinue(_ sender: Any) {
+        // TODO: verify user added at least one symptom
+        
+        performSegue(withIdentifier: "ShowSignUpAddTriggers", sender: sender)
+
+    }
+
 }

@@ -14,5 +14,12 @@ class SignUpTriggersViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
+
+    @IBAction func onContinue(_ sender: Any) {
+        // TODO: verify user added at least one trigger
+        
+        performSegue(withIdentifier: "Notifications", sender: sender)
+
+    }
+
 }

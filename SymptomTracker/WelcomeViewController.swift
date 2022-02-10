@@ -8,12 +8,9 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-    //continue button to sign up symptoms view
-    @IBAction func Continue(_ sender: Any) {
-
-    }
 }

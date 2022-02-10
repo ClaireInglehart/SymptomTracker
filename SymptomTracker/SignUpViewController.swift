@@ -9,19 +9,19 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-
     }
     
-    //Name Field TextField
-    @IBOutlet weak var NameField: UITextField!
-
     //continue button to welcome view
 
-    @IBAction func Continue(_ sender: Any) {
-        performSegue(withIdentifier: "GoWelcome", sender: sender)
+    @IBAction func onContinue(_ sender: Any) {
+        // TODO: verify name and email were entered
+        
+        performSegue(withIdentifier: "ShowWelcome", sender: sender)
 
     }
 }

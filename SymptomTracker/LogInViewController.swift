@@ -10,14 +10,14 @@ import UIKit
 class LoginViewController:
     UIViewController {
     
-    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        nameField.layer.cornerRadius = 10
+        emailField.layer.cornerRadius = 10
 
     }
 
-    //Name Field
     
     //login button segue to home page
     @IBAction func login(_ sender: Any) {

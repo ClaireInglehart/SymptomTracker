@@ -16,6 +16,12 @@ class CheckInViewController: UIViewController {
     }
     
 
-    
+    @IBAction func onDoCheckin(_ sender: Any) {
+        // TODO: verify user added at least one symptom
+        
+        performSegue(withIdentifier: "DoCheckIn", sender: sender)
+
+    }
+
 
 }
