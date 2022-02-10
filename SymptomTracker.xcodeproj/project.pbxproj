@@ -19,6 +19,10 @@
 		7EEFC1D127B05362001C92C0 /* SignUpTriggersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEFC1D027B05362001C92C0 /* SignUpTriggersViewController.swift */; };
 		7EEFC1D327B053BD001C92C0 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEFC1D227B053BD001C92C0 /* NotificationsViewController.swift */; };
 		7EEFC1D527B05482001C92C0 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEFC1D427B05482001C92C0 /* HomePageViewController.swift */; };
+		7EEFC1D727B0ACB0001C92C0 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEFC1D627B0ACB0001C92C0 /* HistoryViewController.swift */; };
+		7EEFC1D927B0ADCD001C92C0 /* TriggersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEFC1D827B0ADCD001C92C0 /* TriggersViewController.swift */; };
+		7EEFC1DB27B0ADF4001C92C0 /* SymptomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEFC1DA27B0ADF4001C92C0 /* SymptomsViewController.swift */; };
+		7EEFC1DD27B0AE14001C92C0 /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEFC1DC27B0AE14001C92C0 /* CheckInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 		7EEFC1D027B05362001C92C0 /* SignUpTriggersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTriggersViewController.swift; sourceTree = "<group>"; };
 		7EEFC1D227B053BD001C92C0 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		7EEFC1D427B05482001C92C0 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		7EEFC1D627B0ACB0001C92C0 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		7EEFC1D827B0ADCD001C92C0 /* TriggersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriggersViewController.swift; sourceTree = "<group>"; };
+		7EEFC1DA27B0ADF4001C92C0 /* SymptomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomsViewController.swift; sourceTree = "<group>"; };
+		7EEFC1DC27B0AE14001C92C0 /* CheckInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +80,9 @@
 				7EEFC1B827B041BC001C92C0 /* SceneDelegate.swift */,
 				7EEFC1BA27B041BC001C92C0 /* LogInViewController.swift */,
 				7EEFC1BC27B041BC001C92C0 /* Main.storyboard */,
+				7EEFC1DC27B0AE14001C92C0 /* CheckInViewController.swift */,
+				7EEFC1DA27B0ADF4001C92C0 /* SymptomsViewController.swift */,
+				7EEFC1D827B0ADCD001C92C0 /* TriggersViewController.swift */,
 				7EEFC1D427B05482001C92C0 /* HomePageViewController.swift */,
 				7EEFC1D227B053BD001C92C0 /* NotificationsViewController.swift */,
 				7EEFC1CE27B05237001C92C0 /* SignUpSymptomsViewController.swift */,
@@ -81,6 +92,7 @@
 				7EEFC1BF27B041BD001C92C0 /* Assets.xcassets */,
 				7EEFC1C127B041BD001C92C0 /* LaunchScreen.storyboard */,
 				7EEFC1C427B041BD001C92C0 /* Info.plist */,
+				7EEFC1D627B0ACB0001C92C0 /* HistoryViewController.swift */,
 			);
 			path = SymptomTracker;
 			sourceTree = "<group>";
@@ -158,13 +170,17 @@
 			files = (
 				7EEFC1BB27B041BC001C92C0 /* LogInViewController.swift in Sources */,
 				7EEFC1D127B05362001C92C0 /* SignUpTriggersViewController.swift in Sources */,
+				7EEFC1DB27B0ADF4001C92C0 /* SymptomsViewController.swift in Sources */,
 				7EEFC1D527B05482001C92C0 /* HomePageViewController.swift in Sources */,
+				7EEFC1D727B0ACB0001C92C0 /* HistoryViewController.swift in Sources */,
 				7EEFC1CD27B05119001C92C0 /* WelcomeViewController.swift in Sources */,
 				7EEFC1B727B041BC001C92C0 /* AppDelegate.swift in Sources */,
+				7EEFC1D927B0ADCD001C92C0 /* TriggersViewController.swift in Sources */,
 				7EEFC1CB27B04F3F001C92C0 /* SignUpViewController.swift in Sources */,
 				7EEFC1CF27B05237001C92C0 /* SignUpSymptomsViewController.swift in Sources */,
 				7EEFC1B927B041BC001C92C0 /* SceneDelegate.swift in Sources */,
 				7EEFC1D327B053BD001C92C0 /* NotificationsViewController.swift in Sources */,
+				7EEFC1DD27B0AE14001C92C0 /* CheckInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

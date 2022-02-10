@@ -11,19 +11,17 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+
     }
     
     //Name Field TextField
     @IBOutlet weak var NameField: UITextField!
-    
+
     //continue button to welcome view
+
     @IBAction func Continue(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let welcomeVC = storyboard.instantiateViewController(identifier: "WelcomeView")
-        
-        welcomeVC.modalPresentationStyle = .fullScreen
-        welcomeVC.modalTransitionStyle = .crossDissolve
-        
-        present(welcomeVC, animated: true, completion: nil)
+        performSegue(withIdentifier: "GoWelcome", sender: sender)
+
     }
 }

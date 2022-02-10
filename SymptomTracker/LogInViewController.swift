@@ -10,34 +10,18 @@ import UIKit
 class LoginViewController:
     UIViewController {
     
+    @IBOutlet weak var nameField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        nameField.layer.cornerRadius = 10
+
     }
 
     //Name Field
-    @IBOutlet weak var NameField: UITextField!
-    
     
     //login button segue to home page
     @IBAction func login(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let homePageVC = storyboard.instantiateViewController(identifier: "HomePageView")
-        
-        homePageVC.modalPresentationStyle = .fullScreen
-        homePageVC.modalTransitionStyle = .crossDissolve
+        performSegue(withIdentifier: "GoHome", sender: sender)
+    }
     
-        present(homePageVC, animated: true, completion: nil)
-    }
-    //signup button segue to sign up page
-    @IBAction func SignUp(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let signUpVC = storyboard.instantiateViewController(identifier: "WelcomeView")
-        
-        signUpVC.modalPresentationStyle = .fullScreen
-        signUpVC.modalTransitionStyle = .crossDissolve
-        
-        present(signUpVC, animated: true, completion: nil)
-
-    }
 }
