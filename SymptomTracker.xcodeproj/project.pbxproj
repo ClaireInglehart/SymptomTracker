@@ -87,12 +87,12 @@
 				7EEFC1DC27B0AE14001C92C0 /* CheckInViewController.swift */,
 				7EEFC1DA27B0ADF4001C92C0 /* SymptomsViewController.swift */,
 				7EEFC1D827B0ADCD001C92C0 /* TriggersViewController.swift */,
+				7EEFC1D627B0ACB0001C92C0 /* HistoryViewController.swift */,
 				7EEFC1D427B05482001C92C0 /* HomePageViewController.swift */,
 				7EEFC1D227B053BD001C92C0 /* NotificationsViewController.swift */,
 				7EEFC1BF27B041BD001C92C0 /* Assets.xcassets */,
 				7EEFC1C127B041BD001C92C0 /* LaunchScreen.storyboard */,
 				7EEFC1C427B041BD001C92C0 /* Info.plist */,
-				7EEFC1D627B0ACB0001C92C0 /* HistoryViewController.swift */,
 			);
 			path = SymptomTracker;
 			sourceTree = "<group>";

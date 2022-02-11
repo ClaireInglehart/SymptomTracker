@@ -12,7 +12,7 @@ class SignUpTriggersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.title = "Add Trigger(s)"
     }
 
     @IBAction func onContinue(_ sender: Any) {

@@ -244,7 +244,7 @@
         <!--History-->
         <scene sceneID="eb0-6Y-ED4">
             <objects>
-                <viewController title="History" id="Zuc-hq-dXB" sceneMemberID="viewController">
+                <viewController title="History" id="Zuc-hq-dXB" customClass="HistoryViewController" customModule="SymptomTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rjm-qa-WKX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

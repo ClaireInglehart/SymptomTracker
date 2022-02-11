@@ -13,7 +13,6 @@ class HistoryViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = "History"
-        // Do any additional setup after loading the view.
     }
     
 

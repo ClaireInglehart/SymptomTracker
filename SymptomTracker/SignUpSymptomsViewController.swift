@@ -13,6 +13,7 @@ class SignUpSymptomsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = "Add Symptom(s)"
     }
     
     @IBAction func onContinue(_ sender: Any) {
