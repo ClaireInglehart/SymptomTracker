@@ -12,6 +12,7 @@
 		272C0E9427B5E7B000587930 /* Trigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272C0E9327B5E7B000587930 /* Trigger.swift */; };
 		272C0E9627B5E7CB00587930 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272C0E9527B5E7CB00587930 /* DataService.swift */; };
 		272C0E9827B5E8A600587930 /* Checkin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272C0E9727B5E8A600587930 /* Checkin.swift */; };
+		272C0E9A27B6C49000587930 /* AddSymptomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272C0E9927B6C48F00587930 /* AddSymptomViewController.swift */; };
 		7EEFC1B727B041BC001C92C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEFC1B627B041BC001C92C0 /* AppDelegate.swift */; };
 		7EEFC1B927B041BC001C92C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEFC1B827B041BC001C92C0 /* SceneDelegate.swift */; };
 		7EEFC1BB27B041BC001C92C0 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEFC1BA27B041BC001C92C0 /* LogInViewController.swift */; };
@@ -36,6 +37,7 @@
 		272C0E9327B5E7B000587930 /* Trigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trigger.swift; sourceTree = "<group>"; };
 		272C0E9527B5E7CB00587930 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		272C0E9727B5E8A600587930 /* Checkin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkin.swift; sourceTree = "<group>"; };
+		272C0E9927B6C48F00587930 /* AddSymptomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSymptomViewController.swift; sourceTree = "<group>"; };
 		7EEFC1B327B041BC001C92C0 /* SymptomTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SymptomTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EEFC1B627B041BC001C92C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7EEFC1B827B041BC001C92C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,23 +100,24 @@
 		7EEFC1B527B041BC001C92C0 /* SymptomTracker */ = {
 			isa = PBXGroup;
 			children = (
-				7EEFC1BC27B041BC001C92C0 /* Main.storyboard */,
-				7EEFC1B627B041BC001C92C0 /* AppDelegate.swift */,
-				7EEFC1B827B041BC001C92C0 /* SceneDelegate.swift */,
-				7EEFC1BA27B041BC001C92C0 /* LogInViewController.swift */,
-				7EEFC1CA27B04F3F001C92C0 /* SignUpViewController.swift */,
-				7EEFC1CC27B05119001C92C0 /* WelcomeViewController.swift */,
-				7EEFC1CE27B05237001C92C0 /* SignUpSymptomsViewController.swift */,
-				7EEFC1D027B05362001C92C0 /* SignUpTriggersViewController.swift */,
-				7EEFC1DC27B0AE14001C92C0 /* CheckInViewController.swift */,
-				7EEFC1DA27B0ADF4001C92C0 /* SymptomsViewController.swift */,
-				7EEFC1D827B0ADCD001C92C0 /* TriggersViewController.swift */,
-				7EEFC1D627B0ACB0001C92C0 /* HistoryViewController.swift */,
-				7EEFC1D427B05482001C92C0 /* HomePageViewController.swift */,
-				7EEFC1D227B053BD001C92C0 /* NotificationsViewController.swift */,
+				7EEFC1C427B041BD001C92C0 /* Info.plist */,
 				7EEFC1BF27B041BD001C92C0 /* Assets.xcassets */,
 				7EEFC1C127B041BD001C92C0 /* LaunchScreen.storyboard */,
-				7EEFC1C427B041BD001C92C0 /* Info.plist */,
+				7EEFC1BC27B041BC001C92C0 /* Main.storyboard */,
+				272C0E9927B6C48F00587930 /* AddSymptomViewController.swift */,
+				7EEFC1B627B041BC001C92C0 /* AppDelegate.swift */,
+				7EEFC1DC27B0AE14001C92C0 /* CheckInViewController.swift */,
+				7EEFC1D627B0ACB0001C92C0 /* HistoryViewController.swift */,
+				7EEFC1D427B05482001C92C0 /* HomePageViewController.swift */,
+				7EEFC1BA27B041BC001C92C0 /* LogInViewController.swift */,
+				7EEFC1D227B053BD001C92C0 /* NotificationsViewController.swift */,
+				7EEFC1B827B041BC001C92C0 /* SceneDelegate.swift */,
+				7EEFC1CE27B05237001C92C0 /* SignUpSymptomsViewController.swift */,
+				7EEFC1D027B05362001C92C0 /* SignUpTriggersViewController.swift */,
+				7EEFC1CA27B04F3F001C92C0 /* SignUpViewController.swift */,
+				7EEFC1DA27B0ADF4001C92C0 /* SymptomsViewController.swift */,
+				7EEFC1D827B0ADCD001C92C0 /* TriggersViewController.swift */,
+				7EEFC1CC27B05119001C92C0 /* WelcomeViewController.swift */,
 				272C0E8E27B5E72E00587930 /* Data Models */,
 			);
 			path = SymptomTracker;
@@ -195,6 +198,7 @@
 				7EEFC1D127B05362001C92C0 /* SignUpTriggersViewController.swift in Sources */,
 				7EEFC1DB27B0ADF4001C92C0 /* SymptomsViewController.swift in Sources */,
 				7EEFC1D527B05482001C92C0 /* HomePageViewController.swift in Sources */,
+				272C0E9A27B6C49000587930 /* AddSymptomViewController.swift in Sources */,
 				7EEFC1D727B0ACB0001C92C0 /* HistoryViewController.swift in Sources */,
 				7EEFC1CD27B05119001C92C0 /* WelcomeViewController.swift in Sources */,
 				272C0E9027B5E72E00587930 /* User.swift in Sources */,
