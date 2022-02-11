@@ -11,6 +11,7 @@ class DataService {
     static let shared = DataService()
     
     private var users: [User] = []
+    private let dataKeyName = "data"
     
     init() {
         self.users = self.load()
@@ -20,10 +21,11 @@ class DataService {
         return self.users.first(where: { $0.email == email })
     }
     
-    public func addUser(withName name: String, email: String) {
+    public func addUser(withName name: String, email: String) -> User? {
         let newUser = User(name: name, email: email)
         self.users.append(newUser)
         self.save()
+        return newUser
     }
     
     public func getSymptoms(forUser user: User) -> [Symptom] {
@@ -85,7 +87,7 @@ class DataService {
     
     private func load() -> [User] {
         
-        if let jsonString = self.loadJSON("data"),
+        if let jsonString = self.loadJSON(dataKeyName),
            let data = jsonString.data(using: .utf8) {
             do {
                 let decoder = JSONDecoder()
@@ -106,24 +108,31 @@ class DataService {
             let encoder = JSONEncoder()
             let data = try encoder.encode(users)
             if let jsonString = String(data: data, encoding: .utf8) {
-                saveJSON(jsonString: jsonString, key: "data")
+                saveJSON(jsonString: jsonString, key: dataKeyName)
             } else {
                 print("Whoops, couldn't convert data to string")
             }
         } catch {
             print("Whoops, an error occured while saving: \(error)")
         }
-
     }
     
     
     private func saveJSON(jsonString: String, key:String){
         
+        print("saveJSON: \(jsonString)")
         UserDefaults.standard.setValue(jsonString, forKey: key)
     }
     
     private func loadJSON(_ key: String) -> String? {
-        return UserDefaults.standard.string(forKey: key)
+        let jsonString = UserDefaults.standard.string(forKey: key)
+        print("loadJSON: \(jsonString ?? "")")
+        return jsonString
     }
     
+    public func trash() {
+        self.users = []
+        self.saveJSON(jsonString: "", key: dataKeyName)
+        print("🗑 all user accounts deleted")
+    }
 }

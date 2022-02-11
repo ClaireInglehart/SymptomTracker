@@ -39,6 +39,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Continue">
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="onContinue:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OYn-X5-nhO"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New User?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roU-GY-3wA">
                                 <rect key="frame" x="165.5" y="283.5" width="83.5" height="20"/>
@@ -55,7 +58,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Sign Up!"/>
                                 <connections>
-                                    <segue destination="MMX-fs-3uy" kind="show" id="Qs8-BL-5Jn"/>
+                                    <action selector="onSignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b16-xg-tDu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -82,6 +85,7 @@
                     <connections>
                         <outlet property="emailField" destination="m8B-pZ-PBA" id="ke8-eo-11E"/>
                         <segue destination="UXr-Gh-Lqr" kind="presentation" identifier="GoHome" modalPresentationStyle="fullScreen" id="nO5-gD-SfC"/>
+                        <segue destination="MMX-fs-3uy" kind="show" identifier="SignUp" id="uJd-ai-zGJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -592,6 +596,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gBi-27-CEN"/>
+                    <connections>
+                        <outlet property="welcomeLabel" destination="NGp-5Q-igX" id="lfX-T2-wgL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MmV-Ht-PEE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -654,7 +661,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="B1Q-7u-itJ"/>
+        <segue reference="nO5-gD-SfC"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemOrangeColor"/>
     <resources>

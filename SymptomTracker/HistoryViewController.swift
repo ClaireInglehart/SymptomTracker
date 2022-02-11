@@ -9,6 +9,8 @@ import UIKit
 
 class HistoryViewController: UIViewController {
 
+    public var user: User!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

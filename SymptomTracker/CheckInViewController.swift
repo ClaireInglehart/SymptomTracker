@@ -9,6 +9,8 @@ import UIKit
 
 class CheckInViewController: UIViewController {
 
+    public var user: User!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

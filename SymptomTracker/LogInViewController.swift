@@ -11,34 +11,51 @@ class LoginViewController:
     UIViewController {
     
     @IBOutlet weak var emailField: UITextField!
-    
+    private var user: User?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         emailField.layer.cornerRadius = 10
 
+        let trashButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(onTrash))
+        self.navigationItem.rightBarButtonItem = trashButton
+    }
+
+    @objc func onTrash() {
+        DataService.shared.trash()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.emailField.becomeFirstResponder()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "GoHome"), let vc = segue.destination as? HomePageViewController {
-            
+            vc.user = user!
         }
     }
     
     //login button segue to home page
-    @IBAction func login(_ sender: Any) {
-//        if let email = emailField.text, email.count > 0, let user = DataService.shared.getUser(forEmail: email) {
+    @IBAction func onContinue(_ sender: Any) {
+        guard let email = emailField.text, email.count > 0 else { return }
+                
+        if let user = DataService.shared.getUser(forEmail: email) {
+            self.user = user
             performSegue(withIdentifier: "GoHome", sender: sender)
-//        } else {
-//            let title = "Account Not Found"
-//            var message = "An account for this user was not found. Please sign up."
-//            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "Sign Up", style: .cancel, handler: { _ in
-//                self.performSegue(withIdentifier: "SignUp", sender: sender)
-//            }))
-//            alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: { _ in
-//            }))
-//            self.present(alert, animated: true, completion: nil)
-//        }
+        } else {
+            let title = "Account Not Found"
+            let message = "An account for this user was not found. Please sign up."
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Sign Up", style: .default, handler: { _ in
+                self.performSegue(withIdentifier: "SignUp", sender: sender)
+            }))
+            alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
+    @IBAction func onSignUp(_ sender: Any) {
+        self.performSegue(withIdentifier: "SignUp", sender: sender)
+    }
 }

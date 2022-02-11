@@ -10,6 +10,8 @@ import SwiftUI
 
 class SignUpSymptomsViewController: UIViewController {
 
+    public var user: User!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
