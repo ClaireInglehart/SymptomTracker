@@ -15,6 +15,8 @@ class CheckInViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = "Check-ins"
+
+        print("🧑🏼‍🦰 CheckInViewController: user=\(self.user.email)")
     }
     
 

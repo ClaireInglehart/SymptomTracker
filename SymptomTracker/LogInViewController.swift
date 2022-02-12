@@ -33,7 +33,10 @@ class LoginViewController:
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "GoHome"), let vc = segue.destination as? HomePageViewController {
             vc.user = user!
+        } else if (segue.identifier == "SignUpSymptoms"), let vc = segue.destination as? SignUpSymptomsViewController {
+            vc.user = user!
         }
+
     }
     
     //login button segue to home page
@@ -42,7 +45,13 @@ class LoginViewController:
                 
         if let user = DataService.shared.getUser(forEmail: email) {
             self.user = user
-            performSegue(withIdentifier: "GoHome", sender: sender)
+            // if the user has completed set up, go home.
+            // Otherwise, continue set up
+            if ((user.symptoms.count > 0) && (user.triggers.count > 0)) {
+                performSegue(withIdentifier: "GoHome", sender: sender)
+            } else {
+                performSegue(withIdentifier: "SignUpSymptoms", sender: sender)
+            }
         } else {
             let title = "Account Not Found"
             let message = "An account for this user was not found. Please sign up."
@@ -54,7 +63,7 @@ class LoginViewController:
             self.present(alert, animated: true, completion: nil)
         }
     }
-    
+
     @IBAction func onSignUp(_ sender: Any) {
         self.performSegue(withIdentifier: "SignUp", sender: sender)
     }

@@ -86,6 +86,7 @@
                         <outlet property="emailField" destination="m8B-pZ-PBA" id="ke8-eo-11E"/>
                         <segue destination="UXr-Gh-Lqr" kind="presentation" identifier="GoHome" modalPresentationStyle="fullScreen" id="nO5-gD-SfC"/>
                         <segue destination="MMX-fs-3uy" kind="show" identifier="SignUp" id="uJd-ai-zGJ"/>
+                        <segue destination="e4G-Py-XTc" kind="show" identifier="SignUpSymptoms" id="fzz-42-xPn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -222,7 +223,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cX9-sB-MvB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="976.81159420289862" y="767.41071428571422"/>
+            <point key="canvasLocation" x="926" y="830"/>
         </scene>
         <!--Symptoms-->
         <scene sceneID="QFt-QU-WKY">
@@ -243,11 +244,11 @@
                         <viewLayoutGuide key="safeArea" id="A0h-9w-6rz"/>
                         <color key="backgroundColor" systemColor="systemPurpleColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Symptoms" image="cross.circle" catalog="system" id="1bV-oj-Ca2"/>
+                    <navigationItem key="navigationItem" id="gC5-Pu-DqU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lsp-2c-Jqv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="503" y="2224"/>
+            <point key="canvasLocation" x="532" y="3119"/>
         </scene>
         <!--History-->
         <scene sceneID="eb0-6Y-ED4">
@@ -268,11 +269,11 @@
                         <viewLayoutGuide key="safeArea" id="CR9-H4-QfI"/>
                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="History" image="archivebox.circle" catalog="system" id="oj8-nL-TMV"/>
+                    <navigationItem key="navigationItem" id="Olb-Sp-fmD"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3DO-rr-2lg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1233" y="2224"/>
+            <point key="canvasLocation" x="1246" y="3142"/>
         </scene>
         <!--Check-ins-->
         <scene sceneID="g9T-kU-iSV">
@@ -311,7 +312,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wvP-wP-lCU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2064" y="2937"/>
+            <point key="canvasLocation" x="1951" y="3125"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="6bB-Xc-YsS">
@@ -336,7 +337,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5M8-tW-ese" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2758" y="2936"/>
+            <point key="canvasLocation" x="2774" y="3125"/>
         </scene>
         <!--Triggers-->
         <scene sceneID="bl4-ML-8Ln">
@@ -357,16 +358,16 @@
                         <viewLayoutGuide key="safeArea" id="19y-bJ-gkd"/>
                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Triggers" image="bolt.circle" catalog="system" id="nWJ-2A-lTW"/>
+                    <navigationItem key="navigationItem" id="uPF-a3-PO7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9es-7P-7cq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-249" y="2224"/>
+            <point key="canvasLocation" x="-220" y="3125"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Home Page View Controller-->
         <scene sceneID="35X-8U-gLe">
             <objects>
-                <tabBarController id="UXr-Gh-Lqr" sceneMemberID="viewController">
+                <tabBarController id="UXr-Gh-Lqr" customClass="HomePageViewController" customModule="SymptomTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="HpU-N1-HpF"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1Fk-SA-FAA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -374,15 +375,15 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="H7F-wG-oVP" kind="relationship" relationship="viewControllers" id="Z5e-MD-9lj"/>
-                        <segue destination="f74-jm-ANb" kind="relationship" relationship="viewControllers" id="ZxF-3X-OWu"/>
-                        <segue destination="Zuc-hq-dXB" kind="relationship" relationship="viewControllers" id="rIe-GV-5Nd"/>
+                        <segue destination="rx4-zW-j1g" kind="relationship" relationship="viewControllers" id="Z5e-MD-9lj"/>
+                        <segue destination="MI7-hF-TBN" kind="relationship" relationship="viewControllers" id="ZxF-3X-OWu"/>
+                        <segue destination="isM-ei-KBZ" kind="relationship" relationship="viewControllers" id="rIe-GV-5Nd"/>
                         <segue destination="ZDB-h6-ols" kind="relationship" relationship="viewControllers" id="6Rg-gk-swc"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mSa-lX-qrc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="262" y="1478"/>
+            <point key="canvasLocation" x="206" y="1578"/>
         </scene>
         <!--SignUpTriggers-->
         <scene sceneID="JWp-Zj-clH">
@@ -499,7 +500,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IzN-qr-Phq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1543" y="1478"/>
+            <point key="canvasLocation" x="1512" y="1601"/>
         </scene>
         <!--AddTrigger-->
         <scene sceneID="SSG-aq-zCg">
@@ -647,7 +648,7 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="e4G-Py-XTc" kind="show" id="cDG-iZ-pNu"/>
+                                    <segue destination="e4G-Py-XTc" kind="show" identifier="SignUpSymptoms" id="cDG-iZ-pNu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -727,11 +728,69 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PSz-QW-ati" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2077" y="2224"/>
+            <point key="canvasLocation" x="1974" y="2386"/>
+        </scene>
+        <!--History-->
+        <scene sceneID="C55-n3-wnt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="isM-ei-KBZ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="History" image="archivebox.circle" catalog="system" id="oj8-nL-TMV"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VMU-XC-uoP">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Zuc-hq-dXB" kind="relationship" relationship="rootViewController" id="JSg-hA-ErN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yws-oZ-Hzp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1267" y="2405"/>
+        </scene>
+        <!--Symptoms-->
+        <scene sceneID="APF-r6-t0k">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MI7-hF-TBN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Symptoms" image="cross.circle" catalog="system" id="1bV-oj-Ca2"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pgg-no-w8s">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="f74-jm-ANb" kind="relationship" relationship="rootViewController" id="iDw-LK-9OF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IQW-e0-VKi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="581" y="2395"/>
+        </scene>
+        <!--Triggers-->
+        <scene sceneID="WyC-M4-GDq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rx4-zW-j1g" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Triggers" image="bolt.circle" catalog="system" id="nWJ-2A-lTW"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5da-WC-zjG">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="H7F-wG-oVP" kind="relationship" relationship="rootViewController" id="T8L-L2-i0i"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dPY-AN-nrP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-220.28985507246378" y="2385.9375"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="B1Q-7u-itJ"/>
+        <segue reference="nO5-gD-SfC"/>
+        <segue reference="cDG-iZ-pNu"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemOrangeColor"/>
     <resources>

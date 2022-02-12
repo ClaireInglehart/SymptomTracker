@@ -17,6 +17,14 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
         
         self.welcomeLabel.text = "Welcome, \(self.user.name)!"
+
+        print("🧑🏼‍🦰 WelcomeViewController: user=\(self.user.email)")
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "SignUpSymptoms"), let vc = segue.destination as? SignUpSymptomsViewController {
+            vc.user = user!
+        }
     }
 
 }

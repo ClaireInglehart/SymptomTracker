@@ -15,6 +15,8 @@ class HistoryViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = "History"
+
+        print("🧑🏼‍🦰 HistoryViewController: user=\(self.user.email)")
     }
     
 

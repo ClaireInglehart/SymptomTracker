@@ -15,6 +15,8 @@ class SymptomsViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = "Symptoms"
+
+        print("🧑🏼‍🦰 SymptomsViewController: user=\(self.user.email)")
     }
     
 

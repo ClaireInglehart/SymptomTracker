@@ -15,6 +15,8 @@ class TriggersViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = "Triggers"
+
+        print("🧑🏼‍🦰 TriggersViewController: user=\(self.user.email)")
     }
     
 

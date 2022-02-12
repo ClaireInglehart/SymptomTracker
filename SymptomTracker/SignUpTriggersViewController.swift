@@ -15,7 +15,17 @@ class SignUpTriggersViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = "Add Trigger(s)"
+        
+        print("🧑🏼‍🦰 SignUpTriggersViewController: user=\(self.user.email)")
+
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "Notifications"), let vc = segue.destination as? NotificationsViewController {
+            vc.user = user!
+        }
+    }
+
 
     @IBAction func onContinue(_ sender: Any) {
         // TODO: verify user added at least one trigger
