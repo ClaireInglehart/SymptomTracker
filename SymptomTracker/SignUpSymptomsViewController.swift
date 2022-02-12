@@ -16,7 +16,7 @@ class SignUpSymptomsViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Add Symptom(s)"
         
-        print("🧑🏼‍🦰 SignUpSymptomsViewController: user=\(self.user.email)")
+        print("🧑🏼‍🦰 SignUpSymptomsViewController: user=\(self.user.email)")        
     }
     
     

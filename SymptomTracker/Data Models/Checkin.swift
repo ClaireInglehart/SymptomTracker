@@ -7,5 +7,6 @@
 
 struct Checkin: Codable {
     var date: String
-    var symptoms: [Symptom]
+    var triggerCheckins: [TriggerCheckin]
+    var symptomCheckins: [SymptomCheckin]
 }

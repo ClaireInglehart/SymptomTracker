@@ -12,6 +12,8 @@
 		272C0E9427B5E7B000587930 /* Trigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272C0E9327B5E7B000587930 /* Trigger.swift */; };
 		272C0E9627B5E7CB00587930 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272C0E9527B5E7CB00587930 /* DataService.swift */; };
 		272C0E9827B5E8A600587930 /* Checkin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272C0E9727B5E8A600587930 /* Checkin.swift */; };
+		272C0EA227B875A000587930 /* SymptomCheckin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272C0EA127B875A000587930 /* SymptomCheckin.swift */; };
+		272C0EA427B8760C00587930 /* TriggerCheckin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272C0EA327B8760C00587930 /* TriggerCheckin.swift */; };
 		7E440F1327B707DC00454F1F /* NewSymptomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E440F1227B707DC00454F1F /* NewSymptomViewController.swift */; };
 		7E440F1527B84DB100454F1F /* AddTriggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E440F1427B84DB100454F1F /* AddTriggerViewController.swift */; };
 		7EEFC1B727B041BC001C92C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEFC1B627B041BC001C92C0 /* AppDelegate.swift */; };
@@ -38,6 +40,8 @@
 		272C0E9327B5E7B000587930 /* Trigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trigger.swift; sourceTree = "<group>"; };
 		272C0E9527B5E7CB00587930 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		272C0E9727B5E8A600587930 /* Checkin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkin.swift; sourceTree = "<group>"; };
+		272C0EA127B875A000587930 /* SymptomCheckin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymptomCheckin.swift; sourceTree = "<group>"; };
+		272C0EA327B8760C00587930 /* TriggerCheckin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerCheckin.swift; sourceTree = "<group>"; };
 		7E440F1227B707DC00454F1F /* NewSymptomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSymptomViewController.swift; sourceTree = "<group>"; };
 		7E440F1427B84DB100454F1F /* AddTriggerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTriggerViewController.swift; sourceTree = "<group>"; };
 		7EEFC1B327B041BC001C92C0 /* SymptomTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SymptomTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,7 +80,9 @@
 			children = (
 				272C0E8F27B5E72E00587930 /* User.swift */,
 				272C0E9127B5E78B00587930 /* Symptom.swift */,
+				272C0EA127B875A000587930 /* SymptomCheckin.swift */,
 				272C0E9327B5E7B000587930 /* Trigger.swift */,
+				272C0EA327B8760C00587930 /* TriggerCheckin.swift */,
 				272C0E9727B5E8A600587930 /* Checkin.swift */,
 				272C0E9527B5E7CB00587930 /* DataService.swift */,
 			);
@@ -199,6 +205,7 @@
 			files = (
 				7EEFC1BB27B041BC001C92C0 /* LogInViewController.swift in Sources */,
 				7E440F1527B84DB100454F1F /* AddTriggerViewController.swift in Sources */,
+				272C0EA427B8760C00587930 /* TriggerCheckin.swift in Sources */,
 				7EEFC1D127B05362001C92C0 /* SignUpTriggersViewController.swift in Sources */,
 				7EEFC1DB27B0ADF4001C92C0 /* SymptomsViewController.swift in Sources */,
 				7EEFC1D527B05482001C92C0 /* HomePageViewController.swift in Sources */,
@@ -217,6 +224,7 @@
 				272C0E9227B5E78B00587930 /* Symptom.swift in Sources */,
 				7EEFC1DD27B0AE14001C92C0 /* CheckInViewController.swift in Sources */,
 				272C0E9627B5E7CB00587930 /* DataService.swift in Sources */,
+				272C0EA227B875A000587930 /* SymptomCheckin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
