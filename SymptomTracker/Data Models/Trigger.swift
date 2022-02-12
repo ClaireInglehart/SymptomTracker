@@ -12,5 +12,4 @@ struct Trigger: Codable {
     var name: String
     var units: String
     var quantity: String?
-
 }
