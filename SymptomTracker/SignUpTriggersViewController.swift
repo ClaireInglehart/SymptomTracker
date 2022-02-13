@@ -8,13 +8,12 @@
 import UIKit
 
 class SignUpTriggersViewController: UIViewController {
-
     public var user: User!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "Add Trigger(s)"
+        self.title = "Your Triggers"
         
         print("🧑🏼‍🦰 SignUpTriggersViewController: user=\(self.user.email)")
 
@@ -31,7 +30,7 @@ class SignUpTriggersViewController: UIViewController {
         // TODO: verify user added at least one trigger
         
         performSegue(withIdentifier: "Notifications", sender: sender)
-
+        
     }
 
 }

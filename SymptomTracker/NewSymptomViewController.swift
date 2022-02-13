@@ -17,23 +17,20 @@ class NewSymptomViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+
         print("🧑🏼‍🦰 NewSymptomViewController: user=\(self.user.email)")
     }
     
-    
+
     //Enter button to store arrayList of Symptoms by user
     @IBAction func enter(_ sender: UIButton) {
-        var symptomList: [String] = []
         
         if let item = nameInput.text, item.isEmpty == false {
-            symptomList.append(item)
+            let newSymptom = Symptom(name: item)
+            DataService.shared.addSymptom(newSymptom, forUser: self.user)
         }
-        nameInput.text = nil
-    
-        for input in symptomList {
-            print(input)
-        }
-        self.dismiss(animated: true, completion: nil)
+
+        performSegue(withIdentifier: "SymptomAdded", sender: sender)
     }
 
 

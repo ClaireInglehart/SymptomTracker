@@ -18,16 +18,14 @@ class AddTriggerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
         print("🧑🏼‍🦰 AddTriggerViewController: user=\(self.user.email)")
     }
     
-
-
     @IBAction func onEnter(_ sender: Any) {
         //check to make sure nameField isn't empty
         guard let name = nameField.text, name.count > 0 else
         { return }
+        
         
             
         }
