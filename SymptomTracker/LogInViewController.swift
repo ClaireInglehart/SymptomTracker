@@ -7,8 +7,7 @@
 
 import UIKit
 
-class LoginViewController:
-    UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailField: UITextField!
     private var user: User?
@@ -16,7 +15,7 @@ class LoginViewController:
     override func viewDidLoad() {
         super.viewDidLoad()
         emailField.layer.cornerRadius = 10
-
+        emailField.delegate = self
         let trashButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(onTrash))
         self.navigationItem.rightBarButtonItem = trashButton
     }
@@ -67,4 +66,21 @@ class LoginViewController:
     @IBAction func onSignUp(_ sender: Any) {
         self.performSegue(withIdentifier: "SignUp", sender: sender)
     }
+
+
+    // "unwind" segue - handles sign out from any other screen
+    @IBAction func onSignOut( _ seg: UIStoryboardSegue) {
+        self.user = nil
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if (textField == self.emailField) {
+            if let email = textField.text, email.count > 0 {
+                self.onContinue(textField)
+                return true
+            }
+        }
+        return false
+    }
 }
+

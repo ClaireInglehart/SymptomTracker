@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
@@ -15,6 +15,9 @@ class SignUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        nameField.delegate = self
+        emailField.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -60,4 +63,20 @@ class SignUpViewController: UIViewController {
         }
 
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if (textField == self.nameField) {
+            if let name = textField.text, name.count > 0 {
+                self.emailField.becomeFirstResponder()
+                return true
+            }
+        } else if (textField == self.emailField) {
+            if let email = textField.text, email.count > 0 {
+                self.onContinue(textField)
+                return true
+            }
+        }
+        return false
+    }
+
 }
