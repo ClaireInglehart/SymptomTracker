@@ -5,7 +5,7 @@
 //  Created on 2/10/22.
 //
 
-struct User: Codable {
+class User: Codable {
     var name: String
     var email: String
     
