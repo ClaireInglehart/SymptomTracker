@@ -38,7 +38,6 @@ class SignUpSymptomsViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     @IBAction func symptomAdded(_ segue: UIStoryboardSegue) {
-        
         tableView.reloadData()
     }
     

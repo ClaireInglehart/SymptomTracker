@@ -7,19 +7,42 @@
 
 import UIKit
 
-class TriggersViewController: UIViewController {
-
+class TriggersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     public var user: User!
-
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.title = "Triggers"
 
         print("🧑🏼‍🦰 TriggersViewController: user=\(self.user.email)")
     }
     
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
+        return self.user.triggers.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let trigger = self.user.triggers[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TriggerCell", for: indexPath)
+        cell.textLabel?.text = trigger.name
+        return cell
+    }
 
+    
+    
+
+    
 
 }
