@@ -9,7 +9,7 @@ import UIKit
 
 class SignUpTriggersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var TableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     public var user: User!
 
     override func viewDidLoad() {
@@ -21,6 +21,7 @@ class SignUpTriggersViewController: UIViewController, UITableViewDelegate, UITab
 
     }
     
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "Notifications"), let vc = segue.destination as? NotificationsViewController {
             vc.user = user!
@@ -34,7 +35,11 @@ class SignUpTriggersViewController: UIViewController, UITableViewDelegate, UITab
         // TODO: verify user added at least one trigger
         
         performSegue(withIdentifier: "Notifications", sender: sender)
-        
+    }
+
+    
+    @IBAction func triggerAdded(_ segue: UIStoryboardSegue) {
+        tableView.reloadData()
     }
 
     
@@ -48,7 +53,7 @@ class SignUpTriggersViewController: UIViewController, UITableViewDelegate, UITab
         let trigger = self.user.triggers[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TriggerCell", for: indexPath)
-        cell.textLabel?.text = trigger.name
+        cell.textLabel?.text = "\(trigger.name) (\(trigger.units))"
         return cell
     }
 

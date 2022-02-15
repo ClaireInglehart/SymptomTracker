@@ -35,7 +35,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         } else if (segue.identifier == "SignUpSymptoms"), let vc = segue.destination as? SignUpSymptomsViewController {
             vc.user = user!
         }
-
     }
     
     //login button segue to home page
@@ -66,7 +65,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func onSignUp(_ sender: Any) {
         self.performSegue(withIdentifier: "SignUp", sender: sender)
     }
-
+    
 
     // "unwind" segue - handles sign out from any other screen
     @IBAction func onSignOut( _ seg: UIStoryboardSegue) {

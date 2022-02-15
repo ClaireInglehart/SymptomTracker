@@ -10,8 +10,6 @@ import UIKit
 class TriggersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     public var user: User!
-    
-    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -36,7 +34,7 @@ class TriggersViewController: UIViewController, UITableViewDelegate, UITableView
         let trigger = self.user.triggers[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TriggerCell", for: indexPath)
-        cell.textLabel?.text = trigger.name
+        cell.textLabel?.text = "\(trigger.name) (\(trigger.units))"
         return cell
     }
 

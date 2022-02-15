@@ -26,7 +26,7 @@ class NotificationsViewController: UIViewController {
     @IBAction func onDone(_ sender: Any) {
         // TODO: verify user has set up notifications?
         
-        performSegue(withIdentifier: "GoHome", sender: sender)
+        performSegue(withIdentifier: "SetupComplete", sender: sender)
 
     }
 

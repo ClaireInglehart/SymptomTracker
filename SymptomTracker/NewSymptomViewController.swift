@@ -21,6 +21,11 @@ class NewSymptomViewController: UIViewController {
         print("🧑🏼‍🦰 NewSymptomViewController: user=\(self.user.email)")
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        nameInput.becomeFirstResponder()
+    }
+    
 
     //Enter button to store arrayList of Symptoms by user
     @IBAction func enter(_ sender: UIButton) {
