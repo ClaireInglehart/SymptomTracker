@@ -9,14 +9,11 @@ import UIKit
 
 class TriggersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    public var user: User!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Triggers"
-
-        print("🧑🏼‍🦰 TriggersViewController: user=\(self.user.email)")
     }
     
     @IBAction func triggerAdded(_ segue: UIStoryboardSegue) {
@@ -29,12 +26,16 @@ class TriggersViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return self.user.triggers.count
+        guard let currentUser = DataService.shared.currentUser else { return 0 }
+
+        return currentUser.triggers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let trigger = self.user.triggers[indexPath.row]
+
+        guard let currentUser = DataService.shared.currentUser else { return UITableViewCell() }
+
+        let trigger = currentUser.triggers[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TriggerCell", for: indexPath)
         cell.textLabel?.text = "\(trigger.name) (\(trigger.units))"

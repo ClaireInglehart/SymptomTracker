@@ -9,14 +9,10 @@ import UIKit
 
 class CheckInViewController: UIViewController {
 
-    public var user: User!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Check-ins"
-
-        print("🧑🏼‍🦰 CheckInViewController: user=\(self.user.email)")
     }
     
 

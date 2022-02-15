@@ -10,7 +10,6 @@ import UIKit
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailField: UITextField!
-    private var user: User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,25 +23,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         DataService.shared.trash()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        emailField.text = nil
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.emailField.becomeFirstResponder()
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "GoHome"), let vc = segue.destination as? HomePageViewController {
-            vc.user = user!
-        } else if (segue.identifier == "SignUpSymptoms"), let vc = segue.destination as? SignUpSymptomsViewController {
-            vc.user = user!
-        }
-    }
-    
     //login button segue to home page
     @IBAction func onContinue(_ sender: Any) {
         guard let email = emailField.text, email.count > 0 else { return }
                 
         if let user = DataService.shared.getUser(forEmail: email) {
-            self.user = user
+            DataService.shared.currentUser = user
             // if the user has completed set up, go home.
             // Otherwise, continue set up
             if ((user.symptoms.count > 0) && (user.triggers.count > 0)) {
@@ -69,7 +65,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     // "unwind" segue - handles sign out from any other screen
     @IBAction func onSignOut( _ seg: UIStoryboardSegue) {
-        self.user = nil
+        DataService.shared.currentUser = nil
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

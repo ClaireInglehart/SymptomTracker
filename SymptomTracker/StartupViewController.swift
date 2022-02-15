@@ -9,9 +9,6 @@ import UIKit
 
 class StartupViewController: UIViewController {
 
-    public var user: User!
-    private var firstTime = true
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,25 +18,14 @@ class StartupViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if (firstTime) {
+        if (DataService.shared.currentUser == nil) {
             self.performSegue(withIdentifier: "ShowLogin", sender: self)
-            firstTime = false
         }
     }
-
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "GoHome"), let vc = segue.destination as? HomePageViewController {
-            vc.user = user!
-        }
-    }
-
     @IBAction func setupComplete(_ segue: UIStoryboardSegue) {
-        if let vc = segue.source as? NotificationsViewController {
-            self.user = vc.user
-            DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
-                self.performSegue(withIdentifier: "GoHome", sender: nil)
-            }
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+            self.performSegue(withIdentifier: "GoHome", sender: nil)
         }
     }
 

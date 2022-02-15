@@ -9,7 +9,6 @@ import UIKit
 
 class SymptomsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    public var user: User!
     @IBOutlet weak var tableView: UITableView!
 
     
@@ -17,11 +16,16 @@ class SymptomsViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
 
         self.title = "Symptoms"
-
-        print("🧑🏼‍🦰 SymptomsViewController: user=\(self.user.email)")
+    
+        let signOutButton = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(onSignOut))
+        self.navigationItem.rightBarButtonItem = signOutButton
     }
     
 
+    @objc func onSignOut() {
+        performSegue(withIdentifier: "SignOut", sender: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -33,13 +37,17 @@ class SymptomsViewController: UIViewController, UITableViewDelegate, UITableView
     */
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return self.user.symptoms.count
+
+        guard let currentUser = DataService.shared.currentUser else { return 0 }
+
+        return currentUser.symptoms.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let symptom = self.user.symptoms[indexPath.row]
+        guard let currentUser = DataService.shared.currentUser else { return UITableViewCell() }
+
+        let symptom = currentUser.symptoms[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SymptomCell", for: indexPath)
         cell.textLabel?.text = symptom.name

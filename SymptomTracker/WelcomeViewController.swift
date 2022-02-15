@@ -11,19 +11,11 @@ class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var welcomeLabel: UILabel!
 
-    public var user: User!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.welcomeLabel.text = "Welcome, \(self.user.name)!"
-
-        print("🧑🏼‍🦰 WelcomeViewController: user=\(self.user.email)")
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "SignUpSymptoms"), let vc = segue.destination as? SignUpSymptomsViewController {
-            vc.user = user!
+        if let currentUser = DataService.shared.currentUser {
+            self.welcomeLabel.text = "Welcome, \(currentUser.name)!"
         }
     }
 

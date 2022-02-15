@@ -9,16 +9,12 @@ import UIKit
 
 class NewSymptomViewController: UIViewController {
 
-    public var user: User!
-
     @IBOutlet weak var nameInput: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-
-        print("🧑🏼‍🦰 NewSymptomViewController: user=\(self.user.email)")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -30,9 +26,11 @@ class NewSymptomViewController: UIViewController {
     //Enter button to store arrayList of Symptoms by user
     @IBAction func enter(_ sender: UIButton) {
         
+        guard let currentUser = DataService.shared.currentUser else { return }
+
         if let item = nameInput.text, item.isEmpty == false {
             let newSymptom = Symptom(name: item)
-            DataService.shared.addSymptom(newSymptom, forUser: self.user)
+            DataService.shared.addSymptom(newSymptom, forUser: currentUser)
         }
 
         performSegue(withIdentifier: "SymptomAdded", sender: sender)

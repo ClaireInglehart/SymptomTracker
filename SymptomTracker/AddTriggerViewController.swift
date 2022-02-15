@@ -10,18 +10,13 @@ import UIKit
 class AddTriggerViewController: UIViewController {
     
     @IBOutlet weak var nameInput: UITextField!
-    @IBOutlet weak var unitInput: UITextField!
-    
-    public var user: User!
-    
+    @IBOutlet weak var unitInput: UITextField!   
     @IBOutlet weak var nameField: UITextField!
     
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        print("🧑🏼‍🦰 AddTriggerViewController: user=\(self.user.email)")
+        super.viewDidLoad()        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -31,11 +26,13 @@ class AddTriggerViewController: UIViewController {
     
     @IBAction func onEnter(_ sender: UIButton) {
         
+        guard let currentUser = DataService.shared.currentUser else { return }
+        
         if let item = nameInput.text, item.isEmpty == false,
            let units = unitInput.text, units.isEmpty == false {
             
             let newTrigger = Trigger(name: item, units: units)
-            DataService.shared.addTrigger(newTrigger, forUser: self.user)
+            DataService.shared.addTrigger(newTrigger, forUser: currentUser)
             
             performSegue(withIdentifier: "TriggerAdded", sender: sender)
         }

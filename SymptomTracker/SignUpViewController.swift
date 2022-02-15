@@ -11,7 +11,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
-    private var user: User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +24,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         self.nameField.becomeFirstResponder()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "ShowWelcome"),
-            let nav = segue.destination as? UINavigationController,
-            let welcomeVC = nav.viewControllers[0] as? WelcomeViewController {
-            welcomeVC.user = user!
-        }
-    }
-
     @IBAction func onContinue(_ sender: Any) {
         guard let name = nameField.text, name.count > 0,
               let email = emailField.text, email.count > 0 else { return }
@@ -51,7 +42,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         } else {
         
             if let newUser = DataService.shared.addUser(withName: name, email: email) {
-                self.user = newUser
+                DataService.shared.currentUser = newUser
                 performSegue(withIdentifier: "ShowWelcome", sender: sender)
             } else {
                 let title = "Account Error"

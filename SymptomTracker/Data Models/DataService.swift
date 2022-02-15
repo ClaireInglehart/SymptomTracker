@@ -12,7 +12,8 @@ class DataService {
     
     private var users: [User] = []
     private let dataKeyName = "data"
-    
+    public var currentUser: User?
+        
     init() {
         self.users = self.load()
     }
@@ -20,7 +21,11 @@ class DataService {
     public func getUser(forEmail email: String) -> User? {
         return self.users.first(where: { $0.email == email })
     }
-    
+
+    public func isValidUser(_ user: User) -> Bool {
+        return self.getUser(forEmail: user.email) != nil
+    }
+
     public func addUser(withName name: String, email: String) -> User? {
         let newUser = User(name: name, email: email)
         self.users.append(newUser)
@@ -29,7 +34,7 @@ class DataService {
     }
     
     public func getSymptoms(forUser user: User) -> [Symptom] {
-        if let user = self.users.first(where: { $0.email == user.email }) {
+        if self.isValidUser(user) {
             return user.symptoms
         } else {
             return []
@@ -37,7 +42,7 @@ class DataService {
     }
     
     public func getTriggers(forUser user: User) -> [Trigger] {
-        if let user = self.users.first(where: { $0.email == user.email }) {
+        if self.isValidUser(user) {
             return user.triggers
         } else {
             return []
@@ -45,7 +50,7 @@ class DataService {
     }
     
     public func getCheckins(forUser user: User) -> [Checkin] {
-        if let user = self.users.first(where: { $0.email == user.email }) {
+        if self.isValidUser(user) {
             return user.checkins
         } else {
             return []
@@ -53,7 +58,7 @@ class DataService {
     }
     
     public func addSymptom(_ symptom: Symptom, forUser user: User) {
-        if var user = self.users.first(where: { $0.email == user.email }) {
+        if self.isValidUser(user) {
             user.symptoms.append(symptom)
             save()
         } else {
@@ -64,7 +69,7 @@ class DataService {
     // TODO: deleteSymptom
     
     public func addTrigger(_ trigger: Trigger, forUser user: User) {
-        if var user = self.users.first(where: { $0.email == user.email }) {
+        if self.isValidUser(user) {
             user.triggers.append(trigger)
             save()
         } else {
@@ -75,7 +80,7 @@ class DataService {
     // TODO: deleteTrigger
 
     public func addCheckin(_ checkIn: Checkin, forUser user: User) {
-        if var user = self.users.first(where: { $0.email == user.email }) {
+        if self.isValidUser(user) {
             user.checkins.append(checkIn)
             save()
         } else {

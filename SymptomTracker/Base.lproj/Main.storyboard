@@ -309,9 +309,11 @@
                     <navigationItem key="navigationItem" id="gC5-Pu-DqU"/>
                     <connections>
                         <outlet property="tableView" destination="0kT-E5-DaF" id="Mdw-Wg-Gp8"/>
+                        <segue destination="Gl6-Gb-Df3" kind="unwind" identifier="SignOut" unwindAction="onSignOut:" id="tIv-lG-Yk4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lsp-2c-Jqv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Gl6-Gb-Df3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-196" y="3125"/>
         </scene>
