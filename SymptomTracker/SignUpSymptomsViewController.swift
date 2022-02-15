@@ -8,12 +8,13 @@
 import UIKit
 
 class SignUpSymptomsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    public var user: User!
     @IBOutlet weak var tableView: UITableView!
 
-    
+    public var user: User!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.title = "Your Symptoms"
         
         print("🧑🏼‍🦰 SignUpSymptomsViewController: user=\(self.user.email)")

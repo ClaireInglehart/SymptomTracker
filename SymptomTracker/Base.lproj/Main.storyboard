@@ -475,10 +475,6 @@
                                     <constraint firstAttribute="height" constant="50" id="fQ8-Bs-GiV"/>
                                 </constraints>
                                 <buttonConfiguration key="configuration" style="tinted" title="Continue"/>
-                                <connections>
-                                    <action selector="onContinue:" destination="ihd-mH-qnc" eventType="touchUpInside" id="6lY-lt-gnW"/>
-                                    <segue destination="rOJ-Qm-izF" kind="presentation" id="54W-lz-Ics"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0K-hl-Ebe">
                                 <rect key="frame" x="50" y="108" width="314" height="60"/>
@@ -487,7 +483,7 @@
                                 </constraints>
                                 <buttonConfiguration key="configuration" style="tinted" title="SelectTrigger"/>
                                 <connections>
-                                    <segue destination="uBS-Tc-1Lf" kind="showDetail" identifier="NewTrigger" id="Y1F-Se-ugJ"/>
+                                    <segue destination="uBS-Tc-1Lf" kind="presentation" identifier="addTrigger" id="dRw-3V-HT4"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5Sa-vc-S2J" userLabel="TriggerCell">
@@ -533,6 +529,7 @@
                     <navigationItem key="navigationItem" id="Wdi-43-ssG"/>
                     <connections>
                         <outlet property="TableView" destination="5Sa-vc-S2J" id="lO9-Fj-qbp"/>
+                        <outlet property="tableView" destination="5Sa-vc-S2J" id="aTJ-4C-ZDN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aib-hf-gIW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -618,7 +615,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Enter"/>
                                 <connections>
-                                    <action selector="onEnter:" destination="uBS-Tc-1Lf" eventType="touchUpInside" id="uC9-Ux-nqG"/>
+                                    <segue destination="gbd-Hu-OrG" kind="unwind" unwindAction="triggerAdded:" id="igK-PU-9y9"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N3F-HX-U2P">
@@ -647,11 +644,11 @@
                     <navigationItem key="navigationItem" id="tgE-Xb-tOn"/>
                     <connections>
                         <outlet property="nameField" destination="N3F-HX-U2P" id="aDk-TQ-KH9"/>
-                        <outlet property="nameInput" destination="N3F-HX-U2P" id="jVQ-Al-mUR"/>
                         <outlet property="unitInput" destination="6Ag-lK-UJb" id="Yox-0X-f3h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MxP-5j-1Ma" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="gbd-Hu-OrG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2657.971014492754" y="1477.9017857142856"/>
         </scene>
@@ -726,9 +723,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QZL-1A-3OZ"/>
-                    <connections>
-                        <segue destination="UXr-Gh-Lqr" kind="presentation" identifier="GoHome" animates="NO" modalPresentationStyle="fullScreen" id="B1Q-7u-itJ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pHM-VP-f2r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -913,8 +907,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nO5-gD-SfC"/>
-        <segue reference="fzz-42-xPn"/>
+        <segue reference="cDG-iZ-pNu"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemOrangeColor"/>
     <resources>

@@ -16,31 +16,31 @@ class AddTriggerViewController: UIViewController {
     public var user: User!
 
     @IBOutlet weak var nameField: UITextField!
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
         print("🧑🏼‍🦰 AddTriggerViewController: user=\(self.user.email)")
 }
+
     
     @IBAction func onEnter(_ sender: UIButton) {
         
         if let item = nameInput.text, item.isEmpty == false,
-           let units = unitInput.text,
-           units.isEmpty == false {
-            let newTrigger = Trigger(name: item, units: units)
-            DataService.shared.addTrigger(newTrigger, forUser: self.user)
+                let units = unitInput.text,
+                   units.isEmpty == false {
+                    let newTrigger = Trigger(name: item, units: units)
+                    DataService.shared.addTrigger(newTrigger, forUser: self.user)
+        
+
         }
 
-            
-}
-    
-    
-            
-    
-    
-    
+        performSegue(withIdentifier: "TriggerAdded", sender: sender)
 
+ }
+
+    
+    
 }
+
+
