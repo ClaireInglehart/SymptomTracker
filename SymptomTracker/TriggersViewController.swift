@@ -19,7 +19,10 @@ class TriggersViewController: UIViewController, UITableViewDelegate, UITableView
         print("🧑🏼‍🦰 TriggersViewController: user=\(self.user.email)")
     }
     
-    
+    @IBAction func triggerAdded(_ segue: UIStoryboardSegue) {
+        tableView.reloadData()
+    }
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -38,7 +41,7 @@ class TriggersViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
 
-    
+        
     
 
     
