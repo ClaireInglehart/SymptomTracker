@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddTriggerViewController: UIViewController {
+class AddTriggerViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var nameInput: UITextField!
     @IBOutlet weak var unitInput: UITextField!   
@@ -16,7 +16,9 @@ class AddTriggerViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
+        nameInput.delegate = self
+        unitInput.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -24,8 +26,19 @@ class AddTriggerViewController: UIViewController {
         nameInput.becomeFirstResponder()
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        if textField == nameInput {
+            nameInput.resignFirstResponder()
+            unitInput.becomeFirstResponder()
+        }else if textField == unitInput {
+                    unitInput.resignFirstResponder()
+        }
+        return true
+    }
+
     @IBAction func onEnter(_ sender: UIButton) {
-        
+
         guard let currentUser = DataService.shared.currentUser else { return }
         
         if let item = nameInput.text, item.isEmpty == false,

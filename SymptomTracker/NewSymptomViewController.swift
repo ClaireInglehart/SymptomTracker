@@ -7,12 +7,13 @@
 
 import UIKit
 
-class NewSymptomViewController: UIViewController {
+class NewSymptomViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nameInput: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameInput.delegate = self
         
         // Do any additional setup after loading the view.
     }
@@ -22,7 +23,12 @@ class NewSymptomViewController: UIViewController {
         nameInput.becomeFirstResponder()
     }
     
-
+    func textFieldShouldReturn(_ nameInput: UITextField) -> Bool {
+        nameInput.resignFirstResponder()
+        return true
+    }
+    
+    
     //Enter button to store arrayList of Symptoms by user
     @IBAction func enter(_ sender: UIButton) {
         
