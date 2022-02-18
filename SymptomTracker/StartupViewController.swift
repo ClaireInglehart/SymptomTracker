@@ -29,6 +29,11 @@ class StartupViewController: UIViewController {
         }
     }
 
+    // "unwind" segue - handles sign out from any other screen
+    @IBAction func onSignOut( _ seg: UIStoryboardSegue) {
+        DataService.shared.currentUser = nil
+    }
+    
 
 
     /*

@@ -63,11 +63,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
 
-    // "unwind" segue - handles sign out from any other screen
-    @IBAction func onSignOut( _ seg: UIStoryboardSegue) {
-        DataService.shared.currentUser = nil
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if (textField == self.emailField) {
             if let email = textField.text, email.count > 0 {
