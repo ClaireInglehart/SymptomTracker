@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 class StartupViewController: UIViewController {
 
@@ -14,13 +15,27 @@ class StartupViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+        
     
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if (DataService.shared.currentUser == nil) {
-            self.performSegue(withIdentifier: "ShowLogin", sender: self)
+        
+        let startupAnimationView = AnimationView(name: "chatbot")
+        startupAnimationView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(startupAnimationView)
+        let constraints = [
+            startupAnimationView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            startupAnimationView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+        ]
+        NSLayoutConstraint.activate(constraints)
+
+        startupAnimationView.play { (finished) in
+          /// Animation finished
+            if (DataService.shared.currentUser == nil) {
+                self.performSegue(withIdentifier: "ShowLogin", sender: self)
+            }
         }
+
     }
     
     @IBAction func setupComplete(_ segue: UIStoryboardSegue) {
