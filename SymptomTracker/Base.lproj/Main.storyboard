@@ -17,13 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hw5-it-8VB">
-                                <rect key="frame" x="20" y="88" width="374" height="27.5"/>
+                                <rect key="frame" x="20" y="44" width="374" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m8B-pZ-PBA">
-                                <rect key="frame" x="16" y="131.5" width="382" height="50"/>
+                                <rect key="frame" x="16" y="87.5" width="382" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="9CK-K0-TT8"/>
                                 </constraints>
@@ -31,7 +31,7 @@
                                 <textInputTraits key="textInputTraits" textContentType="name"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7M-Gw-0Oc">
-                                <rect key="frame" x="16" y="189.5" width="382" height="50"/>
+                                <rect key="frame" x="16" y="145.5" width="382" height="50"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="C1I-gL-Kq1"/>
@@ -44,13 +44,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New User?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roU-GY-3wA">
-                                <rect key="frame" x="165.5" y="283.5" width="83.5" height="20"/>
+                                <rect key="frame" x="165.5" y="239.5" width="83.5" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNq-lX-GSX">
-                                <rect key="frame" x="20" y="311.5" width="374" height="50"/>
+                                <rect key="frame" x="20" y="267.5" width="374" height="50"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="bhL-M5-iKg"/>
@@ -98,17 +98,17 @@
             <objects>
                 <viewController storyboardIdentifier="SignUpView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MMX-fs-3uy" userLabel="SignUp" customClass="SignUpViewController" customModule="SymptomTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rER-DV-fe3" userLabel="SignUpView">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gri-e8-9ur">
-                                <rect key="frame" x="20" y="88" width="374" height="26.5"/>
+                                <rect key="frame" x="20" y="0.0" width="374" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LU8-yD-kc7">
-                                <rect key="frame" x="20" y="130.5" width="374" height="50"/>
+                                <rect key="frame" x="20" y="42.5" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Vrp-g6-oDT"/>
                                 </constraints>
@@ -116,7 +116,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="continue"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yNX-PJ-ffz">
-                                <rect key="frame" x="20" y="254.5" width="374" height="50"/>
+                                <rect key="frame" x="20" y="166.5" width="374" height="50"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="bSQ-y0-UGr"/>
@@ -131,7 +131,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ttv-oa-0J3">
-                                <rect key="frame" x="20" y="196.5" width="374" height="50"/>
+                                <rect key="frame" x="20" y="108.5" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="DsS-lf-Wd3"/>
                                 </constraints>
@@ -173,11 +173,11 @@
             <objects>
                 <viewController storyboardIdentifier="SignUpSymptomsView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="e4G-Py-XTc" userLabel="SignUpSymptoms" customClass="SignUpSymptomsViewController" customModule="SymptomTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Szt-K2-EHq" userLabel="SignUpSymptomView">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bat-2S-diN">
-                                <rect key="frame" x="40" y="772" width="334" height="50"/>
+                                <rect key="frame" x="40" y="718" width="334" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="aFL-7Q-mJY"/>
                                 </constraints>
@@ -187,7 +187,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkm-6Z-JDF">
-                                <rect key="frame" x="50" y="108" width="314" height="60"/>
+                                <rect key="frame" x="50" y="20" width="314" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Tcg-Lx-oNQ"/>
                                 </constraints>
@@ -197,7 +197,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="P58-48-XcH">
-                                <rect key="frame" x="20" y="188" width="374" height="564"/>
+                                <rect key="frame" x="20" y="100" width="374" height="598"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SymptomCell" textLabel="z3E-Fn-MaK" style="IBUITableViewCellStyleDefault" id="mbk-WL-I0T">
@@ -309,7 +309,7 @@
                     <navigationItem key="navigationItem" id="gC5-Pu-DqU"/>
                     <connections>
                         <outlet property="tableView" destination="0kT-E5-DaF" id="Mdw-Wg-Gp8"/>
-                        <segue destination="Gl6-Gb-Df3" kind="unwind" identifier="SignOut" unwindAction="onSignOut:" id="tIv-lG-Yk4"/>
+                        <segue destination="Gl6-Gb-Df3" kind="unwind" identifier="SignOut" animates="NO" unwindAction="onSignOut:" id="tIv-lG-Yk4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lsp-2c-Jqv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -506,11 +506,11 @@
             <objects>
                 <viewController storyboardIdentifier="SignUpTriggersView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ihd-mH-qnc" userLabel="SignUpTriggers" customClass="SignUpTriggersViewController" customModule="SymptomTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NCU-bH-eqt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kME-oD-1UA">
-                                <rect key="frame" x="40" y="782" width="324" height="50"/>
+                                <rect key="frame" x="40" y="728" width="324" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="fQ8-Bs-GiV"/>
                                 </constraints>
@@ -520,7 +520,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0K-hl-Ebe">
-                                <rect key="frame" x="50" y="108" width="314" height="60"/>
+                                <rect key="frame" x="50" y="20" width="314" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="MjR-0Z-ARn"/>
                                 </constraints>
@@ -530,7 +530,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5Sa-vc-S2J">
-                                <rect key="frame" x="20" y="188" width="374" height="574"/>
+                                <rect key="frame" x="20" y="100" width="374" height="608"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TriggerCell" textLabel="Mh7-NL-kTh" style="IBUITableViewCellStyleDefault" id="8ay-Jg-74C">
@@ -710,7 +710,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLa-kT-7Kx">
-                                <rect key="frame" x="20" y="108" width="374" height="50"/>
+                                <rect key="frame" x="20" y="64" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="kPg-q8-21p"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="w6i-9O-Kwc"/>
@@ -730,7 +730,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose if and when you'd like to be reminded" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ehc-LN-OCb">
-                                <rect key="frame" x="20" y="178" width="374" height="50"/>
+                                <rect key="frame" x="20" y="134" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="7VU-lb-4fJ"/>
                                 </constraints>
@@ -739,7 +739,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfL-cW-6t8">
-                                <rect key="frame" x="122" y="258" width="272" height="67"/>
+                                <rect key="frame" x="122" y="214" width="272" height="67"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="67" id="EeJ-nc-4Jr"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="jso-s9-4wx"/>
@@ -749,7 +749,7 @@
                                 </date>
                             </datePicker>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFj-lD-HWw">
-                                <rect key="frame" x="122" y="355" width="272" height="67"/>
+                                <rect key="frame" x="122" y="311" width="272" height="67"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="67" id="Dqp-Rc-Jqr"/>
                                 </constraints>
@@ -761,7 +761,7 @@
                                 <rect key="frame" x="37" y="276" width="99" height="31"/>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H76-xo-RBQ">
-                                <rect key="frame" x="37" y="373" width="51" height="31"/>
+                                <rect key="frame" x="37" y="329" width="51" height="31"/>
                             </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Qec-8Y-1bc"/>
@@ -908,7 +908,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="bxz-k4-Vo2"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="ShowLogin" id="2UB-Rb-xMh"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="ShowLogin" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="2UB-Rb-xMh"/>
                         <segue destination="UXr-Gh-Lqr" kind="presentation" identifier="GoHome" modalPresentationStyle="fullScreen" id="ynv-hV-nn7"/>
                     </connections>
                 </viewController>
