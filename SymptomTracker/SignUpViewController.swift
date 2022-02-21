@@ -17,6 +17,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 
         nameField.delegate = self
         emailField.delegate = self
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,6 +55,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
 
     }
+    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if (textField == self.nameField) {

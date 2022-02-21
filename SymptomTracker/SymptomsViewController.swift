@@ -18,7 +18,7 @@ class SymptomsViewController: UIViewController, UITableViewDelegate, UITableView
         self.title = "Symptoms"
     
         let signOutButton = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(onSignOut))
-        self.navigationItem.rightBarButtonItem = signOutButton
+        self.navigationItem.leftBarButtonItem = signOutButton
     }
     
 
