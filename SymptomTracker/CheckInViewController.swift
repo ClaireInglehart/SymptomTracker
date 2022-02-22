@@ -12,9 +12,16 @@ class CheckInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Check-ins"
+        self.navigationItem.title = "Check-ins"
+
+        let signOutButton = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(onSignOut))
+        self.navigationItem.leftBarButtonItem = signOutButton
     }
     
+    @objc func onSignOut() {
+        performSegue(withIdentifier: "SignOut", sender: nil)
+    }
+
 
     @IBAction func onDoCheckin(_ sender: Any) {
         // TODO: verify user added at least one symptom

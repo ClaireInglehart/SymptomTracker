@@ -12,9 +12,16 @@ class HistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "History"
+        self.navigationItem.title = "History"
+
+        let signOutButton = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(onSignOut))
+        self.navigationItem.leftBarButtonItem = signOutButton
     }
     
+    @objc func onSignOut() {
+        performSegue(withIdentifier: "SignOut", sender: nil)
+    }
+
 
     /*
     // MARK: - Navigation

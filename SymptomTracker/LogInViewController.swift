@@ -41,7 +41,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             DataService.shared.currentUser = user
             // if the user has completed set up, go home.
             // Otherwise, continue set up
-            if ((user.symptoms.count > 0) && (user.triggers.count > 0)) {
+            if (user.symptoms.count > 0) {
                 performSegue(withIdentifier: "GoHome", sender: sender)
             } else {
                 performSegue(withIdentifier: "SignUpSymptoms", sender: sender)

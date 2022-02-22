@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TriggerCheckin: Codable {
+class TriggerCheckin: Codable {
 
     var trigger: Trigger
     var quantity: String?

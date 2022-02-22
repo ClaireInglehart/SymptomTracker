@@ -5,7 +5,7 @@
 //  Created on 2/10/22.
 //
 
-struct Checkin: Codable {
+class Checkin: Codable {
     var date: String
     var triggerCheckins: [TriggerCheckin]
     var symptomCheckins: [SymptomCheckin]

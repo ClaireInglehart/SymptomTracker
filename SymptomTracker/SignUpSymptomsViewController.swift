@@ -9,6 +9,7 @@ import UIKit
 
 class SignUpSymptomsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var continueButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,14 +18,41 @@ class SignUpSymptomsViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     
-    @IBAction func onContinue(_ sender: Any) {
-        // TODO: verify user added at least one symptom
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let currentUser = DataService.shared.currentUser {
+            self.continueButton.isHidden = currentUser.symptoms.count == 0
+        }
+    }
+
+    @IBAction func onAddSymptom(_ sender: Any) {
+        performSegue(withIdentifier: "NewSymptom", sender: sender)
         
-        performSegue(withIdentifier: "ShowSignUpAddTriggers", sender: sender)
+    }
+
+    @IBAction func onContinue(_ sender: Any) {
+        
+        guard let currentUser = DataService.shared.currentUser else { return }
+
+        if (currentUser.symptoms.count > 0) {
+            performSegue(withIdentifier: "Notifications", sender: sender)
+        } else {
+            let title = "Set Up"
+            let message = "Please add at least one Symptom"
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    }
+    
     @IBAction func symptomAdded(_ segue: UIStoryboardSegue) {
+        if let currentUser = DataService.shared.currentUser {
+            self.continueButton.isHidden = currentUser.symptoms.count == 0
+        }
         tableView.reloadData()
     }
     

@@ -10,14 +10,12 @@ class User: Codable {
     var email: String
     
     var symptoms: [Symptom]
-    var triggers: [Trigger]
     var checkins: [Checkin]
     
     init(name: String, email:String) {
         self.name = name
         self.email = email
         self.symptoms = []
-        self.triggers = []
         self.checkins = []
     }
 }

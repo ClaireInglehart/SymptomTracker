@@ -11,7 +11,7 @@ class DataService {
     static let shared = DataService()
     
     private var users: [User] = []
-    private let dataKeyName = "data"
+    private let dataKeyName = "data_v1"
     public var currentUser: User?
         
     init() {
@@ -41,14 +41,6 @@ class DataService {
         }
     }
     
-    public func getTriggers(forUser user: User) -> [Trigger] {
-        if self.isValidUser(user) {
-            return user.triggers
-        } else {
-            return []
-        }
-    }
-    
     public func getCheckins(forUser user: User) -> [Checkin] {
         if self.isValidUser(user) {
             return user.checkins
@@ -68,13 +60,9 @@ class DataService {
     
     // TODO: deleteSymptom
     
-    public func addTrigger(_ trigger: Trigger, forUser user: User) {
-        if self.isValidUser(user) {
-            user.triggers.append(trigger)
-            save()
-        } else {
-            print("❌ user not found!")
-        }
+    public func addTrigger(_ trigger: Trigger, forSymptom symptom: Symptom) {
+        symptom.triggers.append(trigger)
+        save()
     }
 
     // TODO: deleteTrigger

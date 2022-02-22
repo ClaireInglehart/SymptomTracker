@@ -18,5 +18,12 @@ class WelcomeViewController: UIViewController {
             self.welcomeLabel.text = "Welcome, \(currentUser.name)!"
         }
     }
+    
+    @IBAction func onContinue(_ sender: Any) {
+        
+        performSegue(withIdentifier: "SignUpAddSymptoms", sender: sender)
+        
+    }
+
 
 }

@@ -7,8 +7,13 @@
 
 import Foundation
 
-struct Trigger: Codable {
+class Trigger: Codable {
 
     var name: String
     var units: String
+    
+    init(name: String, units: String) {
+        self.name = name
+        self.units = units
+    }
 }

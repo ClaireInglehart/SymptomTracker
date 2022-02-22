@@ -16,8 +16,9 @@ enum Severity: Int, Codable {
     case verySevere
 }
 
-struct SymptomCheckin: Codable {
+class SymptomCheckin: Codable {
 
     var symtom: Symptom
     var severity: Severity?
+    var triggerCheckins: [TriggerCheckin]
 }

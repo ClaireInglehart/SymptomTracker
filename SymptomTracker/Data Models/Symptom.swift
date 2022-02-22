@@ -7,6 +7,12 @@
 
 import Foundation
 
-struct Symptom: Codable {
+class Symptom: Codable {
     var name: String
+    var triggers: [Trigger]
+    
+    init(name: String) {
+        self.name = name
+        self.triggers = []
+    }
 }
