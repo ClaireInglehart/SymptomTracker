@@ -182,7 +182,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="aFL-7Q-mJY"/>
                                 </constraints>
-                                <buttonConfiguration key="configuration" style="tinted" title="Continue">
+                                <buttonConfiguration key="configuration" style="tinted" title="Continue Set Up">
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -218,6 +218,30 @@
                                                     <rect key="frame" x="20" y="0.0" width="334" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TriggerCell" textLabel="hja-Er-ShC" detailTextLabel="oeM-CC-OvM" style="IBUITableViewCellStyleValue1" id="ulR-pE-aZK">
+                                        <rect key="frame" x="0.0" y="88" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ulR-pE-aZK" id="ZJ7-pf-6EY">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="hja-Er-ShC">
+                                                    <rect key="frame" x="20" y="14" width="28.5" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="oeM-CC-OvM">
+                                                    <rect key="frame" x="321" y="16" width="33" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -286,6 +310,30 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TriggerCell" textLabel="KBk-7Z-N0E" detailTextLabel="t9O-wO-NlH" style="IBUITableViewCellStyleValue1" id="Br5-KX-uUG">
+                                        <rect key="frame" x="0.0" y="88" width="382" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Br5-KX-uUG" id="TDQ-nc-02Z">
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="KBk-7Z-N0E">
+                                                    <rect key="frame" x="20" y="14" width="28.5" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="t9O-wO-NlH">
+                                                    <rect key="frame" x="329" y="16" width="33" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="f74-jm-ANb" id="QPB-IT-MKH"/>
@@ -311,7 +359,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lsp-2c-Jqv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Gl6-Gb-Df3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-465" y="2476"/>
+            <point key="canvasLocation" x="-1020" y="2476"/>
         </scene>
         <!--History-->
         <scene sceneID="eb0-6Y-ED4">
@@ -331,7 +379,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3DO-rr-2lg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="D1h-fK-GJH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="238" y="2476"/>
+            <point key="canvasLocation" x="-239" y="2476"/>
         </scene>
         <!--Check-ins-->
         <scene sceneID="g9T-kU-iSV">
@@ -365,7 +413,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wvP-wP-lCU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="0bQ-Kb-cBW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="935" y="2476"/>
+            <point key="canvasLocation" x="548" y="2476"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="vn7-Td-Iic">
@@ -381,7 +429,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Si5-Dw-KT4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1667" y="2476"/>
+            <point key="canvasLocation" x="1232" y="2468"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="6bB-Xc-YsS">
@@ -406,7 +454,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5M8-tW-ese" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="935" y="3206"/>
+            <point key="canvasLocation" x="548" y="3195"/>
         </scene>
         <!--Home Page View Controller-->
         <scene sceneID="35X-8U-gLe">
@@ -427,7 +475,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mSa-lX-qrc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="314" y="867"/>
+            <point key="canvasLocation" x="-265" y="823"/>
         </scene>
         <!--SignUpTriggers-->
         <scene sceneID="JWp-Zj-clH">
@@ -524,7 +572,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aib-hf-gIW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="4yP-mz-xwo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5033" y="907"/>
+            <point key="canvasLocation" x="4916" y="907"/>
         </scene>
         <!--NewSymptom-->
         <scene sceneID="pDe-hr-fYs">
@@ -755,7 +803,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pHM-VP-f2r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="jdw-Dp-0WF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2584" y="1730"/>
+            <point key="canvasLocation" x="2067" y="1730"/>
         </scene>
         <!--Welcome-->
         <scene sceneID="uFY-Tk-iFV">
@@ -905,7 +953,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PSz-QW-ati" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="936" y="1730"/>
+            <point key="canvasLocation" x="519" y="1738"/>
         </scene>
         <!--History-->
         <scene sceneID="C55-n3-wnt">
@@ -924,7 +972,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yws-oZ-Hzp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="238" y="1730"/>
+            <point key="canvasLocation" x="-239" y="1738"/>
         </scene>
         <!--Symptoms-->
         <scene sceneID="WyC-M4-GDq">
@@ -943,7 +991,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dPY-AN-nrP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-464" y="1730"/>
+            <point key="canvasLocation" x="-1020" y="1738"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cHo-Hx-bK9">
@@ -1017,7 +1065,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FOJ-nF-QIw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1667" y="1730"/>
+            <point key="canvasLocation" x="1233" y="1738"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wNf-Jq-XMV">
@@ -1039,7 +1087,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Xwj-dR-gXF"/>
+        <segue reference="fzz-42-xPn"/>
         <segue reference="nO5-gD-SfC"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemIndigoColor"/>

@@ -47,11 +47,8 @@ class AddSymptomViewController: UIViewController, UITextFieldDelegate {
         
     @IBAction func onDone(_ sender: UIButton) {
         
-        guard let currentUser = DataService.shared.currentUser else { return }
-
         if let symptomName = nameInput.text, symptomName.isEmpty == false {
             let newSymptom = Symptom(name: symptomName)
-            DataService.shared.addSymptom(newSymptom, forUser: currentUser)
             self.newSymptom = newSymptom
             performSegue(withIdentifier: "SignUpAddTriggers", sender: sender)
         }

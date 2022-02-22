@@ -56,8 +56,9 @@ class SymptomsViewController: UIViewController, UITableViewDelegate, UITableView
         let symptom = currentUser.symptoms[indexPath.section]
         let trigger = symptom.triggers[indexPath.row]
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SymptomCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TriggerCell", for: indexPath)
         cell.textLabel?.text = trigger.name
+        cell.detailTextLabel?.text = trigger.units
         return cell
     }
     

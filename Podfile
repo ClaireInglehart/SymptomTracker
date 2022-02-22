@@ -7,5 +7,6 @@ target 'SymptomTracker' do
 
   # Pods for SymptomTracker
   pod 'lottie-ios'
+  pod 'DZNEmptyDataSet'
 
 end

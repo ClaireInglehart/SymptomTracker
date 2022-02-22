@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 class SignUpSymptomsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
@@ -13,6 +14,9 @@ class SignUpSymptomsViewController: UIViewController, UITableViewDelegate, UITab
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.emptyDataSetSource = self
+        self.tableView.emptyDataSetDelegate = self
         
         self.title = "Your Symptoms"
     }
@@ -57,24 +61,43 @@ class SignUpSymptomsViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        guard let currentUser = DataService.shared.currentUser else { return 0 }
+
+        return currentUser.symptoms.count
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         guard let currentUser = DataService.shared.currentUser else { return 0 }
 
-        return currentUser.symptoms.count
+        return currentUser.symptoms[section].triggers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let currentUser = DataService.shared.currentUser else { return UITableViewCell() }
 
-        let symptom = currentUser.symptoms[indexPath.row]
+        let symptom = currentUser.symptoms[indexPath.section]
+        let trigger = symptom.triggers[indexPath.row]
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SymptomCell", for: indexPath)
-        cell.textLabel?.text = symptom.name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TriggerCell", for: indexPath)
+        cell.textLabel?.text = trigger.name
+        cell.detailTextLabel?.text = trigger.units
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let currentUser = DataService.shared.currentUser else { return "n/a" }
+        
+        let symptom = currentUser.symptoms[section]
+        return "Symptom: \(symptom.name)"
+    }
+
+}
+
+extension SignUpSymptomsViewController : DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
+    
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        return NSAttributedString(string: "Please add at least 1 symptom")
     }
 }

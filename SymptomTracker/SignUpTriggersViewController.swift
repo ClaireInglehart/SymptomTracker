@@ -6,31 +6,39 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 class SignUpTriggersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var doneButton: UIButton!
 
     public var symptom: Symptom?
-    @IBOutlet weak var doneButton: UIButton!
+    private var triggers: [Trigger] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.tableView.emptyDataSetSource = self
+        self.tableView.emptyDataSetDelegate = self
 
         self.title = "Your Triggers"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let symptom = self.symptom {
-            self.doneButton.isHidden = (symptom.triggers.count == 0)
-        }
+        self.doneButton.isHidden = (triggers.count == 0)
     }
 
     @IBAction func onDone(_ sender: Any) {
         guard let symptom = self.symptom else { return }
+        guard let currentUser = DataService.shared.currentUser else { return }
 
-        if (symptom.triggers.count > 0) {
+        if (triggers.count > 0) {
+            DataService.shared.addSymptom(symptom, forUser: currentUser)
+            for trigger in triggers {
+                DataService.shared.addTrigger(trigger, forSymptom: symptom)
+            }
             performSegue(withIdentifier: "SymptomAdded", sender: sender)
         } else {
             let title = "Set Up"
@@ -42,34 +50,33 @@ class SignUpTriggersViewController: UIViewController, UITableViewDelegate, UITab
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddTrigger",
-           let nav = segue.destination as? UINavigationController,
-            let vc = nav.viewControllers[0] as? AddTriggerViewController {
-               vc.symptom = self.symptom
-        }
+//        if segue.identifier == "AddTrigger",
+//           let nav = segue.destination as? UINavigationController,
+//            let vc = nav.viewControllers[0] as? AddTriggerViewController {
+//               vc.triggers = self.triggers
+//        }
     }
 
     
     @IBAction func triggerAdded(_ segue: UIStoryboardSegue) {
-        if let symptom = self.symptom {
-            self.doneButton.isHidden = (symptom.triggers.count == 0)
+        if let vc = segue.source as? AddTriggerViewController,
+            let newTrigger = vc.newTrigger {
+           
+            self.triggers.append(newTrigger)
+            self.doneButton.isHidden = (triggers.count == 0)
+            tableView.reloadData()
         }
-        tableView.reloadData()
     }
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        guard let symptom = self.symptom else { return 0 }
-
-        return symptom.triggers.count
+        return triggers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let symptom = self.symptom else { return UITableViewCell() }
-
-        let trigger = symptom.triggers[indexPath.row]
+        let trigger = triggers[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TriggerCell", for: indexPath)
         cell.textLabel?.text = trigger.name
@@ -78,4 +85,12 @@ class SignUpTriggersViewController: UIViewController, UITableViewDelegate, UITab
     }
 
     
+}
+
+
+extension SignUpTriggersViewController : DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
+    
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        return NSAttributedString(string: "Please add at least 1 trigger")
+    }
 }
