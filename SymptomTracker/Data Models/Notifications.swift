@@ -13,10 +13,3 @@ struct LocalNotifications {
     var title: String
     var body: String
 }
-
-enum LocalNotificationDurationType {
-    case days
-    case hours
-    case minutes
-    case seconds
-}
