@@ -739,24 +739,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfL-cW-6t8">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="jfL-cW-6t8">
                                 <rect key="frame" x="122" y="258" width="272" height="67"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="67" id="EeJ-nc-4Jr"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="jso-s9-4wx"/>
                                 </constraints>
-                                <date key="date" timeIntervalSinceReferenceDate="666398772.74759996">
-                                    <!--2022-02-12 22:46:12 +0000-->
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
+                                    <!--1970-01-01 11:00:00 +0000-->
                                 </date>
+                                <locale key="locale" localeIdentifier="en_US"/>
                             </datePicker>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFj-lD-HWw">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="FFj-lD-HWw">
                                 <rect key="frame" x="122" y="355" width="272" height="67"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="67" id="Dqp-Rc-Jqr"/>
                                 </constraints>
-                                <date key="date" timeIntervalSinceReferenceDate="666398772.74759996">
-                                    <!--2022-02-12 22:46:12 +0000-->
-                                </date>
                             </datePicker>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="om2-Ko-bXw">
                                 <rect key="frame" x="37" y="276" width="99" height="31"/>
@@ -797,13 +795,15 @@
                     </view>
                     <navigationItem key="navigationItem" id="QZL-1A-3OZ"/>
                     <connections>
+                        <outlet property="notifPicker1" destination="jfL-cW-6t8" id="diW-BA-ff5"/>
+                        <outlet property="notifPicker2" destination="FFj-lD-HWw" id="w2b-0x-eX6"/>
                         <segue destination="jdw-Dp-0WF" kind="unwind" identifier="SetupComplete" animates="NO" unwindAction="setupComplete:" id="76r-gD-W2r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pHM-VP-f2r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="jdw-Dp-0WF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2067" y="1730"/>
+            <point key="canvasLocation" x="2066.666666666667" y="1729.6875"/>
         </scene>
         <!--Welcome-->
         <scene sceneID="uFY-Tk-iFV">
