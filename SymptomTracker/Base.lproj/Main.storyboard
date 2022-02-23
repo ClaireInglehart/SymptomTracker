@@ -354,6 +354,7 @@
                     <connections>
                         <outlet property="tableView" destination="0kT-E5-DaF" id="Mdw-Wg-Gp8"/>
                         <segue destination="Gl6-Gb-Df3" kind="unwind" identifier="SignOut" animates="NO" unwindAction="onSignOut:" id="tIv-lG-Yk4"/>
+                        <segue destination="6lF-hN-atg" kind="presentation" identifier="AddSymptom" id="e43-X5-A9l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lsp-2c-Jqv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -871,10 +872,10 @@
             </objects>
             <point key="canvasLocation" x="4505.7971014492759" y="-68.303571428571431"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Startup Navigation Controller-->
         <scene sceneID="kOz-U9-jDx">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6be-3a-AXR" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6be-3a-AXR" userLabel="Startup Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cOU-Nw-VpF">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -918,10 +919,10 @@
             </objects>
             <point key="canvasLocation" x="-265" y="-68"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Welcome Navigation Controller-->
         <scene sceneID="0Dj-A6-fqo">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vHm-qO-Z31" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vHm-qO-Z31" userLabel="Welcome Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XEM-wh-DIG">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -936,10 +937,10 @@
             </objects>
             <point key="canvasLocation" x="3702.898550724638" y="-68.303571428571431"/>
         </scene>
-        <!--Check-in-->
+        <!--Check-in Navigation Controller-->
         <scene sceneID="j6Z-8P-Wm6">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZDB-h6-ols" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZDB-h6-ols" userLabel="Check-in Navigation Controller" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Check-in" image="stethoscope.circle" catalog="system" id="UcB-b6-w2k"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zZH-Gc-VlP">
@@ -955,10 +956,10 @@
             </objects>
             <point key="canvasLocation" x="519" y="1738"/>
         </scene>
-        <!--History-->
+        <!--History Navigation Controller-->
         <scene sceneID="C55-n3-wnt">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="isM-ei-KBZ" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="isM-ei-KBZ" userLabel="History Navigation Controller" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="History" image="archivebox.circle" catalog="system" id="oj8-nL-TMV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VMU-XC-uoP">
@@ -974,10 +975,10 @@
             </objects>
             <point key="canvasLocation" x="-239" y="1738"/>
         </scene>
-        <!--Symptoms-->
+        <!--Symptoms Navigation Controller-->
         <scene sceneID="WyC-M4-GDq">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rx4-zW-j1g" userLabel="Symptoms" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rx4-zW-j1g" userLabel="Symptoms Navigation Controller" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Symptoms" image="cross.circle" catalog="system" id="nWJ-2A-lTW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5da-WC-zjG">
@@ -993,10 +994,10 @@
             </objects>
             <point key="canvasLocation" x="-1020" y="1738"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Login Navigation Controller-->
         <scene sceneID="cHo-Hx-bK9">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="is4-FI-mrc" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="is4-FI-mrc" userLabel="Login Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jdy-zZ-Fgs">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1011,10 +1012,10 @@
             </objects>
             <point key="canvasLocation" x="548" y="-68"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Sign Up Symptoms Navigation Controller-->
         <scene sceneID="JgR-4R-LgS">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="agf-tm-G1j" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="agf-tm-G1j" userLabel="Sign Up Symptoms Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="x2Y-q3-L0U"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cLs-r3-PyY">
@@ -1030,10 +1031,10 @@
             </objects>
             <point key="canvasLocation" x="1284" y="907"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Add Symptom Navigation Controller-->
         <scene sceneID="Uki-lX-NVE">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6lF-hN-atg" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6lF-hN-atg" userLabel="Add Symptom Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lXr-oU-N8k">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -1048,10 +1049,10 @@
             </objects>
             <point key="canvasLocation" x="2988" y="907"/>
         </scene>
-        <!--Settings-->
+        <!--Settings Navigation Controller-->
         <scene sceneID="MbC-WD-yQy">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ucT-GW-8Xl" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ucT-GW-8Xl" userLabel="Settings Navigation Controller" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="gear.circle" catalog="system" id="SRj-ug-KcT"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MsD-Rp-Ios">
@@ -1067,10 +1068,10 @@
             </objects>
             <point key="canvasLocation" x="1233" y="1738"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Add Trigger Navigation Controller-->
         <scene sceneID="wNf-Jq-XMV">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6ff-jK-Itk" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6ff-jK-Itk" userLabel="Add Trigger Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="AM0-mI-4Jj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -1087,6 +1088,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="e43-X5-A9l"/>
         <segue reference="fzz-42-xPn"/>
         <segue reference="nO5-gD-SfC"/>
     </inferredMetricsTieBreakers>
