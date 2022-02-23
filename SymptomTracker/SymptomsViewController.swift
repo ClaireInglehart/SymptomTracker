@@ -19,13 +19,24 @@ class SymptomsViewController: UIViewController, UITableViewDelegate, UITableView
     
         let signOutButton = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(onSignOut))
         self.navigationItem.leftBarButtonItem = signOutButton
+
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAddSymptom))
+        self.navigationItem.rightBarButtonItem = addButton
     }
     
 
     @objc func onSignOut() {
         performSegue(withIdentifier: "SignOut", sender: nil)
     }
-    
+
+    @objc func onAddSymptom() {
+        performSegue(withIdentifier: "AddSymptom", sender: nil)
+    }
+
+    @IBAction func symptomAdded(_ segue: UIStoryboardSegue) {
+        tableView.reloadData()
+    }
+
     /*
     // MARK: - Navigation
 
@@ -62,13 +73,47 @@ class SymptomsViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard let currentUser = DataService.shared.currentUser else { return "n/a" }
-        
-        let symptom = currentUser.symptoms[section]
-        return "Symptom: \(symptom.name)"
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let currentUser = DataService.shared.currentUser else { return UIView() }
+        let symptom = currentUser.symptoms[section]
+
+        let view = UIView()
+        view.backgroundColor = UIColor.systemIndigo
+        
+        let symptomLabel = UILabel()
+        symptomLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(symptomLabel)
+        symptomLabel.text = "Symptom: \(symptom.name)"
+        symptomLabel.textColor = .white
+
+        let symptomLabelConstraints = [
+            symptomLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16.0),
+            symptomLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 16.0),
+            symptomLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 16.0),
+        ]
+        NSLayoutConstraint.activate(symptomLabelConstraints)
+
+        let triggersLabel = UILabel()
+        triggersLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(triggersLabel)
+        triggersLabel.text = "Triggers:"
+        triggersLabel.textColor = .white
+
+        let triggersLabelConstraints = [
+            triggersLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16.0),
+            triggersLabel.topAnchor.constraint(equalTo: symptomLabel.bottomAnchor, constant: 4.0),
+            triggersLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 16.0),
+            triggersLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16.0)
+        ]
+        NSLayoutConstraint.activate(triggersLabelConstraints)
+        
+        return view
+    }
+
     
 
 }
