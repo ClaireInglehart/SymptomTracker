@@ -41,8 +41,8 @@ class SettingsViewController: UIViewController {
         self.hourMinuteTimeFormatter = DateFormatter()
         self.hourMinuteTimeFormatter.dateFormat = "HH:mm"
         
-        let notification1Time = timeFormatter.date(from: notification1TimeString) ?? Date()
-        let notification2Time = timeFormatter.date(from: notification2TimeString) ?? Date()
+        let notification1Time = self.hourMinuteTimeFormatter.date(from: notification1TimeString) ?? Date()
+        let notification2Time = self.hourMinuteTimeFormatter.date(from: notification2TimeString) ?? Date()
         
         let date1 = Date().dateWithHour(hour: notification1Time.getHour(), minute: notification1Time.getMinute(), second: 0)
         let date2 = Date().dateWithHour(hour: notification2Time.getHour(), minute: notification2Time.getMinute(), second: 0)
@@ -164,7 +164,7 @@ class SettingsViewController: UIViewController {
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         
         center.add(request) { (error) in
-            print("scheduleNotification id:\(identifier) time:(\(dateComponents.hour):\(dateComponents.minute) error:\(error)")
+            print("scheduleNotification id:\(identifier) time:(\(triggerDateComponents.hour):\(triggerDateComponents.minute) error:\(error)")
         }
     }
     
