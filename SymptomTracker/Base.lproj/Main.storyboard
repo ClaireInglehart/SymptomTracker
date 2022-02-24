@@ -416,17 +416,90 @@
             </objects>
             <point key="canvasLocation" x="548" y="2476"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="vn7-Td-Iic">
             <objects>
-                <viewController id="E9d-Wf-crq" sceneMemberID="viewController">
+                <viewController id="E9d-Wf-crq" customClass="SettingsViewController" customModule="SymptomTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yVL-kZ-tLq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose if and when you'd like to be reminded" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Klr-vc-KWO">
+                                <rect key="frame" x="20" y="135" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="M83-kf-GEW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NNC-U8-pMr">
+                                <rect key="frame" x="20" y="205" width="51" height="31"/>
+                                <connections>
+                                    <action selector="onNotification1SwitchValueChanged:" destination="E9d-Wf-crq" eventType="valueChanged" id="mvg-nv-84C"/>
+                                </connections>
+                            </switch>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="gps-gp-byw">
+                                <rect key="frame" x="89" y="187" width="320" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Vtp-Ef-E1g"/>
+                                    <constraint firstAttribute="height" constant="67" id="uRK-Ky-hqA"/>
+                                </constraints>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
+                                    <!--1970-01-01 11:00:00 +0000-->
+                                </date>
+                                <locale key="locale" localeIdentifier="en_US"/>
+                                <connections>
+                                    <action selector="onTimePicker1ValueChanged:" destination="E9d-Wf-crq" eventType="valueChanged" id="wBf-Me-It8"/>
+                                </connections>
+                            </datePicker>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5Or-9n-Tc1">
+                                <rect key="frame" x="20" y="274" width="51" height="31"/>
+                                <connections>
+                                    <action selector="onNotification2SwitchValueChanged:" destination="E9d-Wf-crq" eventType="valueChanged" id="f11-y5-xvx"/>
+                                </connections>
+                            </switch>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZcR-nR-IDh">
+                                <rect key="frame" x="89" y="256" width="320" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="4SA-KS-Uba"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="onTimePicker2ValueChanged:" destination="E9d-Wf-crq" eventType="valueChanged" id="Xbf-ih-Nsm"/>
+                                </connections>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdP-rs-XQ7">
+                                <rect key="frame" x="20" y="104" width="107" height="23"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="gDr-Rj-Wdz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mdP-rs-XQ7" firstAttribute="leading" secondItem="gDr-Rj-Wdz" secondAttribute="leading" constant="20" id="FPi-5A-pke"/>
+                            <constraint firstItem="gps-gp-byw" firstAttribute="centerY" secondItem="NNC-U8-pMr" secondAttribute="centerY" id="I4I-up-cVu"/>
+                            <constraint firstItem="NNC-U8-pMr" firstAttribute="leading" secondItem="gDr-Rj-Wdz" secondAttribute="leading" constant="20" id="J65-hZ-Sbf"/>
+                            <constraint firstItem="5Or-9n-Tc1" firstAttribute="top" secondItem="gps-gp-byw" secondAttribute="bottom" constant="20" id="Sx6-6Q-bzt"/>
+                            <constraint firstItem="gDr-Rj-Wdz" firstAttribute="trailing" secondItem="Klr-vc-KWO" secondAttribute="trailing" constant="20" id="TkW-Z6-mId"/>
+                            <constraint firstItem="mdP-rs-XQ7" firstAttribute="top" secondItem="gDr-Rj-Wdz" secondAttribute="top" constant="16" id="aZa-5j-5zw"/>
+                            <constraint firstItem="Klr-vc-KWO" firstAttribute="leading" secondItem="gDr-Rj-Wdz" secondAttribute="leading" constant="20" id="alC-N6-87w"/>
+                            <constraint firstItem="NNC-U8-pMr" firstAttribute="top" secondItem="Klr-vc-KWO" secondAttribute="bottom" constant="20" id="l37-z4-Zhx"/>
+                            <constraint firstItem="ZcR-nR-IDh" firstAttribute="leading" secondItem="5Or-9n-Tc1" secondAttribute="trailing" constant="20" id="lE1-B3-Z1F"/>
+                            <constraint firstItem="5Or-9n-Tc1" firstAttribute="leading" secondItem="gDr-Rj-Wdz" secondAttribute="leading" constant="20" id="m0o-4x-Agy"/>
+                            <constraint firstItem="gps-gp-byw" firstAttribute="leading" secondItem="NNC-U8-pMr" secondAttribute="trailing" constant="20" id="pCU-sV-YzC"/>
+                            <constraint firstItem="Klr-vc-KWO" firstAttribute="top" secondItem="mdP-rs-XQ7" secondAttribute="bottom" constant="8" id="sse-AW-1sG"/>
+                            <constraint firstItem="ZcR-nR-IDh" firstAttribute="centerY" secondItem="5Or-9n-Tc1" secondAttribute="centerY" id="xq3-sY-Uue"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="GTm-CL-aZ4"/>
+                    <connections>
+                        <outlet property="notifPicker1" destination="gps-gp-byw" id="IyY-OX-A3c"/>
+                        <outlet property="notifPicker2" destination="ZcR-nR-IDh" id="LxN-GV-vtZ"/>
+                        <outlet property="notification1Switch" destination="NNC-U8-pMr" id="nlO-Kg-lUa"/>
+                        <outlet property="notification2Switch" destination="5Or-9n-Tc1" id="13S-PO-66p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Si5-Dw-KT4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
