@@ -18,6 +18,9 @@ class NotificationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.notifPicker1.addTarget(self, action: #selector(onPicker1ValueChanged(_:)), for: .valueChanged)
+        self.notifPicker2.addTarget(self, action: #selector(onPicker2ValueChanged(_:)), for: .valueChanged)
+
         let center = UNUserNotificationCenter.current()
         
         center.requestAuthorization(options: [.alert, .sound]) {
@@ -29,6 +32,10 @@ class NotificationsViewController: UIViewController {
         
         content.title = "Im a notification!"
         content.body = "Im the body of the notification!"
+        
+        getPickerValue(self.notifPicker1)
+        getPickerValue(self.notifPicker2)
+
         
         //create notification trigger - the date on the picker(aka time)
 //        let date = notifPicker1.date
@@ -62,6 +69,27 @@ class NotificationsViewController: UIViewController {
         
     }
 
+    @IBAction func onPicker1ValueChanged(_ sender: UIDatePicker) {
+        getPickerValue(sender)
+    }
+    
+    @IBAction func onPicker2ValueChanged(_ sender: UIDatePicker) {
+        getPickerValue(sender)
+    }
+    
+    func getPickerValue(_ datePicker: UIDatePicker) {
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "HH:mm"  // or use "h:mm" if you don't want it to print military time
+        let timeString = timeFormatter.string(from: datePicker.date)
+        print(timeString)
+
+        // These use extension functions in SettingsViewController
+        let hour = datePicker.date.getHour()
+        let minute = datePicker.date.getMinute()
+        print("hour: \(hour)")
+        print("minute: \(minute)")
+    }
+    
     
     @IBAction func onDone(_ sender: Any) {
         
