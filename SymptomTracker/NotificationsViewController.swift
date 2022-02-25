@@ -52,10 +52,10 @@ class NotificationsViewController: UIViewController {
         //creates components of that date - the day, the hour, the minute
         
         //dateComponents of UI Picker
-        let dateComponents = Calendar.current.dateComponents([.day, .hour, .minute], from: date)
+        let dateComponents = Calendar.current.dateComponents([.year ,.day, .hour, .minute], from: date)
                 
-        print("date components: ", dateComponents)
-        //sets the trigger to that dateCompnent
+        print("date components: ", dateComponents.description)
+        //sets the trigger to that dateComponent
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
         
         //create request from notifications and trigger

@@ -31,8 +31,8 @@ class SignUpSymptomsViewController: UIViewController, UITableViewDelegate, UITab
 
     @IBAction func onAddSymptom(_ sender: Any) {
         performSegue(withIdentifier: "NewSymptom", sender: sender)
-        
     }
+    
 
     @IBAction func onContinue(_ sender: Any) {
         

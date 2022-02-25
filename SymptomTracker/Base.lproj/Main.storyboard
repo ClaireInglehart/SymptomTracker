@@ -138,6 +138,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sKF-b3-iGW">
+                                <rect key="frame" x="173" y="483" width="69" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="FaceID"/>
+                                <connections>
+                                    <action selector="touchID:" destination="MMX-fs-3uy" eventType="touchUpInside" id="1d7-Ne-p56"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="f6G-p6-Myx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
