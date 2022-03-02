@@ -18,16 +18,16 @@ class DataService {
         self.users = self.load()
     }
 
-    public func getUser(forEmail email: String) -> User? {
+    public func getUser(forEmail email: String, forPassword password: String) -> User? {
         return self.users.first(where: { $0.email == email })
     }
 
     public func isValidUser(_ user: User) -> Bool {
-        return self.getUser(forEmail: user.email) != nil
+        return self.getUser(forEmail: user.email, forPassword: user.password) != nil
     }
 
-    public func addUser(withName name: String, email: String) -> User? {
-        let newUser = User(name: name, email: email)
+    public func addUser(withEmail email: String, withPassword password: String) -> User? {
+        let newUser = User(email: email, password: password)
         self.users.append(newUser)
         self.save()
         return newUser

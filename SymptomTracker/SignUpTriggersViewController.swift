@@ -7,12 +7,18 @@
 
 import UIKit
 import DZNEmptyDataSet
+import HealthKit
 
 class SignUpTriggersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var doneButton: UIButton!
-
+    if HKHealthStore.isHealthDataAvailable() {
+        //add some code about healthkit here
+    }
+    
+    let healthStore = HKHealthStore()
+    
     public var symptom: Symptom?
     private var triggers: [Trigger] = []
 

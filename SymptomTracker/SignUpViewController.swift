@@ -9,19 +9,15 @@ import UIKit
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
-
+    @IBOutlet weak var passwordField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        nameField.delegate = self
         emailField.delegate = self
-    
-    
-    
+        passwordField.delegate = self
     }
+    
     @IBAction func touchID(_ sender: UIButton) {
             let context = LAContext()
             var error: NSError? = nil
@@ -62,15 +58,15 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.nameField.becomeFirstResponder()
+        self.passwordField.becomeFirstResponder()
     }
     
     @IBAction func onContinue(_ sender: Any) {
-        guard let name = nameField.text, name.count > 0,
-              let email = emailField.text, email.count > 0 else { return }
+        guard let email = emailField.text, email.count > 0 else { return }
+        guard let password = passwordField.text, password.count > 0 else { return }
 
         // Make sure an account with this email doesn't already exist
-        if let _ = DataService.shared.getUser(forEmail: email) {
+        if let _ = DataService.shared.getUser(forEmail: email, forPassword: password) {
             let title = "Account Already Exists"
             let message = "An account with this email address already exists. Please sign in."
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -82,7 +78,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 
         } else {
         
-            if let newUser = DataService.shared.addUser(withName: name, email: email) {
+            if let newUser = DataService.shared.addUser(withEmail: email, withPassword: password) {
                 DataService.shared.currentUser = newUser
                 performSegue(withIdentifier: "ShowWelcome", sender: sender)
             } else {
@@ -98,13 +94,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if (textField == self.nameField) {
-            if let name = textField.text, name.count > 0 {
-                self.emailField.becomeFirstResponder()
+        if (textField == self.passwordField) {
+            if let email = textField.text, email.count > 0 {
+                self.passwordField.becomeFirstResponder()
                 return true
             }
-        } else if (textField == self.emailField) {
-            if let email = textField.text, email.count > 0 {
+        } else if (textField == self.passwordField) {
+            if let password = textField.text, password.count > 0 {
                 self.onContinue(textField)
                 return true
             }

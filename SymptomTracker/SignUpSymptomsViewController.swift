@@ -47,7 +47,6 @@ class SignUpSymptomsViewController: UIViewController, UITableViewDelegate, UITab
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

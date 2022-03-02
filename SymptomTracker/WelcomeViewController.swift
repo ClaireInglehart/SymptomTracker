@@ -15,7 +15,7 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
         
         if let currentUser = DataService.shared.currentUser {
-            self.welcomeLabel.text = "Welcome, \(currentUser.name)!"
+            self.welcomeLabel.text = "Welcome, \(currentUser.email)!"
         }
     }
     

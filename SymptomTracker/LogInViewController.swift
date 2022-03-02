@@ -10,11 +10,16 @@ import UIKit
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailField: UITextField!
-
+    @IBOutlet weak var passwordField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         emailField.layer.cornerRadius = 10
         emailField.delegate = self
+        
+        passwordField.layer.cornerRadius = 10
+        passwordField.delegate = self
+
         let trashButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(onTrash))
         self.navigationItem.rightBarButtonItem = trashButton
     }
@@ -26,6 +31,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         emailField.text = nil
+        passwordField.text = nil
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -36,8 +43,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     //login button segue to home page
     @IBAction func onContinue(_ sender: Any) {
         guard let email = emailField.text, email.count > 0 else { return }
-                
-        if let user = DataService.shared.getUser(forEmail: email) {
+        guard let password = passwordField.text, password.count > 0 else { return }
+
+        if let user = DataService.shared.getUser(forEmail: email, forPassword: password) {
             DataService.shared.currentUser = user
             // if the user has completed set up, go home.
             // Otherwise, continue set up

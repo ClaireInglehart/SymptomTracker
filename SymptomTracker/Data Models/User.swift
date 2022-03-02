@@ -6,15 +6,15 @@
 //
 
 class User: Codable {
-    var name: String
     var email: String
+    var password: String
     
     var symptoms: [Symptom]
     var checkins: [Checkin]
     
-    init(name: String, email:String) {
-        self.name = name
+    init(email: String, password: String) {
         self.email = email
+        self.password = password
         self.symptoms = []
         self.checkins = []
     }
