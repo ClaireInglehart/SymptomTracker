@@ -21,6 +21,7 @@
 		272C0EBF27C5B8AD00587930 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272C0EBE27C5B8AD00587930 /* AppSettings.swift */; };
 		272C0EC127C5BB4F00587930 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272C0EC027C5BB4F00587930 /* SettingsViewController.swift */; };
 		7E04325427C47D9300BBB825 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E04325327C47D9300BBB825 /* Notifications.swift */; };
+		7E1D424E27D078470053B245 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E1D424D27D078470053B245 /* HealthKit.framework */; };
 		7E440F1327B707DC00454F1F /* AddSymptomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E440F1227B707DC00454F1F /* AddSymptomViewController.swift */; };
 		7E440F1527B84DB100454F1F /* AddTriggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E440F1427B84DB100454F1F /* AddTriggerViewController.swift */; };
 		7EEFC1B727B041BC001C92C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEFC1B627B041BC001C92C0 /* AppDelegate.swift */; };
@@ -59,6 +60,8 @@
 		272C0EC027C5BB4F00587930 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		369CAFAF737ABD8AA337083E /* Pods-SymptomTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SymptomTracker.debug.xcconfig"; path = "Target Support Files/Pods-SymptomTracker/Pods-SymptomTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		7E04325327C47D9300BBB825 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		7E1D424C27D078470053B245 /* SymptomTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SymptomTracker.entitlements; sourceTree = "<group>"; };
+		7E1D424D27D078470053B245 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		7E440F1227B707DC00454F1F /* AddSymptomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSymptomViewController.swift; sourceTree = "<group>"; };
 		7E440F1427B84DB100454F1F /* AddTriggerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTriggerViewController.swift; sourceTree = "<group>"; };
 		7EEFC1B327B041BC001C92C0 /* SymptomTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SymptomTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +91,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA7550FB1453B99739B91954 /* Pods_SymptomTracker.framework in Frameworks */,
+				7E1D424E27D078470053B245 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +101,7 @@
 		1D5F70F8DD7C50954226FF83 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7E1D424D27D078470053B245 /* HealthKit.framework */,
 				8A1ADE07E5396C4AB55D3B41 /* Pods_SymptomTracker.framework */,
 			);
 			name = Frameworks;
@@ -149,6 +154,7 @@
 		7EEFC1B527B041BC001C92C0 /* SymptomTracker */ = {
 			isa = PBXGroup;
 			children = (
+				7E1D424C27D078470053B245 /* SymptomTracker.entitlements */,
 				272C0EBC27C0673500587930 /* chatbot.json */,
 				272C0EB527C066D800587930 /* MGSwipeTableCell */,
 				7EEFC1C427B041BD001C92C0 /* Info.plist */,
@@ -476,9 +482,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SymptomTracker/SymptomTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 364CFK8Q9U;
+				DEVELOPMENT_TEAM = B4XW5Z7SE6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SymptomTracker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -505,6 +512,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SymptomTracker/SymptomTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B4XW5Z7SE6;

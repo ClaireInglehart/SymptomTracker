@@ -10,20 +10,38 @@ import DZNEmptyDataSet
 import HealthKit
 
 class SignUpTriggersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+  
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var doneButton: UIButton!
-    if HKHealthStore.isHealthDataAvailable() {
-        //add some code about healthkit here
-    }
+    //add some code about healthkit here
+    var healthStore : HKHealthStore?
     
-    let healthStore = HKHealthStore()
+    func setUpHealthKit() {
+    if HKHealthStore.isHealthDataAvailable() {
+        healthStore = HKHealthStore()
+    }
+    else {
+        //no healthkit on this platform
+    }
+        //request write access(no write yet)
+        let distanceType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)!
+        
+        healthStore?.requestAuthorization(toShare: [distanceType], read: nil) { success, error in
+            if success {
+                //save the samle here or call method that saves sample
+            }   else {
+                //Failed to request, not denied authorization, you can retry
+            }
+        }
+    }
     
     public var symptom: Symptom?
     private var triggers: [Trigger] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpHealthKit()
 
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
@@ -31,6 +49,7 @@ class SignUpTriggersViewController: UIViewController, UITableViewDelegate, UITab
         self.title = "Your Triggers"
     }
     
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.doneButton.isHidden = (triggers.count == 0)
@@ -98,5 +117,5 @@ extension SignUpTriggersViewController : DZNEmptyDataSetDelegate, DZNEmptyDataSe
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         return NSAttributedString(string: "Please add at least 1 trigger")
+        }
     }
-}

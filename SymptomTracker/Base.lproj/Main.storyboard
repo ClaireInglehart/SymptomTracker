@@ -212,7 +212,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="onAddSymptom:" destination="e4G-Py-XTc" eventType="touchUpInside" id="GE9-H4-aEC"/>
-                                    <segue destination="6lF-hN-atg" kind="presentation" identifier="NewSymptom" id="WzZ-dz-IIQ"/>
+                                    <segue destination="6lF-hN-atg" kind="showDetail" identifier="NewSymptom" id="WzZ-dz-IIQ"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="P58-48-XcH">
@@ -658,18 +658,18 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aib-hf-gIW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="4yP-mz-xwo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4916" y="907"/>
+            <point key="canvasLocation" x="4915.9420289855079" y="906.69642857142856"/>
         </scene>
         <!--NewSymptom-->
         <scene sceneID="pDe-hr-fYs">
             <objects>
                 <viewController id="3aF-Kt-Y0m" userLabel="NewSymptom" customClass="AddSymptomViewController" customModule="SymptomTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ub0-XX-y2j">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kE6-cI-EUK">
-                                <rect key="frame" x="40" y="106" width="334" height="40"/>
+                                <rect key="frame" x="40" y="138" width="334" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="aPf-P1-dhR"/>
                                 </constraints>
@@ -680,7 +680,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DNV-UN-osX">
-                                <rect key="frame" x="60" y="742" width="294" height="40"/>
+                                <rect key="frame" x="60" y="762" width="294" height="40"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="bHi-o3-ULy"/>
@@ -1122,7 +1122,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6lF-hN-atg" userLabel="Add Symptom Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lXr-oU-N8k">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1158,6 +1158,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6ff-jK-Itk" userLabel="Add Trigger Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="NOy-dh-aan"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="AM0-mI-4Jj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>

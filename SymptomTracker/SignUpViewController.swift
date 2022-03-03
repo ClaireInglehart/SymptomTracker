@@ -16,6 +16,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         emailField.delegate = self
         passwordField.delegate = self
+        self.emailField.becomeFirstResponder()
+
     }
     
     @IBAction func touchID(_ sender: UIButton) {

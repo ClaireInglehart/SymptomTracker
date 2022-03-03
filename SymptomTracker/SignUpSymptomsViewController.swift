@@ -19,6 +19,7 @@ class SignUpSymptomsViewController: UIViewController, UITableViewDelegate, UITab
         self.tableView.emptyDataSetDelegate = self
         
         self.title = "Your Symptoms"
+        
     }
     
     
