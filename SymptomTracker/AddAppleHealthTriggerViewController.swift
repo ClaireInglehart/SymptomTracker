@@ -11,7 +11,7 @@ import HealthKit
 class AddAppleHealthTriggerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var healthStore : HKHealthStore?
-    //    var hk: ?
+    var healthKitAccessApproved = false
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var doneButton: UIButton!
 
@@ -82,6 +82,10 @@ class AddAppleHealthTriggerViewController: UIViewController, UITableViewDelegate
                 // we just attempt to read that data and, if the user hadn't granted permission,
                 // it will just look like there is no data. Weird.
                 
+                self.healthKitAccessApproved = true
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }   else {
                 self.showHealthKitPermissionDeniedAlert {
                     DispatchQueue.main.async {
@@ -125,9 +129,9 @@ class AddAppleHealthTriggerViewController: UIViewController, UITableViewDelegate
     
 
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return availableTriggers.count
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {        
+        // Don't show the list of HK data until access has been approved
+        return healthKitAccessApproved ? availableTriggers.count : 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
