@@ -12,8 +12,9 @@ class AddTriggerViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nameInput: UITextField!
     @IBOutlet weak var unitInput: UITextField!
     @IBOutlet weak var nameField: UITextField!
-    
-    public var newTrigger: Trigger?
+    @IBOutlet weak var addButton: UIButton!
+
+    public var newTrigger: CustomTrigger?
     
     
     override func viewDidLoad() {
@@ -23,13 +24,15 @@ class AddTriggerViewController: UIViewController, UITextFieldDelegate {
         
         self.title = "Add Trigger"
         
+        self.addButton.layer.cornerRadius = 8.0
+
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(onCancel))
         self.navigationItem.leftBarButtonItem = cancelButton
     }
     
     
     @objc func onCancel() {
-        self.dismiss(animated: true, completion: nil)
+        self.performSegue(withIdentifier: "AddTriggerCanceled", sender: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -52,7 +55,7 @@ class AddTriggerViewController: UIViewController, UITextFieldDelegate {
         if let item = nameInput.text, item.isEmpty == false,
            let units = unitInput.text, units.isEmpty == false {
             
-            self.newTrigger = Trigger(name: item, units: units)
+            self.newTrigger = CustomTrigger(name: item, units: units)
             
             performSegue(withIdentifier: "TriggerAdded", sender: sender)
         }

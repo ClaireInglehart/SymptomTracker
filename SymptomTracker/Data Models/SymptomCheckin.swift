@@ -20,5 +20,6 @@ class SymptomCheckin: Codable {
 
     var symtom: Symptom
     var severity: Severity?
-    var triggerCheckins: [TriggerCheckin]
+    var customTriggerCheckins: [CustomTriggerCheckin]
+    var appleHealthTriggerCheckins: [AppleHealthTriggerCheckin]
 }

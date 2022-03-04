@@ -11,7 +11,7 @@ class DataService {
     static let shared = DataService()
     
     private var users: [User] = []
-    private let dataKeyName = "data_v2"
+    private let dataKeyName = "data_v3"
     public var currentUser: User?
         
     init() {
@@ -60,8 +60,13 @@ class DataService {
     
     // TODO: deleteSymptom
     
-    public func addTrigger(_ trigger: Trigger, forSymptom symptom: Symptom) {
-        symptom.triggers.append(trigger)
+    public func addCustomTrigger(_ trigger: CustomTrigger, forSymptom symptom: Symptom) {
+        symptom.customTriggers.append(trigger)
+        save()
+    }
+
+    public func addAppleHealthTrigger(_ trigger: AppleHealthTrigger, forSymptom symptom: Symptom) {
+        symptom.appleHealthTriggers.append(trigger)
         save()
     }
 

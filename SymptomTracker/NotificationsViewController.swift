@@ -14,7 +14,8 @@ class NotificationsViewController: UIViewController {
     @IBOutlet weak var notifPicker2: UIDatePicker!
     @IBOutlet weak var notifPicker1: UIDatePicker!
     
-    
+    @IBOutlet weak var doneButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,7 +37,8 @@ class NotificationsViewController: UIViewController {
         getPickerValue(self.notifPicker1)
         getPickerValue(self.notifPicker2)
 
-        
+        self.doneButton.layer.cornerRadius = 8.0
+
         //create notification trigger - the date on the picker(aka time)
 //        let date = notifPicker1.date
 

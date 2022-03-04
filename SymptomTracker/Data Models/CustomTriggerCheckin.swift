@@ -7,8 +7,8 @@
 
 import Foundation
 
-class TriggerCheckin: Codable {
+class CustomTriggerCheckin: Codable {
 
-    var trigger: Trigger
+    var trigger: CustomTrigger
     var quantity: String?
 }

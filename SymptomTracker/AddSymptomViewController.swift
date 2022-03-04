@@ -10,6 +10,7 @@ import UIKit
 class AddSymptomViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nameInput: UITextField!
+    @IBOutlet weak var addButton: UIButton!
     var newSymptom: Symptom?
     
     override func viewDidLoad() {
@@ -18,6 +19,8 @@ class AddSymptomViewController: UIViewController, UITextFieldDelegate {
         
         self.title = "Add Symptom"
 
+        self.addButton.layer.cornerRadius = 8.0
+        
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(onCancel))
         self.navigationItem.leftBarButtonItem = cancelButton
     }

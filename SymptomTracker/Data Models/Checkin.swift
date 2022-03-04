@@ -7,6 +7,5 @@
 
 class Checkin: Codable {
     var date: String
-    var triggerCheckins: [TriggerCheckin]
     var symptomCheckins: [SymptomCheckin]
 }

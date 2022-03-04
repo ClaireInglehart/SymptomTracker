@@ -10,6 +10,7 @@ import DZNEmptyDataSet
 
 class SignUpSymptomsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addSymptomButton: UIButton!
     @IBOutlet weak var continueButton: UIButton!
 
     override func viewDidLoad() {
@@ -18,8 +19,10 @@ class SignUpSymptomsViewController: UIViewController, UITableViewDelegate, UITab
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
         
+        self.addSymptomButton.layer.cornerRadius = 8.0
+        self.continueButton.layer.cornerRadius = 8.0
+
         self.title = "Your Symptoms"
-        
     }
     
     
@@ -70,7 +73,8 @@ class SignUpSymptomsViewController: UIViewController, UITableViewDelegate, UITab
         
         guard let currentUser = DataService.shared.currentUser else { return 0 }
 
-        return currentUser.symptoms[section].triggers.count
+        return currentUser.symptoms[section].customTriggers.count +
+               currentUser.symptoms[section].appleHealthTriggers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -78,12 +82,19 @@ class SignUpSymptomsViewController: UIViewController, UITableViewDelegate, UITab
         guard let currentUser = DataService.shared.currentUser else { return UITableViewCell() }
 
         let symptom = currentUser.symptoms[indexPath.section]
-        let trigger = symptom.triggers[indexPath.row]
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TriggerCell", for: indexPath)
-        cell.textLabel?.text = trigger.name
-        cell.detailTextLabel?.text = trigger.units
-        return cell
+        if (indexPath.row < symptom.customTriggers.count) {
+            let trigger = symptom.customTriggers[indexPath.row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TriggerCell", for: indexPath)
+            cell.textLabel?.text = trigger.name
+            cell.detailTextLabel?.text = trigger.units
+            return cell
+        } else {
+            let trigger = symptom.appleHealthTriggers[indexPath.row - symptom.customTriggers.count]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TriggerCell", for: indexPath)
+            cell.textLabel?.text = trigger.name
+            cell.detailTextLabel?.text = nil
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -126,6 +137,15 @@ class SignUpSymptomsViewController: UIViewController, UITableViewDelegate, UITab
         
         return view
     }
+    
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        return nil
+    }
+
 
 }
 

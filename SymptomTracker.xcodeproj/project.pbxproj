@@ -9,17 +9,20 @@
 /* Begin PBXBuildFile section */
 		272C0E9027B5E72E00587930 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272C0E8F27B5E72E00587930 /* User.swift */; };
 		272C0E9227B5E78B00587930 /* Symptom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272C0E9127B5E78B00587930 /* Symptom.swift */; };
-		272C0E9427B5E7B000587930 /* Trigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272C0E9327B5E7B000587930 /* Trigger.swift */; };
+		272C0E9427B5E7B000587930 /* CustomTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272C0E9327B5E7B000587930 /* CustomTrigger.swift */; };
 		272C0E9627B5E7CB00587930 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272C0E9527B5E7CB00587930 /* DataService.swift */; };
 		272C0E9827B5E8A600587930 /* Checkin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272C0E9727B5E8A600587930 /* Checkin.swift */; };
 		272C0EA227B875A000587930 /* SymptomCheckin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272C0EA127B875A000587930 /* SymptomCheckin.swift */; };
-		272C0EA427B8760C00587930 /* TriggerCheckin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272C0EA327B8760C00587930 /* TriggerCheckin.swift */; };
+		272C0EA427B8760C00587930 /* CustomTriggerCheckin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272C0EA327B8760C00587930 /* CustomTriggerCheckin.swift */; };
 		272C0EA727BC17AA00587930 /* StartupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272C0EA627BC17A900587930 /* StartupViewController.swift */; };
 		272C0EBA27C066D800587930 /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 272C0EB627C066D800587930 /* MGSwipeTableCell.m */; };
 		272C0EBB27C066D800587930 /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 272C0EB927C066D800587930 /* MGSwipeButton.m */; };
 		272C0EBD27C0673500587930 /* chatbot.json in Resources */ = {isa = PBXBuildFile; fileRef = 272C0EBC27C0673500587930 /* chatbot.json */; };
 		272C0EBF27C5B8AD00587930 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272C0EBE27C5B8AD00587930 /* AppSettings.swift */; };
 		272C0EC127C5BB4F00587930 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272C0EC027C5BB4F00587930 /* SettingsViewController.swift */; };
+		2789BC5C27D2917900ED54E3 /* AddAppleHealthTriggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789BC5B27D2917900ED54E3 /* AddAppleHealthTriggerViewController.swift */; };
+		2789BC5E27D296C200ED54E3 /* AppleHealthTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789BC5D27D296C200ED54E3 /* AppleHealthTrigger.swift */; };
+		2789BC6027D2975700ED54E3 /* AppleHealthTriggerCheckin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789BC5F27D2975700ED54E3 /* AppleHealthTriggerCheckin.swift */; };
 		7E04325427C47D9300BBB825 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E04325327C47D9300BBB825 /* Notifications.swift */; };
 		7E1D424E27D078470053B245 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E1D424D27D078470053B245 /* HealthKit.framework */; };
 		7E440F1327B707DC00454F1F /* AddSymptomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E440F1227B707DC00454F1F /* AddSymptomViewController.swift */; };
@@ -45,11 +48,11 @@
 /* Begin PBXFileReference section */
 		272C0E8F27B5E72E00587930 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		272C0E9127B5E78B00587930 /* Symptom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symptom.swift; sourceTree = "<group>"; };
-		272C0E9327B5E7B000587930 /* Trigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trigger.swift; sourceTree = "<group>"; };
+		272C0E9327B5E7B000587930 /* CustomTrigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTrigger.swift; sourceTree = "<group>"; };
 		272C0E9527B5E7CB00587930 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		272C0E9727B5E8A600587930 /* Checkin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkin.swift; sourceTree = "<group>"; };
 		272C0EA127B875A000587930 /* SymptomCheckin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymptomCheckin.swift; sourceTree = "<group>"; };
-		272C0EA327B8760C00587930 /* TriggerCheckin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerCheckin.swift; sourceTree = "<group>"; };
+		272C0EA327B8760C00587930 /* CustomTriggerCheckin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTriggerCheckin.swift; sourceTree = "<group>"; };
 		272C0EA627BC17A900587930 /* StartupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupViewController.swift; sourceTree = "<group>"; };
 		272C0EB627C066D800587930 /* MGSwipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSwipeTableCell.m; sourceTree = "<group>"; };
 		272C0EB727C066D800587930 /* MGSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSwipeButton.h; sourceTree = "<group>"; };
@@ -58,6 +61,9 @@
 		272C0EBC27C0673500587930 /* chatbot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = chatbot.json; sourceTree = "<group>"; };
 		272C0EBE27C5B8AD00587930 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		272C0EC027C5BB4F00587930 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		2789BC5B27D2917900ED54E3 /* AddAppleHealthTriggerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAppleHealthTriggerViewController.swift; sourceTree = "<group>"; };
+		2789BC5D27D296C200ED54E3 /* AppleHealthTrigger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleHealthTrigger.swift; sourceTree = "<group>"; };
+		2789BC5F27D2975700ED54E3 /* AppleHealthTriggerCheckin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleHealthTriggerCheckin.swift; sourceTree = "<group>"; };
 		369CAFAF737ABD8AA337083E /* Pods-SymptomTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SymptomTracker.debug.xcconfig"; path = "Target Support Files/Pods-SymptomTracker/Pods-SymptomTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		7E04325327C47D9300BBB825 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		7E1D424C27D078470053B245 /* SymptomTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SymptomTracker.entitlements; sourceTree = "<group>"; };
@@ -114,10 +120,12 @@
 				272C0E8F27B5E72E00587930 /* User.swift */,
 				272C0E9127B5E78B00587930 /* Symptom.swift */,
 				272C0EA127B875A000587930 /* SymptomCheckin.swift */,
-				272C0E9327B5E7B000587930 /* Trigger.swift */,
-				272C0EA327B8760C00587930 /* TriggerCheckin.swift */,
+				272C0E9327B5E7B000587930 /* CustomTrigger.swift */,
+				272C0EA327B8760C00587930 /* CustomTriggerCheckin.swift */,
 				272C0E9727B5E8A600587930 /* Checkin.swift */,
 				272C0E9527B5E7CB00587930 /* DataService.swift */,
+				2789BC5D27D296C200ED54E3 /* AppleHealthTrigger.swift */,
+				2789BC5F27D2975700ED54E3 /* AppleHealthTriggerCheckin.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -179,6 +187,7 @@
 				7EEFC1DA27B0ADF4001C92C0 /* SymptomsViewController.swift */,
 				7EEFC1CC27B05119001C92C0 /* WelcomeViewController.swift */,
 				272C0E8E27B5E72E00587930 /* Data Models */,
+				2789BC5B27D2917900ED54E3 /* AddAppleHealthTriggerViewController.swift */,
 			);
 			path = SymptomTracker;
 			sourceTree = "<group>";
@@ -311,7 +320,8 @@
 				7EEFC1BB27B041BC001C92C0 /* LogInViewController.swift in Sources */,
 				272C0EBA27C066D800587930 /* MGSwipeTableCell.m in Sources */,
 				7E440F1527B84DB100454F1F /* AddTriggerViewController.swift in Sources */,
-				272C0EA427B8760C00587930 /* TriggerCheckin.swift in Sources */,
+				272C0EA427B8760C00587930 /* CustomTriggerCheckin.swift in Sources */,
+				2789BC5C27D2917900ED54E3 /* AddAppleHealthTriggerViewController.swift in Sources */,
 				7EEFC1D127B05362001C92C0 /* SignUpTriggersViewController.swift in Sources */,
 				7EEFC1DB27B0ADF4001C92C0 /* SymptomsViewController.swift in Sources */,
 				7EEFC1D527B05482001C92C0 /* HomePageViewController.swift in Sources */,
@@ -324,9 +334,11 @@
 				7E440F1327B707DC00454F1F /* AddSymptomViewController.swift in Sources */,
 				7EEFC1CF27B05237001C92C0 /* SignUpSymptomsViewController.swift in Sources */,
 				272C0E9827B5E8A600587930 /* Checkin.swift in Sources */,
+				2789BC5E27D296C200ED54E3 /* AppleHealthTrigger.swift in Sources */,
 				7EEFC1B927B041BC001C92C0 /* SceneDelegate.swift in Sources */,
+				2789BC6027D2975700ED54E3 /* AppleHealthTriggerCheckin.swift in Sources */,
 				7E04325427C47D9300BBB825 /* Notifications.swift in Sources */,
-				272C0E9427B5E7B000587930 /* Trigger.swift in Sources */,
+				272C0E9427B5E7B000587930 /* CustomTrigger.swift in Sources */,
 				272C0EA727BC17AA00587930 /* StartupViewController.swift in Sources */,
 				7EEFC1D327B053BD001C92C0 /* NotificationsViewController.swift in Sources */,
 				272C0E9227B5E78B00587930 /* Symptom.swift in Sources */,

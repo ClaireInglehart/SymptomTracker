@@ -11,11 +11,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    
+    @IBOutlet weak var continueButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         emailField.delegate = self
         passwordField.delegate = self
+        
+        self.continueButton.layer.cornerRadius = 8.0
     }
     
     @IBAction func touchID(_ sender: UIButton) {

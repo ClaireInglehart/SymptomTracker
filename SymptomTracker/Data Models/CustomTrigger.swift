@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Trigger: Codable {
+class CustomTrigger: Codable {
 
     var name: String
     var units: String

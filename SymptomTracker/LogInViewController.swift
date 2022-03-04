@@ -12,6 +12,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
+    @IBOutlet weak var continueButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         emailField.layer.cornerRadius = 10
@@ -19,6 +22,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         passwordField.layer.cornerRadius = 10
         passwordField.delegate = self
+
+        self.continueButton.layer.cornerRadius = 8.0
+        self.signUpButton.layer.cornerRadius = 8.0
 
         let trashButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(onTrash))
         self.navigationItem.rightBarButtonItem = trashButton

@@ -7,46 +7,30 @@
 
 import UIKit
 import DZNEmptyDataSet
-import HealthKit
 
 class SignUpTriggersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var doneButton: UIButton!
-    //add some code about healthkit here
-    var healthStore : HKHealthStore?
-    
-    func setUpHealthKit() {
-        if HKHealthStore.isHealthDataAvailable() {
-            healthStore = HKHealthStore()
-        }
-        else {
-            //no healthkit on this platform
-        }
-        //request write access(no write yet)
-        let distanceType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)!
-        
-        healthStore?.requestAuthorization(toShare: [distanceType], read: nil) { success, error in
-            if success {
-                //save the samle here or call method that saves sample
-            }   else {
-                //Failed to request, not denied authorization, you can retry
-            }
-        }
-    }
-    
+    @IBOutlet weak var doneButton: UIButton!    
+    @IBOutlet weak var addCustomTriggerButton: UIButton!
+    @IBOutlet weak var addAppleHealthTriggerButton: UIButton!
+
     public var symptom: Symptom?
-    private var triggers: [Trigger] = []
-    
+    private var customTriggers: [CustomTrigger] = []
+    private var appleHealthTriggers: [AppleHealthTrigger] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpHealthKit()
         
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
         
         self.title = "Your Triggers"
         
+        self.doneButton.layer.cornerRadius = 8.0
+        self.addCustomTriggerButton.layer.cornerRadius = 8.0
+        self.addAppleHealthTriggerButton.layer.cornerRadius = 8.0
+
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(onCancel))
         self.navigationItem.leftBarButtonItem = cancelButton
 
@@ -54,7 +38,7 @@ class SignUpTriggersViewController: UIViewController, UITableViewDelegate, UITab
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.doneButton.isHidden = (triggers.count == 0)
+        self.doneButton.isHidden = (customTriggers.count == 0) && (appleHealthTriggers.count == 0)
     }
 
     @objc func onCancel() {
@@ -66,10 +50,13 @@ class SignUpTriggersViewController: UIViewController, UITableViewDelegate, UITab
         guard let symptom = self.symptom else { return }
         guard let currentUser = DataService.shared.currentUser else { return }
         
-        if (triggers.count > 0) {
+        if ((customTriggers.count > 0) || (appleHealthTriggers.count > 0)) {
             DataService.shared.addSymptom(symptom, forUser: currentUser)
-            for trigger in triggers {
-                DataService.shared.addTrigger(trigger, forSymptom: symptom)
+            for trigger in customTriggers {
+                DataService.shared.addCustomTrigger(trigger, forSymptom: symptom)
+            }
+            for appleHealthTrigger in appleHealthTriggers {
+                DataService.shared.addAppleHealthTrigger(appleHealthTrigger, forSymptom: symptom)
             }
             performSegue(withIdentifier: "SymptomAdded", sender: sender)
         } else {
@@ -82,38 +69,71 @@ class SignUpTriggersViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//                if segue.identifier == "AddTrigger",
-//                   let nav = segue.destination as? UINavigationController,
-//                    let vc = nav.viewControllers[0] as? AddTriggerViewController {
-//                       vc.triggers = self.triggers
-//                }
     }
     
+    
+    @IBAction func addTriggerCanceled(_ segue: UIStoryboardSegue) {
+    }
     
     @IBAction func triggerAdded(_ segue: UIStoryboardSegue) {
         if let vc = segue.source as? AddTriggerViewController,
            let newTrigger = vc.newTrigger {
             
-            self.triggers.append(newTrigger)
-            self.doneButton.isHidden = (triggers.count == 0)
+            self.customTriggers.append(newTrigger)
+            self.doneButton.isHidden = (customTriggers.count == 0) && (appleHealthTriggers.count == 0)
             tableView.reloadData()
         }
     }
     
+    @IBAction func appleHealthTriggersAdded(_ segue: UIStoryboardSegue) {
+        if let vc = segue.source as? AddAppleHealthTriggerViewController {
+            let newTriggers = vc.newTriggers
+            self.appleHealthTriggers.append(contentsOf: newTriggers)
+            self.doneButton.isHidden = (customTriggers.count == 0) && (appleHealthTriggers.count == 0)
+            tableView.reloadData()
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return triggers.count
+        if (section == 0) {
+            return customTriggers.count
+        } else {
+            return appleHealthTriggers.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let trigger = triggers[indexPath.row]
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TriggerCell", for: indexPath)
-        cell.textLabel?.text = trigger.name
-        cell.detailTextLabel?.text = trigger.units
-        return cell
+        if (indexPath.section == 0) {
+            let trigger = customTriggers[indexPath.row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TriggerCell", for: indexPath)
+            cell.textLabel?.text = trigger.name
+            cell.detailTextLabel?.text = trigger.units
+            return cell
+        } else {
+            let trigger = appleHealthTriggers[indexPath.row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TriggerCell", for: indexPath)
+            cell.textLabel?.text = trigger.name
+            cell.detailTextLabel?.text = nil
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if (section == 0) {
+            if (self.customTriggers.count > 0) {
+                return "Custom Triggers"
+            }
+        } else {
+            if (self.appleHealthTriggers.count > 0) {
+                return "Apple Health Triggers"
+            }
+        }
+        return nil
     }
     
     

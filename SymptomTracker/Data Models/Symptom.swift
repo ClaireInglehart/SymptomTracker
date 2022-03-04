@@ -9,10 +9,12 @@ import Foundation
 
 class Symptom: Codable {
     var name: String
-    var triggers: [Trigger]
+    var customTriggers: [CustomTrigger]
+    var appleHealthTriggers: [AppleHealthTrigger]
     
     init(name: String) {
         self.name = name
-        self.triggers = []
+        self.customTriggers = []
+        self.appleHealthTriggers = []
     }
 }

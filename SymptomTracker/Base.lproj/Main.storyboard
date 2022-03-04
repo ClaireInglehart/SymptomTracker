@@ -94,8 +94,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="C3a-fY-dm9"/>
                     <connections>
+                        <outlet property="continueButton" destination="e7M-Gw-0Oc" id="hU3-rW-2SY"/>
                         <outlet property="emailField" destination="m8B-pZ-PBA" id="ke8-eo-11E"/>
                         <outlet property="passwordField" destination="KWd-EI-hmM" id="WJH-RB-RHM"/>
+                        <outlet property="signUpButton" destination="FNq-lX-GSX" id="E7R-z9-jCd"/>
                         <segue destination="UXr-Gh-Lqr" kind="presentation" identifier="GoHome" modalPresentationStyle="fullScreen" id="nO5-gD-SfC"/>
                         <segue destination="MMX-fs-3uy" kind="show" identifier="SignUp" id="uJd-ai-zGJ"/>
                         <segue destination="agf-tm-G1j" kind="presentation" identifier="SignUpSymptoms" modalPresentationStyle="fullScreen" id="fzz-42-xPn"/>
@@ -170,6 +172,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="ohc-JE-uB9"/>
                     <connections>
+                        <outlet property="continueButton" destination="yNX-PJ-ffz" id="mJy-V7-5zF"/>
                         <outlet property="emailField" destination="LU8-yD-kc7" id="Kgm-cS-xVb"/>
                         <outlet property="passwordField" destination="Ttv-oa-0J3" id="D28-bA-iag"/>
                         <segue destination="vHm-qO-Z31" kind="presentation" identifier="ShowWelcome" modalPresentationStyle="fullScreen" id="JhG-to-KcP"/>
@@ -284,6 +287,7 @@
                     </view>
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="always" id="VNz-6w-ECP"/>
                     <connections>
+                        <outlet property="addSymptomButton" destination="xkm-6Z-JDF" id="6F6-34-4xw"/>
                         <outlet property="continueButton" destination="bat-2S-diN" id="aMA-0f-wmM"/>
                         <outlet property="tableView" destination="P58-48-XcH" id="yNH-uR-gLT"/>
                         <segue destination="rOJ-Qm-izF" kind="show" identifier="Notifications" id="y17-7K-laY"/>
@@ -572,7 +576,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kME-oD-1UA">
-                                <rect key="frame" x="40" y="762" width="324" height="50"/>
+                                <rect key="frame" x="40" y="742" width="324" height="50"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="fQ8-Bs-GiV"/>
@@ -590,15 +594,28 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="MjR-0Z-ARn"/>
                                 </constraints>
-                                <buttonConfiguration key="configuration" style="tinted" title="Add Trigger">
+                                <buttonConfiguration key="configuration" style="tinted" title="Add Custom Trigger">
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <segue destination="6ff-jK-Itk" kind="presentation" identifier="AddTrigger" id="Y1F-Se-ugJ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acz-lA-Xa6">
+                                <rect key="frame" x="50" y="156" width="314" height="60"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="GG9-Oa-rqc"/>
+                                </constraints>
+                                <buttonConfiguration key="configuration" style="tinted" title="Add Apple Health Trigger">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="I6I-lf-k5H" kind="presentation" identifier="AddAppleHealthTrigger" id="xVN-Ck-1cv"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5Sa-vc-S2J">
-                                <rect key="frame" x="20" y="156" width="374" height="586"/>
+                                <rect key="frame" x="20" y="236" width="374" height="486"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TriggerCell" textLabel="Mh7-NL-kTh" detailTextLabel="dWP-Pm-RbD" style="IBUITableViewCellStyleValue1" id="8ay-Jg-74C">
@@ -635,21 +652,25 @@
                         <viewLayoutGuide key="safeArea" id="hbv-oc-7yY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="kME-oD-1UA" firstAttribute="top" secondItem="5Sa-vc-S2J" secondAttribute="bottom" constant="20" id="4cU-h3-WFx"/>
                             <constraint firstItem="kME-oD-1UA" firstAttribute="top" secondItem="5Sa-vc-S2J" secondAttribute="bottom" constant="20" id="5OY-5o-Amq"/>
                             <constraint firstItem="hbv-oc-7yY" firstAttribute="trailing" secondItem="j0K-hl-Ebe" secondAttribute="trailing" constant="50" id="5aP-Cy-2Co"/>
                             <constraint firstItem="hbv-oc-7yY" firstAttribute="trailing" secondItem="kME-oD-1UA" secondAttribute="trailing" constant="50" id="AZm-pF-EHF"/>
                             <constraint firstItem="hbv-oc-7yY" firstAttribute="trailing" secondItem="5Sa-vc-S2J" secondAttribute="trailing" constant="20" id="Ffh-iv-Flb"/>
                             <constraint firstItem="kME-oD-1UA" firstAttribute="leading" secondItem="hbv-oc-7yY" secondAttribute="leading" constant="40" id="KZx-my-NfA"/>
                             <constraint firstItem="j0K-hl-Ebe" firstAttribute="leading" secondItem="hbv-oc-7yY" secondAttribute="leading" constant="50" id="Kjr-dK-lIL"/>
-                            <constraint firstItem="hbv-oc-7yY" firstAttribute="bottom" secondItem="kME-oD-1UA" secondAttribute="bottom" constant="30" id="Qgc-tY-dUP"/>
+                            <constraint firstItem="hbv-oc-7yY" firstAttribute="trailing" secondItem="acz-lA-Xa6" secondAttribute="trailing" constant="50" id="LE6-UK-mr8"/>
+                            <constraint firstItem="5Sa-vc-S2J" firstAttribute="top" secondItem="acz-lA-Xa6" secondAttribute="bottom" constant="20" id="OX2-nq-HkQ"/>
+                            <constraint firstItem="hbv-oc-7yY" firstAttribute="bottom" secondItem="kME-oD-1UA" secondAttribute="bottom" constant="50" id="Qgc-tY-dUP"/>
                             <constraint firstItem="5Sa-vc-S2J" firstAttribute="leading" secondItem="hbv-oc-7yY" secondAttribute="leading" constant="20" id="ZRS-Nr-NnS"/>
-                            <constraint firstItem="5Sa-vc-S2J" firstAttribute="top" secondItem="j0K-hl-Ebe" secondAttribute="bottom" constant="20" id="qGu-9Q-xAB"/>
+                            <constraint firstItem="acz-lA-Xa6" firstAttribute="top" secondItem="j0K-hl-Ebe" secondAttribute="bottom" constant="20" id="eve-N3-Uuv"/>
+                            <constraint firstItem="acz-lA-Xa6" firstAttribute="leading" secondItem="hbv-oc-7yY" secondAttribute="leading" constant="50" id="hB8-hB-ZAN"/>
                             <constraint firstItem="j0K-hl-Ebe" firstAttribute="top" secondItem="hbv-oc-7yY" secondAttribute="top" constant="20" id="u8A-7J-5tU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Wdi-43-ssG"/>
                     <connections>
+                        <outlet property="addAppleHealthTriggerButton" destination="acz-lA-Xa6" id="9sR-6d-1W2"/>
+                        <outlet property="addCustomTriggerButton" destination="j0K-hl-Ebe" id="mKG-JV-brh"/>
                         <outlet property="doneButton" destination="kME-oD-1UA" id="v8Y-ge-ZqK"/>
                         <outlet property="tableView" destination="5Sa-vc-S2J" id="QsK-za-A8D"/>
                         <segue destination="4yP-mz-xwo" kind="unwind" identifier="SymptomAdded" unwindAction="symptomAdded:" id="gQh-Zy-doz"/>
@@ -709,6 +730,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="9cg-Gu-kqA"/>
                     <connections>
+                        <outlet property="addButton" destination="DNV-UN-osX" id="n9J-xN-Wff"/>
                         <outlet property="nameInput" destination="kE6-cI-EUK" id="sbB-ah-mu5"/>
                         <segue destination="PVR-X4-eZq" kind="unwind" identifier="SymptomAdded" unwindAction="symptomAdded:" id="ksQ-yz-U10"/>
                         <segue destination="nY6-9J-c5h" kind="presentation" identifier="SignUpAddTriggers" id="eDR-RM-jnx"/>
@@ -774,16 +796,109 @@
                     </view>
                     <navigationItem key="navigationItem" id="tgE-Xb-tOn"/>
                     <connections>
+                        <outlet property="addButton" destination="JHl-rk-wej" id="M5r-uv-9L8"/>
                         <outlet property="nameField" destination="N3F-HX-U2P" id="aDk-TQ-KH9"/>
                         <outlet property="nameInput" destination="N3F-HX-U2P" id="jVQ-Al-mUR"/>
                         <outlet property="unitInput" destination="6Ag-lK-UJb" id="Yox-0X-f3h"/>
                         <segue destination="X0H-P5-ci4" kind="unwind" identifier="TriggerAdded" unwindAction="triggerAdded:" id="uNW-Ay-y8U"/>
+                        <segue destination="X0H-P5-ci4" kind="unwind" identifier="AddTriggerCanceled" unwindAction="addTriggerCanceled:" id="Tn8-43-5jm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MxP-5j-1Ma" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="X0H-P5-ci4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="7876.811594202899" y="906.69642857142856"/>
+            <point key="canvasLocation" x="7823" y="644"/>
+        </scene>
+        <!--Add Apple Health Trigger View Controller-->
+        <scene sceneID="1pN-x8-can">
+            <objects>
+                <viewController id="Qbw-Kk-qCa" customClass="AddAppleHealthTriggerViewController" customModule="SymptomTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KzA-i0-BV8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the Apple Health Triggers you'd like to use and then tap Done." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jbs-jT-P8i">
+                                <rect key="frame" x="20" y="76" width="374" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Odk-vZ-XbH">
+                                <rect key="frame" x="20" y="137" width="374" height="585"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TriggerCell" textLabel="pzp-Uy-hSH" detailTextLabel="8hK-4B-yeI" style="IBUITableViewCellStyleValue1" id="LEA-fX-TzX">
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LEA-fX-TzX" id="GOr-tM-xLm">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="pzp-Uy-hSH">
+                                                    <rect key="frame" x="20" y="14" width="28.5" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="8hK-4B-yeI">
+                                                    <rect key="frame" x="321" y="16" width="33" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Qbw-Kk-qCa" id="svw-ak-7TX"/>
+                                    <outlet property="delegate" destination="Qbw-Kk-qCa" id="Ycu-R5-4yz"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYH-kq-mv1">
+                                <rect key="frame" x="50" y="742" width="314" height="50"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="SbF-rh-LXS"/>
+                                </constraints>
+                                <buttonConfiguration key="configuration" style="tinted" title="Done">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onDone:" destination="Qbw-Kk-qCa" eventType="touchUpInside" id="8XM-vM-Qp9"/>
+                                    <action selector="onDone:" destination="ihd-mH-qnc" eventType="touchUpInside" id="HbL-QY-pCC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3L9-uR-fNt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pYH-kq-mv1" firstAttribute="top" secondItem="Odk-vZ-XbH" secondAttribute="bottom" constant="20" id="4wH-8e-cKK"/>
+                            <constraint firstItem="3L9-uR-fNt" firstAttribute="trailing" secondItem="pYH-kq-mv1" secondAttribute="trailing" constant="50" id="52a-hu-YeG"/>
+                            <constraint firstItem="3L9-uR-fNt" firstAttribute="trailing" secondItem="Odk-vZ-XbH" secondAttribute="trailing" constant="20" id="9am-Gz-TMz"/>
+                            <constraint firstItem="Jbs-jT-P8i" firstAttribute="leading" secondItem="3L9-uR-fNt" secondAttribute="leading" constant="20" id="HT8-Ud-NTe"/>
+                            <constraint firstItem="3L9-uR-fNt" firstAttribute="trailing" secondItem="Jbs-jT-P8i" secondAttribute="trailing" constant="20" id="d7M-eG-BQk"/>
+                            <constraint firstItem="Odk-vZ-XbH" firstAttribute="leading" secondItem="3L9-uR-fNt" secondAttribute="leading" constant="20" id="f53-N3-Sgn"/>
+                            <constraint firstItem="Odk-vZ-XbH" firstAttribute="top" secondItem="Jbs-jT-P8i" secondAttribute="bottom" constant="20" id="fV9-3B-GXb"/>
+                            <constraint firstItem="pYH-kq-mv1" firstAttribute="leading" secondItem="3L9-uR-fNt" secondAttribute="leading" constant="50" id="rwS-f5-HDl"/>
+                            <constraint firstItem="3L9-uR-fNt" firstAttribute="bottom" secondItem="pYH-kq-mv1" secondAttribute="bottom" constant="50" id="xsS-ag-m59"/>
+                            <constraint firstItem="Jbs-jT-P8i" firstAttribute="top" secondItem="3L9-uR-fNt" secondAttribute="top" constant="20" id="zjH-OW-Cit"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gTg-YK-OpY"/>
+                    <connections>
+                        <outlet property="doneButton" destination="pYH-kq-mv1" id="ecg-lM-W3w"/>
+                        <outlet property="tableView" destination="Odk-vZ-XbH" id="qar-t1-tGx"/>
+                        <segue destination="CXY-eG-41d" kind="unwind" identifier="AddTriggerCanceled" unwindAction="addTriggerCanceled:" id="CRo-9a-Efv"/>
+                        <segue destination="CXY-eG-41d" kind="unwind" identifier="AppleHealthTriggersAdded" unwindAction="appleHealthTriggersAdded:" id="Frg-Cx-0hb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2fX-Pl-aei" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="CXY-eG-41d" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="7822" y="1316"/>
         </scene>
         <!--Notifications-->
         <scene sceneID="hf2-Jd-08z">
@@ -881,6 +996,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="QZL-1A-3OZ"/>
                     <connections>
+                        <outlet property="doneButton" destination="92Z-6K-cxw" id="m7l-KX-Q94"/>
                         <outlet property="notifPicker1" destination="jfL-cW-6t8" id="diW-BA-ff5"/>
                         <outlet property="notifPicker2" destination="FFj-lD-HWw" id="w2b-0x-eX6"/>
                         <segue destination="jdw-Dp-0WF" kind="unwind" identifier="SetupComplete" animates="NO" unwindAction="setupComplete:" id="76r-gD-W2r"/>
@@ -949,6 +1065,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="gBi-27-CEN"/>
                     <connections>
+                        <outlet property="continueButton" destination="gqt-I4-ky4" id="TqL-Bx-Si6"/>
                         <outlet property="welcomeLabel" destination="NGp-5Q-igX" id="lfX-T2-wgL"/>
                         <segue destination="agf-tm-G1j" kind="presentation" identifier="SignUpAddSymptoms" modalPresentationStyle="fullScreen" id="Xwj-dR-gXF"/>
                     </connections>
@@ -1170,7 +1287,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ld-1i-4xP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7123.188405797102" y="906.69642857142856"/>
+            <point key="canvasLocation" x="7117" y="644"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jtw-l1-VHx">
@@ -1190,6 +1307,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L0v-xw-v3J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5424.6376811594209" y="906.69642857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ilY-7p-3YG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="I6I-lf-k5H" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9pz-yw-Mve">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Qbw-Kk-qCa" kind="relationship" relationship="rootViewController" id="Ngm-NO-3Me"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="plm-vS-c9f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7115.9420289855079" y="1315.8482142857142"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
