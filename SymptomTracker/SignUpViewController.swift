@@ -16,8 +16,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         emailField.delegate = self
         passwordField.delegate = self
-        self.emailField.becomeFirstResponder()
-
     }
     
     @IBAction func touchID(_ sender: UIButton) {
@@ -60,7 +58,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.passwordField.becomeFirstResponder()
+        self.emailField.becomeFirstResponder()
     }
     
     @IBAction func onContinue(_ sender: Any) {
@@ -96,13 +94,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if (textField == self.passwordField) {
+        if (textField == self.emailField) {
             if let email = textField.text, email.count > 0 {
                 self.passwordField.becomeFirstResponder()
                 return true
             }
         } else if (textField == self.passwordField) {
-            if let password = textField.text, password.count > 0 {
+            if let email = textField.text, email.count > 0,
+               let password = textField.text, password.count > 0 {
                 self.onContinue(textField)
                 return true
             }

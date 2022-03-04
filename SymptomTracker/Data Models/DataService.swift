@@ -11,7 +11,7 @@ class DataService {
     static let shared = DataService()
     
     private var users: [User] = []
-    private let dataKeyName = "data_v1"
+    private let dataKeyName = "data_v2"
     public var currentUser: User?
         
     init() {
@@ -19,7 +19,7 @@ class DataService {
     }
 
     public func getUser(forEmail email: String, forPassword password: String) -> User? {
-        return self.users.first(where: { $0.email == email })
+        return self.users.first(where: { ($0.email == email) && ($0.password == password) })
     }
 
     public func isValidUser(_ user: User) -> Bool {
