@@ -10,20 +10,19 @@ import DZNEmptyDataSet
 import HealthKit
 
 class SignUpTriggersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-  
-
+        
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var doneButton: UIButton!
     //add some code about healthkit here
     var healthStore : HKHealthStore?
     
     func setUpHealthKit() {
-    if HKHealthStore.isHealthDataAvailable() {
-        healthStore = HKHealthStore()
-    }
-    else {
-        //no healthkit on this platform
-    }
+        if HKHealthStore.isHealthDataAvailable() {
+            healthStore = HKHealthStore()
+        }
+        else {
+            //no healthkit on this platform
+        }
         //request write access(no write yet)
         let distanceType = HKQuantityType.quantityType(forIdentifier: .distanceWalkingRunning)!
         
@@ -38,27 +37,35 @@ class SignUpTriggersViewController: UIViewController, UITableViewDelegate, UITab
     
     public var symptom: Symptom?
     private var triggers: [Trigger] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpHealthKit()
-
+        
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
-
+        
         self.title = "Your Triggers"
+        
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(onCancel))
+        self.navigationItem.leftBarButtonItem = cancelButton
+
     }
-    
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.doneButton.isHidden = (triggers.count == 0)
     }
 
+    @objc func onCancel() {
+        self.dismiss(animated: true, completion: nil)
+    }
+
+    
     @IBAction func onDone(_ sender: Any) {
         guard let symptom = self.symptom else { return }
         guard let currentUser = DataService.shared.currentUser else { return }
-
+        
         if (triggers.count > 0) {
             DataService.shared.addSymptom(symptom, forUser: currentUser)
             for trigger in triggers {
@@ -73,26 +80,26 @@ class SignUpTriggersViewController: UIViewController, UITableViewDelegate, UITab
             self.present(alert, animated: true, completion: nil)
         }
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "AddTrigger",
-//           let nav = segue.destination as? UINavigationController,
-//            let vc = nav.viewControllers[0] as? AddTriggerViewController {
-//               vc.triggers = self.triggers
-//        }
+//                if segue.identifier == "AddTrigger",
+//                   let nav = segue.destination as? UINavigationController,
+//                    let vc = nav.viewControllers[0] as? AddTriggerViewController {
+//                       vc.triggers = self.triggers
+//                }
     }
-
+    
     
     @IBAction func triggerAdded(_ segue: UIStoryboardSegue) {
         if let vc = segue.source as? AddTriggerViewController,
-            let newTrigger = vc.newTrigger {
-           
+           let newTrigger = vc.newTrigger {
+            
             self.triggers.append(newTrigger)
             self.doneButton.isHidden = (triggers.count == 0)
             tableView.reloadData()
         }
     }
-
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -108,7 +115,7 @@ class SignUpTriggersViewController: UIViewController, UITableViewDelegate, UITab
         cell.detailTextLabel?.text = trigger.units
         return cell
     }
-
+    
     
 }
 
@@ -117,5 +124,5 @@ extension SignUpTriggersViewController : DZNEmptyDataSetDelegate, DZNEmptyDataSe
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         return NSAttributedString(string: "Please add at least 1 trigger")
-        }
     }
+}

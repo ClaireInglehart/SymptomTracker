@@ -572,7 +572,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kME-oD-1UA">
-                                <rect key="frame" x="40" y="728" width="324" height="50"/>
+                                <rect key="frame" x="40" y="762" width="324" height="50"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="fQ8-Bs-GiV"/>
@@ -585,7 +585,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0K-hl-Ebe">
-                                <rect key="frame" x="50" y="20" width="314" height="60"/>
+                                <rect key="frame" x="50" y="76" width="314" height="60"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="MjR-0Z-ARn"/>
@@ -598,7 +598,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5Sa-vc-S2J">
-                                <rect key="frame" x="20" y="100" width="374" height="608"/>
+                                <rect key="frame" x="20" y="156" width="374" height="586"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TriggerCell" textLabel="Mh7-NL-kTh" detailTextLabel="dWP-Pm-RbD" style="IBUITableViewCellStyleValue1" id="8ay-Jg-74C">
@@ -658,7 +658,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aib-hf-gIW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="4yP-mz-xwo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4915.9420289855079" y="906.69642857142856"/>
+            <point key="canvasLocation" x="6334.7826086956529" y="906.69642857142856"/>
         </scene>
         <!--NewSymptom-->
         <scene sceneID="pDe-hr-fYs">
@@ -711,7 +711,7 @@
                     <connections>
                         <outlet property="nameInput" destination="kE6-cI-EUK" id="sbB-ah-mu5"/>
                         <segue destination="PVR-X4-eZq" kind="unwind" identifier="SymptomAdded" unwindAction="symptomAdded:" id="ksQ-yz-U10"/>
-                        <segue destination="ihd-mH-qnc" kind="presentation" identifier="SignUpAddTriggers" id="eDR-RM-jnx"/>
+                        <segue destination="nY6-9J-c5h" kind="presentation" identifier="SignUpAddTriggers" id="eDR-RM-jnx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IzN-qr-Phq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -783,7 +783,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MxP-5j-1Ma" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="X0H-P5-ci4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6718.840579710145" y="906.69642857142856"/>
+            <point key="canvasLocation" x="7876.811594202899" y="906.69642857142856"/>
         </scene>
         <!--Notifications-->
         <scene sceneID="hf2-Jd-08z">
@@ -1170,7 +1170,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ld-1i-4xP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5808.6956521739139" y="906.69642857142856"/>
+            <point key="canvasLocation" x="7123.188405797102" y="906.69642857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jtw-l1-VHx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nY6-9J-c5h" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="G7E-eZ-mpu"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zuh-lW-kah">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ihd-mH-qnc" kind="relationship" relationship="rootViewController" id="OTD-Qp-Dod"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L0v-xw-v3J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5424.6376811594209" y="906.69642857142856"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

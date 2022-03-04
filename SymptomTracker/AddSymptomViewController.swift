@@ -39,7 +39,8 @@ class AddSymptomViewController: UIViewController, UITextFieldDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SignUpAddTriggers",
-           let vc = segue.destination as? SignUpTriggersViewController {
+           let nav = segue.destination as? UINavigationController,
+           let vc = nav.viewControllers[0] as? SignUpTriggersViewController {
                vc.symptom = self.newSymptom
         }
     }
