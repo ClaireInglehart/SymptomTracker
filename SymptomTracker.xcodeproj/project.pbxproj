@@ -23,6 +23,7 @@
 		2789BC5C27D2917900ED54E3 /* AddAppleHealthTriggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789BC5B27D2917900ED54E3 /* AddAppleHealthTriggerViewController.swift */; };
 		2789BC5E27D296C200ED54E3 /* AppleHealthTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789BC5D27D296C200ED54E3 /* AppleHealthTrigger.swift */; };
 		2789BC6027D2975700ED54E3 /* AppleHealthTriggerCheckin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789BC5F27D2975700ED54E3 /* AppleHealthTriggerCheckin.swift */; };
+		2789BC6227D2D7F500ED54E3 /* NSDate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789BC6127D2D7F400ED54E3 /* NSDate+Extensions.swift */; };
 		7E04325427C47D9300BBB825 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E04325327C47D9300BBB825 /* Notifications.swift */; };
 		7E1D424E27D078470053B245 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E1D424D27D078470053B245 /* HealthKit.framework */; };
 		7E440F1327B707DC00454F1F /* AddSymptomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E440F1227B707DC00454F1F /* AddSymptomViewController.swift */; };
@@ -64,6 +65,7 @@
 		2789BC5B27D2917900ED54E3 /* AddAppleHealthTriggerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAppleHealthTriggerViewController.swift; sourceTree = "<group>"; };
 		2789BC5D27D296C200ED54E3 /* AppleHealthTrigger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleHealthTrigger.swift; sourceTree = "<group>"; };
 		2789BC5F27D2975700ED54E3 /* AppleHealthTriggerCheckin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleHealthTriggerCheckin.swift; sourceTree = "<group>"; };
+		2789BC6127D2D7F400ED54E3 /* NSDate+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extensions.swift"; sourceTree = "<group>"; };
 		369CAFAF737ABD8AA337083E /* Pods-SymptomTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SymptomTracker.debug.xcconfig"; path = "Target Support Files/Pods-SymptomTracker/Pods-SymptomTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		7E04325327C47D9300BBB825 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		7E1D424C27D078470053B245 /* SymptomTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SymptomTracker.entitlements; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 		7EEFC1B527B041BC001C92C0 /* SymptomTracker */ = {
 			isa = PBXGroup;
 			children = (
+				2789BC6127D2D7F400ED54E3 /* NSDate+Extensions.swift */,
 				7E1D424C27D078470053B245 /* SymptomTracker.entitlements */,
 				272C0EBC27C0673500587930 /* chatbot.json */,
 				272C0EB527C066D800587930 /* MGSwipeTableCell */,
@@ -319,6 +322,7 @@
 			files = (
 				7EEFC1BB27B041BC001C92C0 /* LogInViewController.swift in Sources */,
 				272C0EBA27C066D800587930 /* MGSwipeTableCell.m in Sources */,
+				2789BC6227D2D7F500ED54E3 /* NSDate+Extensions.swift in Sources */,
 				7E440F1527B84DB100454F1F /* AddTriggerViewController.swift in Sources */,
 				272C0EA427B8760C00587930 /* CustomTriggerCheckin.swift in Sources */,
 				2789BC5C27D2917900ED54E3 /* AddAppleHealthTriggerViewController.swift in Sources */,

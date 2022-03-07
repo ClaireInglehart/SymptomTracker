@@ -1,20 +1,24 @@
 PODS:
   - DZNEmptyDataSet (1.8.1)
+  - Loaf (0.7.0)
   - lottie-ios (3.2.2)
 
 DEPENDENCIES:
   - DZNEmptyDataSet
+  - Loaf
   - lottie-ios
 
 SPEC REPOS:
   trunk:
     - DZNEmptyDataSet
+    - Loaf
     - lottie-ios
 
 SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  Loaf: d69937cd00649f3fa260beb8b7aef0a1feb861ef
   lottie-ios: a033bb989eea77d9f99cc4e2bbdd3788229761ad
 
-PODFILE CHECKSUM: a211fbf4837ab5e7029c9e1ec373244b2efd22d9
+PODFILE CHECKSUM: ad8b0328b458f64a524eb71309af1233c582ba3d
 
 COCOAPODS: 1.11.2

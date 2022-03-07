@@ -247,10 +247,4 @@ extension Date {
         return components.weekday ?? 0
     }
     
-    func dateByAddingMinutes(_ dMinutes: NSInteger) -> Date {
-        let aTimeInterval = self.timeIntervalSinceReferenceDate + Double(60.0) * Double(dMinutes)
-        let newDate = Date(timeIntervalSinceReferenceDate: aTimeInterval)
-        return newDate
-    }
-
 }

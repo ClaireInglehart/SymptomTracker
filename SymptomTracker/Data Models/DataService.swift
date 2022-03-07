@@ -58,7 +58,6 @@ class DataService {
         }
     }
     
-    // TODO: deleteSymptom
     
     public func addCustomTrigger(_ trigger: CustomTrigger, forSymptom symptom: Symptom) {
         symptom.customTriggers.append(trigger)
@@ -70,8 +69,16 @@ class DataService {
         save()
     }
 
-    // TODO: deleteTrigger
 
+    public func getCheckin(forDate date: Date, forUser user: User) -> Checkin? {
+        if self.isValidUser(user) {
+            return user.checkins.forDate(date)
+        } else {
+            print("❌ user not found!")
+            return nil
+        }
+    }
+    
     public func addCheckin(_ checkIn: Checkin, forUser user: User) {
         if self.isValidUser(user) {
             user.checkins.append(checkIn)
@@ -81,6 +88,7 @@ class DataService {
         }
     }
     
+    // TODO: deleteSymptom
     // TODO: deleteCheckin
     
     private func load() -> [User] {
@@ -133,4 +141,18 @@ class DataService {
         self.saveJSON(jsonString: "", key: dataKeyName)
         print("🗑 all user accounts deleted")
     }
+}
+
+
+extension Array where Element: Checkin {
+
+    func forDate(_ date: Date) -> Checkin? {
+        for checkin in self {
+            if checkin.date.isEqualToDateIgnoringTime(date) {
+                return checkin
+            }
+        }
+        return nil
+    }
+
 }
