@@ -60,11 +60,8 @@ class SignUpTriggersViewController: UIViewController, UITableViewDelegate, UITab
             }
             performSegue(withIdentifier: "SymptomAdded", sender: sender)
         } else {
-            let title = "Set Up"
             let message = "Please add at least one Trigger"
-            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            self.showWarningToast(withMessage: message)
         }
     }
     
