@@ -72,8 +72,7 @@ class SignUpTriggersViewController: UIViewController, UITableViewDelegate, UITab
     @IBAction func addTriggerCanceled(_ segue: UIStoryboardSegue) {
     }
     
-    @IBAction func triggerAdded(_ segue: UIStoryboardSegue) {
-        if let vc = segue.source as? AddTriggerViewController,
+    @IBAction func triggerAdded(_ segue: UIStoryboardSegue) {        if let vc = segue.source as? AddTriggerViewController,
            let newTrigger = vc.newTrigger {
             
             self.customTriggers.append(newTrigger)
@@ -96,12 +95,18 @@ class SignUpTriggersViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         if (section == 0) {
             return customTriggers.count
+
         } else {
             return appleHealthTriggers.count
+
         }
     }
+
+        
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -111,6 +116,7 @@ class SignUpTriggersViewController: UIViewController, UITableViewDelegate, UITab
             cell.textLabel?.text = trigger.name
             cell.detailTextLabel?.text = trigger.units
             return cell
+            
         } else {
             let trigger = appleHealthTriggers[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: "TriggerCell", for: indexPath)
@@ -120,23 +126,23 @@ class SignUpTriggersViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath, titleForHeaderInSection section: Int) -> String? {
         if (section == 0) {
             if (self.customTriggers.count > 0) {
                 return "Custom Triggers"
             }
+
         } else {
             if (self.appleHealthTriggers.count > 0) {
                 return "Apple Health Triggers"
             }
         }
+    
         return nil
+
     }
-    
-    
+
 }
-
-
 extension SignUpTriggersViewController : DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {

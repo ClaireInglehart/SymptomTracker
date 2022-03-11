@@ -1,0 +1,9 @@
+Target dependency graph (5 targets)
+DZNEmptyDataSet in Pods, no dependencies
+FSCalendar in Pods, no dependencies
+Loaf in Pods, no dependencies
+lottie-ios in Pods, no dependencies
+Pods-SymptomTracker in Pods, depends on:
+DZNEmptyDataSet in Pods (explicit)
+Loaf in Pods (explicit)
+lottie-ios in Pods (explicit)

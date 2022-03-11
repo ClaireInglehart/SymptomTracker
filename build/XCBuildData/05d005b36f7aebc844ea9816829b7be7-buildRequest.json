@@ -1,0 +1,76 @@
+{
+  "_buildCommand2" : {
+    "command" : "prepareForIndexing",
+    "enableIndexBuildArena" : false,
+    "targets" : null
+  },
+  "buildCommand" : "build",
+  "configuredTargets" : [
+    {
+      "guid" : "bfdfe7dc352907fc980b868725387e98ebf44c806b065138013977ae3dac5bd4"
+    },
+    {
+      "guid" : "bfdfe7dc352907fc980b868725387e98edfe190040a90418856a7a9f51867904"
+    },
+    {
+      "guid" : "bfdfe7dc352907fc980b868725387e98b953c317101ec3a78cf245c92606c9df"
+    },
+    {
+      "guid" : "bfdfe7dc352907fc980b868725387e98b2ea696fb27998949a9d81b22068e25d"
+    },
+    {
+      "guid" : "bfdfe7dc352907fc980b868725387e98fa2e43183734e48231e71168c0841a74"
+    }
+  ],
+  "containerPath" : "/Users/claire/Documents/GitHub/SymptomTracker/Pods/Pods.xcodeproj",
+  "continueBuildingAfterErrors" : true,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "activeArchitecture" : "x86_64",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "platform" : "iphonesimulator",
+      "sdk" : "iphonesimulator15.2",
+      "sdkVariant" : "iphonesimulator",
+      "supportedArchitectures" : [
+        "x86_64"
+      ],
+      "targetArchitecture" : "x86_64"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "",
+      "buildProductsPath" : "",
+      "derivedDataPath" : "/Users/claire/Library/Developer/Xcode/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/claire/Library/Developer/Xcode/DerivedData/Pods-djexasikdushggeupwdkfipcclrf/Index/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/claire/Library/Developer/Xcode/DerivedData/Pods-djexasikdushggeupwdkfipcclrf/Index/PrecompiledHeaders",
+      "pchPath" : ""
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ASSETCATALOG_FILTER_FOR_DEVICE_MODEL" : "iPod9,1",
+          "ASSETCATALOG_FILTER_FOR_DEVICE_OS_VERSION" : "15.2",
+          "BUILD_ACTIVE_RESOURCES_ONLY" : "YES",
+          "ENABLE_PREVIEWS" : "NO",
+          "TARGET_DEVICE_IDENTIFIER" : "FA93F3FE-55E5-4E50-BE11-A86EF1BB69AF",
+          "TARGET_DEVICE_MODEL" : "iPod9,1",
+          "TARGET_DEVICE_OS_VERSION" : "15.2",
+          "TARGET_DEVICE_PLATFORM_NAME" : "iphonesimulator"
+        }
+      }
+    }
+  },
+  "qos" : "default",
+  "schemeCommand" : "launch",
+  "schemeCommand2" : "launch",
+  "shouldCollectMetrics" : false,
+  "showNonLoggedProgress" : true,
+  "useDryRun" : true,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}

@@ -1,24 +1,28 @@
 PODS:
   - DZNEmptyDataSet (1.8.1)
+  - FSCalendar (2.8.2)
   - Loaf (0.7.0)
   - lottie-ios (3.2.2)
 
 DEPENDENCIES:
   - DZNEmptyDataSet
+  - FSCalendar
   - Loaf
   - lottie-ios
 
 SPEC REPOS:
   trunk:
     - DZNEmptyDataSet
+    - FSCalendar
     - Loaf
     - lottie-ios
 
 SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
   Loaf: d69937cd00649f3fa260beb8b7aef0a1feb861ef
   lottie-ios: a033bb989eea77d9f99cc4e2bbdd3788229761ad
 
-PODFILE CHECKSUM: ad8b0328b458f64a524eb71309af1233c582ba3d
+PODFILE CHECKSUM: 4ff4c8aeafc78f02b2be4d7b4ac8f1a3f1fa8d38
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.10.1
