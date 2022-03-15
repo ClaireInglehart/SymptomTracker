@@ -50,12 +50,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
         
-        // If user is signed in, go to the Check-in screen
-        if (DataService.shared.currentUser != nil) {
-            goToCheckins()
-        } else {
-            print("no user is signed in")
-        }
+        goToCheckins()
         
         completionHandler()
     }

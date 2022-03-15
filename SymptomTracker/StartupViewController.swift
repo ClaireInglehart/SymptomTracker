@@ -51,13 +51,20 @@ class StartupViewController: UIViewController {
     
 
     public func doCheckin() {
-        // Show the "home" view controller
-        DispatchQueue.main.asyncAfter(deadline: .now()+0.3) {
-            self.performSegue(withIdentifier: "GoHome", sender: nil)
-            
-            // Post a notification. This will be handled by HomePageViewController.
+        if (DataService.shared.currentUser != nil) {
+            // Show the "home" view controller
             DispatchQueue.main.asyncAfter(deadline: .now()+0.3) {
-                NotificationCenter.default.post(name: NSNotification.Name("daily.checkin"), object: nil)
+                self.performSegue(withIdentifier: "GoHome", sender: nil)
+                
+                // Post a notification. This will be handled by HomePageViewController.
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.3) {
+                    NotificationCenter.default.post(name: NSNotification.Name("daily.checkin"), object: nil)
+                }
+            }
+        } else {
+            // No user logged in -> sign in
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.3) {
+                self.performSegue(withIdentifier: "ShowLogin", sender: self)
             }
         }
     }
