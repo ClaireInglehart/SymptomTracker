@@ -10,104 +10,228 @@ import UserNotifications
 
 class NotificationsViewController: UIViewController {
 
-
+    @IBOutlet weak var notification1Switch: UISwitch!
+    @IBOutlet weak var notification2Switch: UISwitch!
+    
     @IBOutlet weak var notifPicker2: UIDatePicker!
     @IBOutlet weak var notifPicker1: UIDatePicker!
     
-    @IBOutlet weak var doneButton: UIButton!
+    let notification1Identifiers = ["symptom.tracker.notification1.day1",     // one for each day of the week
+                                    "symptom.tracker.notification1.day2",
+                                    "symptom.tracker.notification1.day3",
+                                    "symptom.tracker.notification1.day4",
+                                    "symptom.tracker.notification1.day5",
+                                    "symptom.tracker.notification1.day6",
+                                    "symptom.tracker.notification1.day7"]
 
+    let notification2Identifiers = ["symptom.tracker.notification2.day1",     // one for each day of the week
+                                    "symptom.tracker.notification2.day2",
+                                    "symptom.tracker.notification2.day3",
+                                    "symptom.tracker.notification2.day4",
+                                    "symptom.tracker.notification2.day5",
+                                    "symptom.tracker.notification2.day6",
+                                    "symptom.tracker.notification2.day7"]
+
+    var hourMinuteTimeFormatter: DateFormatter!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.notifPicker1.addTarget(self, action: #selector(onPicker1ValueChanged(_:)), for: .valueChanged)
-        self.notifPicker2.addTarget(self, action: #selector(onPicker2ValueChanged(_:)), for: .valueChanged)
+        self.navigationItem.title = "Settings"
 
-        let center = UNUserNotificationCenter.current()
+        self.notification1Switch.onTintColor = .systemIndigo
+        self.notification2Switch.onTintColor = .systemIndigo
         
-        center.requestAuthorization(options: [.alert, .sound]) {
-            (granted, error) in
+        self.notification1Switch.isOn = AppSettings.notification1Enabled
+        self.notification2Switch.isOn = AppSettings.notification2Enabled
+        
+        self.notifPicker1.isEnabled = AppSettings.notification1Enabled
+        self.notifPicker2.isEnabled = AppSettings.notification2Enabled
+        
+        let notification1TimeString = AppSettings.notification1Time ?? "17:00"
+        let notification2TimeString = AppSettings.notification2Time ?? "17:00"
+        
+        // Notification times are stored as strings. Convert to date.
+        self.hourMinuteTimeFormatter = DateFormatter()
+        self.hourMinuteTimeFormatter.dateFormat = "HH:mm"
+        
+        let notification1Time = self.hourMinuteTimeFormatter.date(from: notification1TimeString) ?? Date()
+        let notification2Time = self.hourMinuteTimeFormatter.date(from: notification2TimeString) ?? Date()
+        
+        let date1 = Date().dateWithHour(hour: notification1Time.getHour(), minute: notification1Time.getMinute(), second: 0)
+        let date2 = Date().dateWithHour(hour: notification2Time.getHour(), minute: notification2Time.getMinute(), second: 0)
+        
+        self.notifPicker1.date = date1 ?? Date()
+        self.notifPicker2.date = date2 ?? Date()
+    }
+    
+    @IBAction func onNotification1SwitchValueChanged(_ sender: UISwitch) {
+        AppSettings.notification1Enabled = sender.isOn
+        self.notifPicker1.isEnabled = AppSettings.notification1Enabled
+        
+        self.cancelNotification1()
+        if (sender.isOn) {
+            self.scheduleNotification1 {
+            }
+        }
+    }
+    
+    @IBAction func onNotification2SwitchValueChanged(_ sender: UISwitch) {
+        AppSettings.notification2Enabled = sender.isOn
+        self.notifPicker2.isEnabled = AppSettings.notification2Enabled
+        
+        self.cancelNotification2()
+        if (sender.isOn) {
+            self.scheduleNotification2 {
+            }
+        }
+    }
+    
+    @IBAction func onTimePicker1ValueChanged(_ sender: UIDatePicker) {
+        self.cancelNotification1()
+
+        // Convert date to string for saving
+        let notification1TimeString = self.hourMinuteTimeFormatter.string(from: sender.date)
+        AppSettings.notification1Time = notification1TimeString
+        
+        self.scheduleNotification1 {
+        }
+    }
+    
+    @IBAction func onTimePicker2ValueChanged(_ sender: UIDatePicker) {
+        self.cancelNotification2()
+
+        // Convert date to string for saving
+        let notification2TimeString = self.hourMinuteTimeFormatter.string(from: sender.date)
+        AppSettings.notification2Time = notification2TimeString
+        
+        self.scheduleNotification2 {
+        }
+    }
+    
+    func cancelNotification1() {
+        print("cancelNotification1")
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: self.notification1Identifiers)
+    }
+
+    func cancelNotification2() {
+        print("cancelNotification2")
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: self.notification2Identifiers)
+    }
+
+    func scheduleNotification1(onCompletion completion: @escaping ()->()) {
+        
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            if (granted) {
+                // create notification trigger
+                let notification1TimeString = AppSettings.notification1Time ?? "17:00"
+                let notification1Time = self.hourMinuteTimeFormatter.date(from: notification1TimeString) ?? Date()
+                let notificationDate = Date().dateWithHour(hour: notification1Time.getHour(), minute: notification1Time.getMinute(), second: 0)!
+                var weekday = 1
+                self.notification1Identifiers.forEach { identifier in
+                    self.scheduleNotification(withIdentifier: identifier, atTime: notificationDate, onWeekday: weekday)
+                    weekday += 1
+                }
+            } else {
+                print("NOT granted")
+                AppSettings.notification1Enabled = false
+                self.notification1Switch.isOn = false
+                self.notifPicker1.isEnabled = false
+            }
+            completion()
         }
         
-        //create notificatoin content
+    }
+    
+    func scheduleNotification2(onCompletion completion: @escaping ()->()) {
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            if (granted) {
+                // create notification trigger
+                let notification2TimeString = AppSettings.notification2Time ?? "17:00"
+                let notification2Time = self.hourMinuteTimeFormatter.date(from: notification2TimeString) ?? Date()
+                let notificationDate = Date().dateWithHour(hour: notification2Time.getHour(), minute: notification2Time.getMinute(), second: 0)!
+                var weekday = 1
+                self.notification2Identifiers.forEach { identifier in
+                    self.scheduleNotification(withIdentifier: identifier, atTime: notificationDate, onWeekday: weekday)
+                    weekday += 1
+                }
+            } else {
+                print("NOT granted")
+                AppSettings.notification2Enabled = false
+                self.notification2Switch.isOn = false
+                self.notifPicker2.isEnabled = false
+            }
+            completion()
+        }
+    }
+    
+    func scheduleNotification(withIdentifier identifier: String, atTime notificationTime: Date, onWeekday weekday: Int) {
+        
+        let center = UNUserNotificationCenter.current()
         let content = UNMutableNotificationContent()
         
-        content.title = "Im a notification!"
-        content.body = "Im the body of the notification!"
+        content.title = "Time for your daily check-in!"
+        content.body = "Please tap this notification and then enter your trigger values for today."
         
-        getPickerValue(self.notifPicker1)
-        getPickerValue(self.notifPicker2)
-
-        self.doneButton.layer.cornerRadius = 8.0
-
-        //create notification trigger - the date on the picker(aka time)
-//        let date = notifPicker1.date
-
-        let date = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
+        var triggerDateComponents = DateComponents()
+        triggerDateComponents.calendar = Calendar.current
+        triggerDateComponents.weekday = weekday
+        triggerDateComponents.hour = notificationTime.getHour()
+        triggerDateComponents.minute = notificationTime.getMinute()
         
-        dateFormatter.string(from: date)
-        
-        
-        print("Date notif1Picker: ", date.formatted())
-        //creates components of that date - the day, the hour, the minute
-        
-        //dateComponents of UI Picker
-        let dateComponents = Calendar.current.dateComponents([.year ,.day, .hour, .minute], from: date)
-                
-        print("date components: ", dateComponents.description)
-        //sets the trigger to that dateComponent
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-        
-        //create request from notifications and trigger
-        let uuidString = UUID().uuidString
-        let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDateComponents, repeats: true)
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         
         center.add(request) { (error) in
-            //check the error parameter and handle any errors
-
+            print("scheduleNotification id:\(identifier) weekday:\(weekday) hour:(\(triggerDateComponents.hour!) minute:\(triggerDateComponents.minute!) error:\(String(describing: error))")
+        }
+    }
+    
+    func scheduleTestNotification() {
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            if (granted) {
+                let content = UNMutableNotificationContent()
+                content.title = "Weekly Staff Meeting"
+                content.body = "Every Tuesday at 2pm"
+                
+                let triggerDate = Date().dateByAddingMinutes(2)
+                
+                var dateComponents = DateComponents()
+                dateComponents.calendar = Calendar.current
+                dateComponents.weekday = triggerDate.getWeekday()
+                dateComponents.hour = triggerDate.getHour()
+                dateComponents.minute = triggerDate.getMinute()
+                
+                // Create the trigger as a repeating event.
+                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+                
+                let uuidString = UUID().uuidString
+                let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
+                
+                // Schedule the request with the system.
+                let notificationCenter = UNUserNotificationCenter.current()
+                notificationCenter.add(request) { (error) in
+                    if error != nil {
+                        // Handle any errors.
+                    }
+                    print("scheduleTestNotification (\(dateComponents.hour!):\(dateComponents.minute!): \(String(describing: error))")
+                }
+                
+            } else {
+                print("NOT granted")
+            }
         }
         
     }
 
-    @IBAction func onPicker1ValueChanged(_ sender: UIDatePicker) {
-        getPickerValue(sender)
-    }
-    
-    @IBAction func onPicker2ValueChanged(_ sender: UIDatePicker) {
-        getPickerValue(sender)
-    }
-    
-    func getPickerValue(_ datePicker: UIDatePicker) {
-        let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "HH:mm"  // or use "h:mm" if you don't want it to print military time
-        let timeString = timeFormatter.string(from: datePicker.date)
-        print(timeString)
 
-        // These use extension functions in SettingsViewController
-        let hour = datePicker.date.getHour()
-        let minute = datePicker.date.getMinute()
-        print("hour: \(hour)")
-        print("minute: \(minute)")
-    }
-    
-    
     @IBAction func onDone(_ sender: Any) {
-        
-        //capture date shown on picker 1
-        let notifPicker1 = notifPicker1.date.formatted(date: .long, time: .standard)
-        
-//        let notifPicker2 = notifPicker2.date
-//        notifPicker1
-        print("🔔notif1 Time: ", notifPicker1)
-//        print("🔔🔔notif2 Time: ", notifPicker2)
-
-        
-        // TODO: verify user has set up notifications?
-        
         performSegue(withIdentifier: "SetupComplete", sender: sender)
-
     }
 
 }

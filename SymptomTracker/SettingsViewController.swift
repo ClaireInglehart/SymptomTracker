@@ -15,9 +15,22 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var notifPicker2: UIDatePicker!
     @IBOutlet weak var notifPicker1: UIDatePicker!
     
-    let notification1Identifier = "notification1"
-    let notification2Identifier = "notification2"
-    
+    let notification1Identifiers = ["symptom.tracker.notification1.day1",     // one for each day of the week
+                                    "symptom.tracker.notification1.day2",
+                                    "symptom.tracker.notification1.day3",
+                                    "symptom.tracker.notification1.day4",
+                                    "symptom.tracker.notification1.day5",
+                                    "symptom.tracker.notification1.day6",
+                                    "symptom.tracker.notification1.day7"]
+
+    let notification2Identifiers = ["symptom.tracker.notification2.day1",     // one for each day of the week
+                                    "symptom.tracker.notification2.day2",
+                                    "symptom.tracker.notification2.day3",
+                                    "symptom.tracker.notification2.day4",
+                                    "symptom.tracker.notification2.day5",
+                                    "symptom.tracker.notification2.day6",
+                                    "symptom.tracker.notification2.day7"]
+
     var hourMinuteTimeFormatter: DateFormatter!
     
     override func viewDidLoad() {
@@ -49,18 +62,15 @@ class SettingsViewController: UIViewController {
         
         self.notifPicker1.date = date1 ?? Date()
         self.notifPicker2.date = date2 ?? Date()
-        
-        self.scheduleTestNotification()
     }
     
     @IBAction func onNotification1SwitchValueChanged(_ sender: UISwitch) {
         AppSettings.notification1Enabled = sender.isOn
         self.notifPicker1.isEnabled = AppSettings.notification1Enabled
         
-        self.cancelNotification(withIdentifier: notification1Identifier)
+        self.cancelNotification1()
         if (sender.isOn) {
             self.scheduleNotification1 {
-                
             }
         }
     }
@@ -69,16 +79,15 @@ class SettingsViewController: UIViewController {
         AppSettings.notification2Enabled = sender.isOn
         self.notifPicker2.isEnabled = AppSettings.notification2Enabled
         
-        self.cancelNotification(withIdentifier: notification2Identifier)
+        self.cancelNotification2()
         if (sender.isOn) {
             self.scheduleNotification2 {
-                
             }
         }
     }
     
     @IBAction func onTimePicker1ValueChanged(_ sender: UIDatePicker) {
-        self.cancelNotification(withIdentifier: notification1Identifier)
+        self.cancelNotification1()
 
         // Convert date to string for saving
         let notification1TimeString = self.hourMinuteTimeFormatter.string(from: sender.date)
@@ -89,7 +98,7 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func onTimePicker2ValueChanged(_ sender: UIDatePicker) {
-        self.cancelNotification(withIdentifier: notification2Identifier)
+        self.cancelNotification2()
 
         // Convert date to string for saving
         let notification2TimeString = self.hourMinuteTimeFormatter.string(from: sender.date)
@@ -99,12 +108,18 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    func cancelNotification(withIdentifier identifier: String) {
-        print("cancelNotification id:\(identifier)")
+    func cancelNotification1() {
+        print("cancelNotification1")
         let center = UNUserNotificationCenter.current()
-        center.removePendingNotificationRequests(withIdentifiers: [identifier])
+        center.removePendingNotificationRequests(withIdentifiers: self.notification1Identifiers)
     }
-    
+
+    func cancelNotification2() {
+        print("cancelNotification2")
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: self.notification2Identifiers)
+    }
+
     func scheduleNotification1(onCompletion completion: @escaping ()->()) {
         
         let center = UNUserNotificationCenter.current()
@@ -114,8 +129,11 @@ class SettingsViewController: UIViewController {
                 let notification1TimeString = AppSettings.notification1Time ?? "17:00"
                 let notification1Time = self.hourMinuteTimeFormatter.date(from: notification1TimeString) ?? Date()
                 let notificationDate = Date().dateWithHour(hour: notification1Time.getHour(), minute: notification1Time.getMinute(), second: 0)!
-                self.scheduleNotification(withIdentifier: self.notification1Identifier, withDate: notificationDate)
-                
+                var weekday = 1
+                self.notification1Identifiers.forEach { identifier in
+                    self.scheduleNotification(withIdentifier: identifier, atTime: notificationDate, onWeekday: weekday)
+                    weekday += 1
+                }
             } else {
                 print("NOT granted")
                 AppSettings.notification1Enabled = false
@@ -135,7 +153,11 @@ class SettingsViewController: UIViewController {
                 let notification2TimeString = AppSettings.notification2Time ?? "17:00"
                 let notification2Time = self.hourMinuteTimeFormatter.date(from: notification2TimeString) ?? Date()
                 let notificationDate = Date().dateWithHour(hour: notification2Time.getHour(), minute: notification2Time.getMinute(), second: 0)!
-                self.scheduleNotification(withIdentifier: self.notification2Identifier, withDate: notificationDate)
+                var weekday = 1
+                self.notification2Identifiers.forEach { identifier in
+                    self.scheduleNotification(withIdentifier: identifier, atTime: notificationDate, onWeekday: weekday)
+                    weekday += 1
+                }
             } else {
                 print("NOT granted")
                 AppSettings.notification2Enabled = false
@@ -146,7 +168,7 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    func scheduleNotification(withIdentifier identifier: String, withDate notificationDate: Date) {
+    func scheduleNotification(withIdentifier identifier: String, atTime notificationTime: Date, onWeekday weekday: Int) {
         
         let center = UNUserNotificationCenter.current()
         let content = UNMutableNotificationContent()
@@ -156,15 +178,15 @@ class SettingsViewController: UIViewController {
         
         var triggerDateComponents = DateComponents()
         triggerDateComponents.calendar = Calendar.current
-        triggerDateComponents.weekday = notificationDate.getWeekday()
-        triggerDateComponents.hour = notificationDate.getHour()
-        triggerDateComponents.minute = notificationDate.getMinute()
+        triggerDateComponents.weekday = weekday
+        triggerDateComponents.hour = notificationTime.getHour()
+        triggerDateComponents.minute = notificationTime.getMinute()
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDateComponents, repeats: true)
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         
         center.add(request) { (error) in
-            print("scheduleNotification id:\(identifier) time:(\(triggerDateComponents.hour):\(triggerDateComponents.minute) error:\(error)")
+            print("scheduleNotification id:\(identifier) weekday:\(weekday) hour:(\(triggerDateComponents.hour!) minute:\(triggerDateComponents.minute!) error:\(String(describing: error))")
         }
     }
     
@@ -196,7 +218,7 @@ class SettingsViewController: UIViewController {
                     if error != nil {
                         // Handle any errors.
                     }
-                    print("scheduleTestNotification (\(dateComponents.hour):\(dateComponents.minute): \(error)")
+                    print("scheduleTestNotification (\(dateComponents.hour!):\(dateComponents.minute!): \(String(describing: error))")
                 }
                 
             } else {

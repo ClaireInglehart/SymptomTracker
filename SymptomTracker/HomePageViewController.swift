@@ -11,7 +11,18 @@ class HomePageViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        // This notification gets posted from StartupViewController when the
+        // user taps on the notification banner
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(doCheckinNotification(_:)),
+                                               name: NSNotification.Name ("daily.checkin"),
+                                               object: nil)
     }
+        
+    @objc func doCheckinNotification(_ notification: Notification) {
+        self.selectedIndex = 2      // Select Check-in tab
+    }
+    
     
 }
