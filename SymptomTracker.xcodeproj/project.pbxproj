@@ -21,6 +21,7 @@
 		272C0EBF27C5B8AD00587930 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272C0EBE27C5B8AD00587930 /* AppSettings.swift */; };
 		272C0EC127C5BB4F00587930 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272C0EC027C5BB4F00587930 /* SettingsViewController.swift */; };
 		275B4FA827D6D30B00BDF85C /* UIViewController+Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275B4FA727D6D30B00BDF85C /* UIViewController+Toast.swift */; };
+		2784752227E2AB26001EFA84 /* DailyCheckinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2784752127E2AB26001EFA84 /* DailyCheckinViewController.swift */; };
 		2789BC5C27D2917900ED54E3 /* AddAppleHealthTriggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789BC5B27D2917900ED54E3 /* AddAppleHealthTriggerViewController.swift */; };
 		2789BC5E27D296C200ED54E3 /* AppleHealthTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789BC5D27D296C200ED54E3 /* AppleHealthTrigger.swift */; };
 		2789BC6027D2975700ED54E3 /* AppleHealthTriggerCheckin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789BC5F27D2975700ED54E3 /* AppleHealthTriggerCheckin.swift */; };
@@ -65,6 +66,7 @@
 		272C0EBE27C5B8AD00587930 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		272C0EC027C5BB4F00587930 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		275B4FA727D6D30B00BDF85C /* UIViewController+Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Toast.swift"; sourceTree = "<group>"; };
+		2784752127E2AB26001EFA84 /* DailyCheckinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCheckinViewController.swift; sourceTree = "<group>"; };
 		2789BC5B27D2917900ED54E3 /* AddAppleHealthTriggerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAppleHealthTriggerViewController.swift; sourceTree = "<group>"; };
 		2789BC5D27D296C200ED54E3 /* AppleHealthTrigger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleHealthTrigger.swift; sourceTree = "<group>"; };
 		2789BC5F27D2975700ED54E3 /* AppleHealthTriggerCheckin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleHealthTriggerCheckin.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				7E440F1227B707DC00454F1F /* AddSymptomViewController.swift */,
 				7E440F1427B84DB100454F1F /* AddTriggerViewController.swift */,
 				7EEFC1DC27B0AE14001C92C0 /* CheckInViewController.swift */,
+				2784752127E2AB26001EFA84 /* DailyCheckinViewController.swift */,
 				7EEFC1D627B0ACB0001C92C0 /* HistoryViewController.swift */,
 				7EEFC1D427B05482001C92C0 /* HomePageViewController.swift */,
 				7EEFC1C127B041BD001C92C0 /* LaunchScreen.storyboard */,
@@ -326,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2784752227E2AB26001EFA84 /* DailyCheckinViewController.swift in Sources */,
 				7EEFC1BB27B041BC001C92C0 /* LogInViewController.swift in Sources */,
 				272C0EBA27C066D800587930 /* MGSwipeTableCell.m in Sources */,
 				2789BC6227D2D7F500ED54E3 /* NSDate+Extensions.swift in Sources */,

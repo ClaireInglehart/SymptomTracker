@@ -24,6 +24,14 @@ class Checkin: Codable {
         self.symptomCheckins.append(contentsOf: symptomCheckins)
     }
         
+    public func checkinForSymptom(_ symptom: Symptom) -> SymptomCheckin? {
+        for symptomCheckin in symptomCheckins {
+            if (symptomCheckin.symptom.name == symptom.name) {
+                return symptomCheckin
+            }
+        }
+        return nil
+    }
 }
 
 

@@ -18,8 +18,27 @@ enum Severity: Int, Codable {
 
 class SymptomCheckin: Codable {
 
-    var symtom: Symptom
+    var symptom: Symptom
     var severity: Severity?
     var customTriggerCheckins: [CustomTriggerCheckin]
     var appleHealthTriggerCheckins: [AppleHealthTriggerCheckin]
+    
+    public func checkinForCustomTrigger(_ trigger: CustomTrigger) -> CustomTriggerCheckin? {
+        for checkin in self.customTriggerCheckins {
+            if (checkin.trigger.name == trigger.name) {
+                return checkin
+            }
+        }
+        return nil
+    }
+
+    public func checkinForAppleHealthTrigger(_ trigger: AppleHealthTrigger) -> AppleHealthTriggerCheckin? {
+        for checkin in appleHealthTriggerCheckins {
+            if (checkin.trigger.identifier == trigger.identifier) {
+                return checkin
+            }
+        }
+        return nil
+    }
+
 }
