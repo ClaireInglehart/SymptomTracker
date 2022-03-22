@@ -23,6 +23,13 @@ class SymptomCheckin: Codable {
     var customTriggerCheckins: [CustomTriggerCheckin]
     var appleHealthTriggerCheckins: [AppleHealthTriggerCheckin]
     
+    init(symptom: Symptom, severity: Severity) {
+        self.symptom = symptom
+        self.severity = severity
+        self.customTriggerCheckins = []
+        self.appleHealthTriggerCheckins = []
+    }
+    
     public func checkinForCustomTrigger(_ trigger: CustomTrigger) -> CustomTriggerCheckin? {
         for checkin in self.customTriggerCheckins {
             if (checkin.trigger.name == trigger.name) {

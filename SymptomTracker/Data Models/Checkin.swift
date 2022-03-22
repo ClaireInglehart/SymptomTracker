@@ -17,6 +17,7 @@ class Checkin: Codable {
             return formatter.date(from: self.dateString) ?? Date()
         }
     }
+    
     init(date: Date, symptomCheckins: [SymptomCheckin]) {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY-MM-dd"

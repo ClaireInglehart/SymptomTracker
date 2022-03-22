@@ -10,5 +10,10 @@ import Foundation
 class AppleHealthTriggerCheckin: Codable {
 
     var trigger: AppleHealthTrigger
-    var quantity: Double?
+    var quantity: Double
+    
+    init(trigger: AppleHealthTrigger, quantity: Double) {
+        self.trigger = trigger
+        self.quantity = quantity
+    }
 }
