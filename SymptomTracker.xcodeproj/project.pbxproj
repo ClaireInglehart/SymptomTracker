@@ -26,6 +26,12 @@
 		2789BC5E27D296C200ED54E3 /* AppleHealthTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789BC5D27D296C200ED54E3 /* AppleHealthTrigger.swift */; };
 		2789BC6027D2975700ED54E3 /* AppleHealthTriggerCheckin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789BC5F27D2975700ED54E3 /* AppleHealthTriggerCheckin.swift */; };
 		2789BC6227D2D7F500ED54E3 /* NSDate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789BC6127D2D7F400ED54E3 /* NSDate+Extensions.swift */; };
+		27CFECC027E97E0F005F8575 /* TDLikertScaleSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFECBA27E97E0F005F8575 /* TDLikertScaleSelectorView.swift */; };
+		27CFECC127E97E0F005F8575 /* TDSelectionContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFECBB27E97E0F005F8575 /* TDSelectionContainerView.swift */; };
+		27CFECC227E97E0F005F8575 /* TDSelectionBuildConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFECBC27E97E0F005F8575 /* TDSelectionBuildConfig.swift */; };
+		27CFECC327E97E0F005F8575 /* TDUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFECBD27E97E0F005F8575 /* TDUtils.swift */; };
+		27CFECC427E97E0F005F8575 /* TDSelectionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFECBE27E97E0F005F8575 /* TDSelectionCategory.swift */; };
+		27CFECC527E97E0F005F8575 /* TDRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFECBF27E97E0F005F8575 /* TDRoundButton.swift */; };
 		7E04325427C47D9300BBB825 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E04325327C47D9300BBB825 /* Notifications.swift */; };
 		7E1D424E27D078470053B245 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E1D424D27D078470053B245 /* HealthKit.framework */; };
 		7E440F1327B707DC00454F1F /* AddSymptomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E440F1227B707DC00454F1F /* AddSymptomViewController.swift */; };
@@ -71,6 +77,12 @@
 		2789BC5D27D296C200ED54E3 /* AppleHealthTrigger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleHealthTrigger.swift; sourceTree = "<group>"; };
 		2789BC5F27D2975700ED54E3 /* AppleHealthTriggerCheckin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleHealthTriggerCheckin.swift; sourceTree = "<group>"; };
 		2789BC6127D2D7F400ED54E3 /* NSDate+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extensions.swift"; sourceTree = "<group>"; };
+		27CFECBA27E97E0F005F8575 /* TDLikertScaleSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDLikertScaleSelectorView.swift; sourceTree = "<group>"; };
+		27CFECBB27E97E0F005F8575 /* TDSelectionContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDSelectionContainerView.swift; sourceTree = "<group>"; };
+		27CFECBC27E97E0F005F8575 /* TDSelectionBuildConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDSelectionBuildConfig.swift; sourceTree = "<group>"; };
+		27CFECBD27E97E0F005F8575 /* TDUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDUtils.swift; sourceTree = "<group>"; };
+		27CFECBE27E97E0F005F8575 /* TDSelectionCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDSelectionCategory.swift; sourceTree = "<group>"; };
+		27CFECBF27E97E0F005F8575 /* TDRoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDRoundButton.swift; sourceTree = "<group>"; };
 		369CAFAF737ABD8AA337083E /* Pods-SymptomTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SymptomTracker.debug.xcconfig"; path = "Target Support Files/Pods-SymptomTracker/Pods-SymptomTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		7E04325327C47D9300BBB825 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		7E1D424C27D078470053B245 /* SymptomTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SymptomTracker.entitlements; sourceTree = "<group>"; };
@@ -149,6 +161,19 @@
 			path = MGSwipeTableCell;
 			sourceTree = "<group>";
 		};
+		27CFECB927E97E0F005F8575 /* TDLikertScaleSelectorView */ = {
+			isa = PBXGroup;
+			children = (
+				27CFECBA27E97E0F005F8575 /* TDLikertScaleSelectorView.swift */,
+				27CFECBB27E97E0F005F8575 /* TDSelectionContainerView.swift */,
+				27CFECBC27E97E0F005F8575 /* TDSelectionBuildConfig.swift */,
+				27CFECBD27E97E0F005F8575 /* TDUtils.swift */,
+				27CFECBE27E97E0F005F8575 /* TDSelectionCategory.swift */,
+				27CFECBF27E97E0F005F8575 /* TDRoundButton.swift */,
+			);
+			path = TDLikertScaleSelectorView;
+			sourceTree = "<group>";
+		};
 		7EEFC1AA27B041BC001C92C0 = {
 			isa = PBXGroup;
 			children = (
@@ -170,36 +195,37 @@
 		7EEFC1B527B041BC001C92C0 /* SymptomTracker */ = {
 			isa = PBXGroup;
 			children = (
-				7EC1B7E027DA638000FB72C0 /* HistoryDateViewController.swift */,
-				2789BC6127D2D7F400ED54E3 /* NSDate+Extensions.swift */,
-				7E1D424C27D078470053B245 /* SymptomTracker.entitlements */,
-				272C0EBC27C0673500587930 /* chatbot.json */,
-				272C0EB527C066D800587930 /* MGSwipeTableCell */,
-				7EEFC1C427B041BD001C92C0 /* Info.plist */,
-				7EEFC1BC27B041BC001C92C0 /* Main.storyboard */,
 				7EEFC1BF27B041BD001C92C0 /* Assets.xcassets */,
-				7EEFC1B827B041BC001C92C0 /* SceneDelegate.swift */,
-				7EEFC1B627B041BC001C92C0 /* AppDelegate.swift */,
-				272C0EBE27C5B8AD00587930 /* AppSettings.swift */,
+				7EEFC1C427B041BD001C92C0 /* Info.plist */,
+				7E1D424C27D078470053B245 /* SymptomTracker.entitlements */,
+				7EEFC1C127B041BD001C92C0 /* LaunchScreen.storyboard */,
+				2789BC5B27D2917900ED54E3 /* AddAppleHealthTriggerViewController.swift */,
 				7E440F1227B707DC00454F1F /* AddSymptomViewController.swift */,
 				7E440F1427B84DB100454F1F /* AddTriggerViewController.swift */,
+				7EEFC1B627B041BC001C92C0 /* AppDelegate.swift */,
+				272C0EBE27C5B8AD00587930 /* AppSettings.swift */,
+				272C0EBC27C0673500587930 /* chatbot.json */,
 				7EEFC1DC27B0AE14001C92C0 /* CheckInViewController.swift */,
 				2784752127E2AB26001EFA84 /* DailyCheckinViewController.swift */,
+				272C0E8E27B5E72E00587930 /* Data Models */,
+				272C0EB527C066D800587930 /* MGSwipeTableCell */,
+				27CFECB927E97E0F005F8575 /* TDLikertScaleSelectorView */,
+				7EC1B7E027DA638000FB72C0 /* HistoryDateViewController.swift */,
 				7EEFC1D627B0ACB0001C92C0 /* HistoryViewController.swift */,
 				7EEFC1D427B05482001C92C0 /* HomePageViewController.swift */,
-				7EEFC1C127B041BD001C92C0 /* LaunchScreen.storyboard */,
 				7EEFC1BA27B041BC001C92C0 /* LogInViewController.swift */,
+				7EEFC1BC27B041BC001C92C0 /* Main.storyboard */,
 				7EEFC1D227B053BD001C92C0 /* NotificationsViewController.swift */,
+				2789BC6127D2D7F400ED54E3 /* NSDate+Extensions.swift */,
+				7EEFC1B827B041BC001C92C0 /* SceneDelegate.swift */,
+				272C0EC027C5BB4F00587930 /* SettingsViewController.swift */,
 				7EEFC1CE27B05237001C92C0 /* SignUpSymptomsViewController.swift */,
 				7EEFC1D027B05362001C92C0 /* SignUpTriggersViewController.swift */,
 				7EEFC1CA27B04F3F001C92C0 /* SignUpViewController.swift */,
 				272C0EA627BC17A900587930 /* StartupViewController.swift */,
-				272C0EC027C5BB4F00587930 /* SettingsViewController.swift */,
 				7EEFC1DA27B0ADF4001C92C0 /* SymptomsViewController.swift */,
-				7EEFC1CC27B05119001C92C0 /* WelcomeViewController.swift */,
-				272C0E8E27B5E72E00587930 /* Data Models */,
-				2789BC5B27D2917900ED54E3 /* AddAppleHealthTriggerViewController.swift */,
 				275B4FA727D6D30B00BDF85C /* UIViewController+Toast.swift */,
+				7EEFC1CC27B05119001C92C0 /* WelcomeViewController.swift */,
 			);
 			path = SymptomTracker;
 			sourceTree = "<group>";
@@ -332,6 +358,7 @@
 				2784752227E2AB26001EFA84 /* DailyCheckinViewController.swift in Sources */,
 				7EEFC1BB27B041BC001C92C0 /* LogInViewController.swift in Sources */,
 				272C0EBA27C066D800587930 /* MGSwipeTableCell.m in Sources */,
+				27CFECC327E97E0F005F8575 /* TDUtils.swift in Sources */,
 				2789BC6227D2D7F500ED54E3 /* NSDate+Extensions.swift in Sources */,
 				7E440F1527B84DB100454F1F /* AddTriggerViewController.swift in Sources */,
 				272C0EA427B8760C00587930 /* CustomTriggerCheckin.swift in Sources */,
@@ -349,10 +376,14 @@
 				7E440F1327B707DC00454F1F /* AddSymptomViewController.swift in Sources */,
 				7EEFC1CF27B05237001C92C0 /* SignUpSymptomsViewController.swift in Sources */,
 				272C0E9827B5E8A600587930 /* Checkin.swift in Sources */,
+				27CFECC027E97E0F005F8575 /* TDLikertScaleSelectorView.swift in Sources */,
 				2789BC5E27D296C200ED54E3 /* AppleHealthTrigger.swift in Sources */,
 				7EC1B7E127DA638000FB72C0 /* HistoryDateViewController.swift in Sources */,
+				27CFECC227E97E0F005F8575 /* TDSelectionBuildConfig.swift in Sources */,
 				7EEFC1B927B041BC001C92C0 /* SceneDelegate.swift in Sources */,
+				27CFECC527E97E0F005F8575 /* TDRoundButton.swift in Sources */,
 				2789BC6027D2975700ED54E3 /* AppleHealthTriggerCheckin.swift in Sources */,
+				27CFECC127E97E0F005F8575 /* TDSelectionContainerView.swift in Sources */,
 				7E04325427C47D9300BBB825 /* Notifications.swift in Sources */,
 				272C0E9427B5E7B000587930 /* CustomTrigger.swift in Sources */,
 				272C0EA727BC17AA00587930 /* StartupViewController.swift in Sources */,
@@ -363,6 +394,7 @@
 				272C0E9627B5E7CB00587930 /* DataService.swift in Sources */,
 				272C0EA227B875A000587930 /* SymptomCheckin.swift in Sources */,
 				272C0EC127C5BB4F00587930 /* SettingsViewController.swift in Sources */,
+				27CFECC427E97E0F005F8575 /* TDSelectionCategory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
