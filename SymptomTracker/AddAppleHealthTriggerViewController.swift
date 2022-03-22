@@ -7,6 +7,7 @@
 
 import UIKit
 import HealthKit
+import SVProgressHUD
 
 class AddAppleHealthTriggerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -52,7 +53,9 @@ class AddAppleHealthTriggerViewController: UIViewController, UITableViewDelegate
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        setUpHealthKit()
+        DispatchQueue.main.async {
+            self.setUpHealthKit()
+        }
     }
     
     @objc func onCancel() {
@@ -76,7 +79,11 @@ class AddAppleHealthTriggerViewController: UIViewController, UITableViewDelegate
             readRequestTypes.insert(HKQuantityType.quantityType(forIdentifier: trigger.identifier)!)
         }
                 
+        SVProgressHUD.show()
         healthStore?.requestAuthorization(toShare: nil, read: readRequestTypes) { success, error in
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+            }
             if success {
                 // iOS doesn't tell us which ones the user has allowed us to read. So during check-in,
                 // we just attempt to read that data and, if the user hadn't granted permission,

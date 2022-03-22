@@ -9,5 +9,6 @@ target 'SymptomTracker' do
   pod 'lottie-ios'
   pod 'DZNEmptyDataSet'
   pod 'Loaf'
-pod 'FSCalendar'
+  pod 'FSCalendar'
+  pod 'SVProgressHUD'
 end
