@@ -175,7 +175,7 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
                 return hasCheckin ? false : true
             }
         } else {
-            return false
+            return true
         }
     }
     
@@ -198,7 +198,7 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
                 return hasCheckin ? nil : indexPath
             }
         } else {
-            return nil
+            return indexPath
         }
     }
     
