@@ -37,6 +37,7 @@
 		7E440F1327B707DC00454F1F /* AddSymptomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E440F1227B707DC00454F1F /* AddSymptomViewController.swift */; };
 		7E440F1527B84DB100454F1F /* AddTriggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E440F1427B84DB100454F1F /* AddTriggerViewController.swift */; };
 		7EC1B7E127DA638000FB72C0 /* HistoryDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1B7E027DA638000FB72C0 /* HistoryDateViewController.swift */; };
+		7EC3557527EA7C7700533938 /* AddCheckinValueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC3557427EA7C7700533938 /* AddCheckinValueViewController.swift */; };
 		7EEFC1B727B041BC001C92C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEFC1B627B041BC001C92C0 /* AppDelegate.swift */; };
 		7EEFC1B927B041BC001C92C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEFC1B827B041BC001C92C0 /* SceneDelegate.swift */; };
 		7EEFC1BB27B041BC001C92C0 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEFC1BA27B041BC001C92C0 /* LogInViewController.swift */; };
@@ -90,6 +91,7 @@
 		7E440F1227B707DC00454F1F /* AddSymptomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSymptomViewController.swift; sourceTree = "<group>"; };
 		7E440F1427B84DB100454F1F /* AddTriggerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTriggerViewController.swift; sourceTree = "<group>"; };
 		7EC1B7E027DA638000FB72C0 /* HistoryDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDateViewController.swift; sourceTree = "<group>"; };
+		7EC3557427EA7C7700533938 /* AddCheckinValueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCheckinValueViewController.swift; sourceTree = "<group>"; };
 		7EEFC1B327B041BC001C92C0 /* SymptomTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SymptomTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EEFC1B627B041BC001C92C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7EEFC1B827B041BC001C92C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				7EEFC1D427B05482001C92C0 /* HomePageViewController.swift */,
 				7EEFC1BA27B041BC001C92C0 /* LogInViewController.swift */,
 				7EEFC1BC27B041BC001C92C0 /* Main.storyboard */,
+				7EC3557427EA7C7700533938 /* AddCheckinValueViewController.swift */,
 				7EEFC1D227B053BD001C92C0 /* NotificationsViewController.swift */,
 				2789BC6127D2D7F400ED54E3 /* NSDate+Extensions.swift */,
 				7EEFC1B827B041BC001C92C0 /* SceneDelegate.swift */,
@@ -395,6 +398,7 @@
 				272C0EA227B875A000587930 /* SymptomCheckin.swift in Sources */,
 				272C0EC127C5BB4F00587930 /* SettingsViewController.swift in Sources */,
 				27CFECC427E97E0F005F8575 /* TDSelectionCategory.swift in Sources */,
+				7EC3557527EA7C7700533938 /* AddCheckinValueViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

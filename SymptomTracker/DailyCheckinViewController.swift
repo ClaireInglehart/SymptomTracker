@@ -108,6 +108,7 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
                 cell.accessoryType = .none
             } else {
                 cell.detailTextLabel?.text = "Check In"
+                
                 cell.detailTextLabel?.textColor = .systemIndigo
                 cell.accessoryType = .disclosureIndicator
             }
