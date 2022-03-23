@@ -13,6 +13,10 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
     
     var checkin: Checkin!
     
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -207,6 +211,7 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
+        performSegue(withIdentifier: "addValue", sender: self)
         guard let currentUser = DataService.shared.currentUser else { return }
 
         let symptom = currentUser.symptoms[indexPath.section]
@@ -289,7 +294,9 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
             }
         }
     }
-    
+    @IBAction func unwindToThisViewController(segue: UIStoryboardSegue) {
+    }
+
     private func showHealthKitNotSupportedAlert(completion: (()->Void)?) {
         let title = "Health Kit"
         let message = "Apple Health is not supported on this device."

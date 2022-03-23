@@ -9,13 +9,15 @@ import UIKit
 
 class AddCheckinValueViewController: UIViewController {
 
-    @IBAction func valueAdded(_ segue: UIStoryboardSegue) {
-        performSegue(withIdentifier: "newCheckinValue", sender: self)    }
     
-        @IBAction func doneButton(_ sender: UIStoryboardSegue) {
-            performSegue(withIdentifier: "valueAdded", sender: self)
-
+    
+    
+    @IBAction func onDone(_ sender: Any) {
+        performSegue(withIdentifier: "unwindToThisViewController", sender: self)
     }
+    
+    @IBAction func valueAdded(_ segue: UIStoryboardSegue) {
+        performSegue(withIdentifier: "addValue", sender: self)    }
     
     @IBOutlet weak var userValue: UITextField!
     

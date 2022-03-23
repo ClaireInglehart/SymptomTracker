@@ -530,10 +530,10 @@
                         <viewLayoutGuide key="safeArea" id="MqK-Bx-zAj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="MqK-Bx-zAj" firstAttribute="trailing" secondItem="GsP-4T-wxD" secondAttribute="trailing" id="0kz-zm-g9S"/>
-                            <constraint firstItem="GsP-4T-wxD" firstAttribute="leading" secondItem="MqK-Bx-zAj" secondAttribute="leading" id="6zW-VF-cAK"/>
-                            <constraint firstItem="MqK-Bx-zAj" firstAttribute="bottom" secondItem="GsP-4T-wxD" secondAttribute="bottom" constant="300" id="TZG-JD-wVF"/>
-                            <constraint firstItem="GsP-4T-wxD" firstAttribute="top" secondItem="MqK-Bx-zAj" secondAttribute="top" id="nar-3l-J6v"/>
+                            <constraint firstItem="GsP-4T-wxD" firstAttribute="leading" secondItem="MqK-Bx-zAj" secondAttribute="leading" id="14a-P6-cAc"/>
+                            <constraint firstItem="GsP-4T-wxD" firstAttribute="top" secondItem="MqK-Bx-zAj" secondAttribute="top" id="2gF-MZ-85K"/>
+                            <constraint firstItem="MqK-Bx-zAj" firstAttribute="bottom" secondItem="GsP-4T-wxD" secondAttribute="bottom" constant="300" id="HL3-IS-h2B"/>
+                            <constraint firstItem="GsP-4T-wxD" firstAttribute="centerX" secondItem="n9A-11-66g" secondAttribute="centerX" id="KnV-YC-eVm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WfM-Nz-x1j"/>
@@ -553,6 +553,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o5Y-lM-Dxf">
+                                <rect key="frame" x="300" y="158" width="67" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UKJ-oz-fyh">
                                 <rect key="frame" x="16" y="104" width="382" height="693"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -573,9 +579,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="fsc-us-uRi" kind="presentation" identifier="newCheckinValue" id="yI2-F4-GSK"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TriggerCell" textLabel="4uP-Jc-Siq" detailTextLabel="nVk-Np-yTP" style="IBUITableViewCellStyleValue1" id="O7P-CH-bLH">
                                         <rect key="frame" x="0.0" y="88" width="382" height="43.5"/>
@@ -600,6 +603,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="fsc-us-uRi" kind="presentation" identifier="addValue" id="Kqz-ZK-KYC"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -678,8 +684,8 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Button"/>
                                         <connections>
-                                            <action selector="doneButton:" destination="7kw-iQ-uIn" eventType="touchUpInside" id="UEE-d4-0Px"/>
-                                            <segue destination="SdQ-Uu-uET" kind="unwind" unwindAction="doneButton:" id="C53-Dd-tjt"/>
+                                            <action selector="addedValue:" destination="7kw-iQ-uIn" eventType="touchUpInside" id="To8-mI-8gq"/>
+                                            <segue destination="SdQ-Uu-uET" kind="unwind" unwindAction="valueAdded:" id="kZF-Aa-zBD"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -708,7 +714,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="3Xz-Fw-erz"/>
                     <connections>
-                        <outlet property="doneButton" destination="PUk-Iv-jXA" id="W8n-cd-rtj"/>
                         <outlet property="userValue" destination="5XY-vh-8yN" id="ZMz-u1-mUi"/>
                     </connections>
                 </viewController>
@@ -1602,7 +1607,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="WzZ-dz-IIQ"/>
-        <segue reference="Xwj-dR-gXF"/>
+        <segue reference="fzz-42-xPn"/>
         <segue reference="nO5-gD-SfC"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemIndigoColor"/>
