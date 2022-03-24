@@ -15,12 +15,6 @@ class AddCheckinValueViewController: UIViewController {
     @IBOutlet weak var userValue: UITextField!
     
     @IBAction func onDone(_ sender: Any) {
-        if (User.customValue.count > 0) {
-            performSegue(withIdentifier: "valueAdded", sender: sender)
-        } else {
-            let message = "Error: Please add a value"
-            self.showWarningToast(withMessage: message)
-        }
 
     }
 

@@ -521,25 +521,10 @@
                     <view key="view" contentMode="scaleToFill" id="n9A-11-66g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GsP-4T-wxD" customClass="FSCalendar">
-                                <rect key="frame" x="0.0" y="88" width="414" height="425"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="MqK-Bx-zAj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="GsP-4T-wxD" firstAttribute="leading" secondItem="MqK-Bx-zAj" secondAttribute="leading" id="14a-P6-cAc"/>
-                            <constraint firstItem="GsP-4T-wxD" firstAttribute="top" secondItem="MqK-Bx-zAj" secondAttribute="top" id="2gF-MZ-85K"/>
-                            <constraint firstItem="MqK-Bx-zAj" firstAttribute="bottom" secondItem="GsP-4T-wxD" secondAttribute="bottom" constant="300" id="HL3-IS-h2B"/>
-                            <constraint firstItem="GsP-4T-wxD" firstAttribute="centerX" secondItem="n9A-11-66g" secondAttribute="centerX" id="KnV-YC-eVm"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WfM-Nz-x1j"/>
-                    <connections>
-                        <outlet property="FSCalendar" destination="n9A-11-66g" id="6JI-38-Rd9"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZJ-AZ-q11" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
