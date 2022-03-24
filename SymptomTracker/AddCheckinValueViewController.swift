@@ -12,9 +12,6 @@ class AddCheckinValueViewController: UIViewController {
     var customTrigger: CustomTrigger?
     
     
-    
-    
-    
     @IBOutlet weak var userValue: UITextField!
     
     @IBAction func onDone(_ sender: Any) {

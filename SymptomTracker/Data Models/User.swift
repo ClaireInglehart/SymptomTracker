@@ -11,13 +11,11 @@ class User: Codable {
     
     var symptoms: [Symptom]
     var checkins: [Checkin]
-    var customValue: [valueCustom]
     init(email: String, password: String) {
         self.email = email
         self.password = password
         self.symptoms = []
         self.checkins = []
-        self.customValue = []
 
     }
 }
