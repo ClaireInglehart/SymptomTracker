@@ -13,10 +13,10 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
     
     var checkin: Checkin!
     
+    var selectedCustomTrigger: CustomTrigger?
     
     
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -81,6 +81,7 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
         let symptom = currentUser.symptoms[indexPath.section]
         
         if (indexPath.row < symptom.customTriggers.count) {
+            
             let trigger = symptom.customTriggers[indexPath.row]
             let hasCheckin = false
             let cell = tableView.dequeueReusableCell(withIdentifier: "TriggerCell", for: indexPath)
@@ -211,7 +212,6 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        performSegue(withIdentifier: "addValue", sender: self)
         guard let currentUser = DataService.shared.currentUser else { return }
 
         let symptom = currentUser.symptoms[indexPath.section]
@@ -219,7 +219,8 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
         // If it's a custom trigger, show a screen to prompt user to enter value
         
         if (indexPath.row < symptom.customTriggers.count) {
-            let customTrigger = symptom.customTriggers[indexPath.row]
+            self.selectedCustomTrigger = symptom.customTriggers[indexPath.row]
+            self.performSegue(withIdentifier: "addValue", sender: tableView)
             
         } else {
             let appleHealthTrigger = symptom.appleHealthTriggers[indexPath.row - symptom.customTriggers.count]
@@ -244,6 +245,13 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
         
     }
     
+    //Segue for onDone - check to make sure value added
+    @IBAction func valueAdded(_ segue: UIStoryboardSegue) {
+        print("Segue Complete")
+        
+
+    }
+
     
     func queryHealthKit(forIdentifier identifier: HKQuantityTypeIdentifier, completion: @escaping (Double) -> Void) {
         
@@ -294,8 +302,7 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
             }
         }
     }
-    @IBAction func unwindToThisViewController(segue: UIStoryboardSegue) {
-    }
+    
 
     private func showHealthKitNotSupportedAlert(completion: (()->Void)?) {
         let title = "Health Kit"

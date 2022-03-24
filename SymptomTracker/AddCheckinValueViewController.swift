@@ -9,18 +9,24 @@ import UIKit
 
 class AddCheckinValueViewController: UIViewController {
 
+    var customTrigger: CustomTrigger?
     
     
     
-    @IBAction func onDone(_ sender: Any) {
-        performSegue(withIdentifier: "unwindToThisViewController", sender: self)
-    }
     
-    @IBAction func valueAdded(_ segue: UIStoryboardSegue) {
-        performSegue(withIdentifier: "addValue", sender: self)    }
     
     @IBOutlet weak var userValue: UITextField!
     
+    @IBAction func onDone(_ sender: Any) {
+        if (User.customValue.count > 0) {
+            performSegue(withIdentifier: "valueAdded", sender: sender)
+        } else {
+            let message = "Error: Please add a value"
+            self.showWarningToast(withMessage: message)
+        }
+
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

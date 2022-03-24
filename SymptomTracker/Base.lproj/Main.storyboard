@@ -67,7 +67,7 @@
                                     <constraint firstAttribute="height" constant="50" id="jJX-6T-b28"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="name"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="name"/>
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -150,7 +150,7 @@
                                     <constraint firstAttribute="height" constant="50" id="DsS-lf-Wd3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="f6G-p6-Myx"/>
@@ -603,9 +603,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="fsc-us-uRi" kind="presentation" identifier="addValue" id="Kqz-ZK-KYC"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -626,6 +623,7 @@
                     <navigationItem key="navigationItem" id="I80-v5-qAp"/>
                     <connections>
                         <outlet property="tableView" destination="UKJ-oz-fyh" id="ORq-AB-bBX"/>
+                        <segue destination="fsc-us-uRi" kind="presentation" identifier="addValue" id="5A4-jA-ICB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5M8-tW-ese" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -684,8 +682,8 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Button"/>
                                         <connections>
-                                            <action selector="addedValue:" destination="7kw-iQ-uIn" eventType="touchUpInside" id="To8-mI-8gq"/>
-                                            <segue destination="SdQ-Uu-uET" kind="unwind" unwindAction="valueAdded:" id="kZF-Aa-zBD"/>
+                                            <action selector="onDone:" destination="7kw-iQ-uIn" eventType="touchUpInside" id="lTh-LD-9ks"/>
+                                            <segue destination="cfd-t3-pX4" kind="unwind" unwindAction="valueAdded:" id="p7y-T3-CrS"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -718,7 +716,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Edw-MA-9Uj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="SdQ-Uu-uET" userLabel="Exit" sceneMemberID="exit"/>
+                <exit id="cfd-t3-pX4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2465" y="3311"/>
         </scene>
