@@ -34,6 +34,7 @@
 		27CFECC527E97E0F005F8575 /* TDRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFECBF27E97E0F005F8575 /* TDRoundButton.swift */; };
 		7E04325427C47D9300BBB825 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E04325327C47D9300BBB825 /* Notifications.swift */; };
 		7E1D424E27D078470053B245 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E1D424D27D078470053B245 /* HealthKit.framework */; };
+		7E3BAD3127ED40FC005A5983 /* CheckinCalendarDateSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3BAD3027ED40FC005A5983 /* CheckinCalendarDateSelectionViewController.swift */; };
 		7E440F1327B707DC00454F1F /* AddSymptomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E440F1227B707DC00454F1F /* AddSymptomViewController.swift */; };
 		7E440F1527B84DB100454F1F /* AddTriggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E440F1427B84DB100454F1F /* AddTriggerViewController.swift */; };
 		7EC1B7E127DA638000FB72C0 /* HistoryDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1B7E027DA638000FB72C0 /* HistoryDateViewController.swift */; };
@@ -88,6 +89,7 @@
 		7E04325327C47D9300BBB825 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		7E1D424C27D078470053B245 /* SymptomTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SymptomTracker.entitlements; sourceTree = "<group>"; };
 		7E1D424D27D078470053B245 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		7E3BAD3027ED40FC005A5983 /* CheckinCalendarDateSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinCalendarDateSelectionViewController.swift; sourceTree = "<group>"; };
 		7E440F1227B707DC00454F1F /* AddSymptomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSymptomViewController.swift; sourceTree = "<group>"; };
 		7E440F1427B84DB100454F1F /* AddTriggerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTriggerViewController.swift; sourceTree = "<group>"; };
 		7EC1B7E027DA638000FB72C0 /* HistoryDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDateViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				272C0EBC27C0673500587930 /* chatbot.json */,
 				7EEFC1DC27B0AE14001C92C0 /* CheckInViewController.swift */,
 				2784752127E2AB26001EFA84 /* DailyCheckinViewController.swift */,
+				7E3BAD3027ED40FC005A5983 /* CheckinCalendarDateSelectionViewController.swift */,
 				272C0E8E27B5E72E00587930 /* Data Models */,
 				272C0EB527C066D800587930 /* MGSwipeTableCell */,
 				27CFECB927E97E0F005F8575 /* TDLikertScaleSelectorView */,
@@ -397,6 +400,7 @@
 				272C0E9627B5E7CB00587930 /* DataService.swift in Sources */,
 				272C0EA227B875A000587930 /* SymptomCheckin.swift in Sources */,
 				272C0EC127C5BB4F00587930 /* SettingsViewController.swift in Sources */,
+				7E3BAD3127ED40FC005A5983 /* CheckinCalendarDateSelectionViewController.swift in Sources */,
 				27CFECC427E97E0F005F8575 /* TDSelectionCategory.swift in Sources */,
 				7EC3557527EA7C7700533938 /* AddCheckinValueViewController.swift in Sources */,
 			);

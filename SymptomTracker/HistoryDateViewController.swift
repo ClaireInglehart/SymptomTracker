@@ -13,7 +13,6 @@ class HistoryDateViewController: UIViewController, FSCalendarDelegate, FSCalenda
     var calendar:FSCalendar!
     var formatter = DateFormatter()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         calendar = FSCalendar(frame:CGRect(x: 0.0, y: 100.0, width: self.view.frame.size.width, height: 300.0))
@@ -21,6 +20,19 @@ class HistoryDateViewController: UIViewController, FSCalendarDelegate, FSCalenda
         calendar.scope = .month
         
         calendar.appearance.titleFont = UIFont.systemFont(ofSize: 17.0)
+        calendar.appearance.headerTitleFont = UIFont.boldSystemFont(ofSize: 18.0)
+        calendar.appearance.weekdayFont = UIFont.boldSystemFont(ofSize: 16.0)
+        
+        calendar.appearance.todayColor = .systemGray
+        calendar.appearance.titleTodayColor = .white
+        calendar.appearance.titleDefaultColor = .darkGray
+        calendar.appearance.weekdayTextColor = .black
+        calendar.appearance.selectionColor = .systemPurple
+        
+        
+        
+        
+        
         
         self.view.addSubview(calendar)
         
@@ -37,7 +49,14 @@ class HistoryDateViewController: UIViewController, FSCalendarDelegate, FSCalenda
     
     func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
         formatter.dateFormat = "dd-MMM-yyyy"
+        
+        var dateSelected = formatter.string(from: date)
         print("Date Selected == \(formatter.string(from: date))")
+            
+        performSegue(withIdentifier: "showCheckin", sender: FSCalendar.self)
+
+        
+        
     }
 
 
