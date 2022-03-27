@@ -87,7 +87,7 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
             let cell = tableView.dequeueReusableCell(withIdentifier: "TriggerCell", for: indexPath)
             cell.textLabel?.text = trigger.name
             if (hasCheckin) {
-                cell.detailTextLabel?.text = "the value goes here"
+//                cell.detailTextLabel?.text = CustomTrigger
                 cell.detailTextLabel?.textColor = .label
                 cell.accessoryType = .none
             } else {

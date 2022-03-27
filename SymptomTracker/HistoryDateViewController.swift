@@ -14,6 +14,14 @@ class HistoryDateViewController: UIViewController, FSCalendarDelegate, FSCalenda
     var formatter = DateFormatter()
     
     override func viewDidLoad() {
+        
+        self.navigationItem.title = "Settings"
+        
+        let signOutButton = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(onSignOut))
+        self.navigationItem.leftBarButtonItem = signOutButton
+    
+
+
         super.viewDidLoad()
         calendar = FSCalendar(frame:CGRect(x: 0.0, y: 100.0, width: self.view.frame.size.width, height: 300.0))
         calendar.scrollDirection = .vertical
@@ -41,25 +49,35 @@ class HistoryDateViewController: UIViewController, FSCalendarDelegate, FSCalenda
         
         // Do any additional setup after loading the view.
     }
+    @objc func onSignOut() {
+        performSegue(withIdentifier: "SignOut", sender: nil)
+    }
+
 
     //MARK: - datasource
     
    
     
+
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        formatter.dateFormat = "dd-MMM-yyyy"
+        var dateSelected = formatter.string(from: date)
+        
+    //for date selected, present the Checkin for that day, how severe symtpms were and what the trigger values were
+//        performSegue(withIdentifier: "showCheckin", sender: FSCalendar.self)
+        Checkin(date: date, symptomCheckins: [])
+    }
     
     func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        formatter.dateFormat = "dd-MMM-yyyy"
-        
-        var dateSelected = formatter.string(from: date)
-        print("Date Selected == \(formatter.string(from: date))")
+
+            formatter.dateFormat = "dd-MMM-yyyy"
+            var dateSelected = formatter.string(from: date)
+
             
-        performSegue(withIdentifier: "showCheckin", sender: FSCalendar.self)
+            
+        }
 
-        
-        
-    }
-
-
+    
     /*
     // MARK: - Navigation
 
@@ -69,5 +87,5 @@ class HistoryDateViewController: UIViewController, FSCalendarDelegate, FSCalenda
         // Pass the selected object to the new view controller.
     }
     */
+    }
 
-}
