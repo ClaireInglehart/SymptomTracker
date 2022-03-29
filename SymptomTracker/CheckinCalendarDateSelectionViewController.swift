@@ -248,11 +248,6 @@ class CheckinCalendarDateSelectionViewController: UIViewController, UITableViewD
     }
     
     //Segue for onDone - check to make sure value added
-    @IBAction func valueAdded(_ segue: UIStoryboardSegue) {
-        print("Segue Complete")
-        
-
-    }
 
     
     func queryHealthKit(forIdentifier identifier: HKQuantityTypeIdentifier, completion: @escaping (Double) -> Void) {

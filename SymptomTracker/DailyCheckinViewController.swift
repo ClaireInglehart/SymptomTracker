@@ -15,7 +15,8 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
     
     var selectedCustomTrigger: CustomTrigger?
     
-    
+    private var customValues: [String] =  []
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -185,9 +186,18 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
+    @IBAction func valueAdded(_ segue: UIStoryboardSegue) {
+//        if let vc = segue.source as? AddCheckinValueViewController {
+//            let newValue = vc.newValue {
+//
+//                self.customValues.append(newValue)
+//    }
+}
+
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         guard let currentUser = DataService.shared.currentUser else { return nil }
-        let symptom = currentUser.symptoms[indexPath.section]
+        let symptom =
+        currentUser.symptoms[indexPath.section]
         if let symptomCheckin = self.checkin.checkinForSymptom(symptom) {
             if (indexPath.row < symptom.customTriggers.count) {
                 let customTrigger = symptom.customTriggers[indexPath.row]
@@ -208,7 +218,7 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
@@ -243,13 +253,6 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
             }
         }
         
-    }
-    
-    //Segue for onDone - check to make sure value added
-    @IBAction func valueAdded(_ segue: UIStoryboardSegue) {
-        print("Segue Complete")
-        
-
     }
 
     

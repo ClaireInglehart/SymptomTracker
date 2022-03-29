@@ -19,6 +19,7 @@ class SignUpTriggersViewController: UIViewController, UITableViewDelegate, UITab
     private var customTriggers: [CustomTrigger] = []
     private var appleHealthTriggers: [AppleHealthTrigger] = []
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         

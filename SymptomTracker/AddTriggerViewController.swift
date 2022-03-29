@@ -30,7 +30,6 @@ class AddTriggerViewController: UIViewController, UITextFieldDelegate {
         self.navigationItem.leftBarButtonItem = cancelButton
     }
     
-    
     @objc func onCancel() {
         self.performSegue(withIdentifier: "AddTriggerCanceled", sender: self)
     }

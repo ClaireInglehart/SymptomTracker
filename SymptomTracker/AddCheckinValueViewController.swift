@@ -1,6 +1,6 @@
 //
 //  AddCheckinValueViewController.swift
-//  SymptomTracker
+//  SymptomTrackeroh!Q
 //
 //  Created by Claire Inglehart on 3/22/22.
 //
@@ -8,25 +8,16 @@
 import UIKit
 
 class AddCheckinValueViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
+    
 
     var customTrigger: CustomTrigger?
     @IBOutlet weak var userValue: UITextField!
-    var dialogMessage = UIAlertController(title: "Attention", message: "I am an alert message you cannot dissmiss.", preferredStyle: .alert)
-
-    @IBAction func onDone(_ sender: UIButton) {
-        if let userValue = userValue.text, userValue.isEmpty == false{
-            performSegue(withIdentifier: "valueAdded", sender: self)
-            
-        }
-        self.present(dialogMessage, animated: true, completion: nil)
-
-    }
+    public var newValue: String?
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         userValue.delegate = self
+    
         
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(onCancel))
         self.navigationItem.leftBarButtonItem = cancelButton
@@ -43,14 +34,20 @@ class AddCheckinValueViewController: UIViewController, UITextViewDelegate, UITex
         userValue.becomeFirstResponder()
 
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func textFieldShouldReturn(_ nameInput: UITextField) -> Bool {
+        nameInput.resignFirstResponder()
+        return true
     }
-    */
 
+    
+    @IBAction func onDone(_ sender: UIButton) {
+        if let userValue = userValue.text, userValue.isEmpty == false {
+            
+            self.newValue = userValue
+            
+        } else {
+        self.showErrorToast(withMessage: "Please enter a value!")
+        }
+    }
 }

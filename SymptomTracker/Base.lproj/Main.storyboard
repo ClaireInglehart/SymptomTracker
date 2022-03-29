@@ -544,17 +544,20 @@
         <scene sceneID="3dE-1P-5TM">
             <objects>
                 <navigationController id="fsc-us-uRi" userLabel="AddCheckinValue" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="CPH-6R-m6P"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WAp-SF-PfA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
                         <segue destination="7kw-iQ-uIn" kind="relationship" relationship="rootViewController" id="xSJ-CH-5ZO"/>
+                        <segue destination="Iak-10-zka" kind="unwind" identifier="valueAdded" unwindAction="valueAdded:" id="LQ5-eH-c9t"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BtG-tf-dPL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Iak-10-zka" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1332" y="3282"/>
+            <point key="canvasLocation" x="1446" y="3287"/>
         </scene>
         <!--AddCheckin-->
         <scene sceneID="xg3-dF-tEd">
@@ -593,7 +596,6 @@
                                         <buttonConfiguration key="configuration" style="filled" title="Button"/>
                                         <connections>
                                             <action selector="onDone:" destination="7kw-iQ-uIn" eventType="touchUpInside" id="lTh-LD-9ks"/>
-                                            <segue destination="cfd-t3-pX4" kind="unwind" unwindAction="valueAdded:" id="JT2-yI-1VL"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -623,12 +625,13 @@
                     <navigationItem key="navigationItem" id="3Xz-Fw-erz"/>
                     <connections>
                         <outlet property="userValue" destination="5XY-vh-8yN" id="ZMz-u1-mUi"/>
+                        <segue destination="cfd-t3-pX4" kind="unwind" identifier="valueAdded" unwindAction="valueAdded:" id="QAm-kA-O4S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Edw-MA-9Uj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="cfd-t3-pX4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2465" y="3311"/>
+            <point key="canvasLocation" x="2284" y="3273"/>
         </scene>
         <!--Home Page View Controller-->
         <scene sceneID="35X-8U-gLe">
