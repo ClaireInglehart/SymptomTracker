@@ -11,4 +11,9 @@ class CustomTriggerCheckin: Codable {
 
     var trigger: CustomTrigger
     var quantity: String?
+    
+    init(trigger: CustomTrigger, quantity: String) {
+        self.trigger = trigger
+        self.quantity = quantity
+    }
 }

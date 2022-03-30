@@ -42,12 +42,11 @@ class AddCheckinValueViewController: UIViewController, UITextViewDelegate, UITex
 
     
     @IBAction func onDone(_ sender: UIButton) {
-        if let userValue = userValue.text, userValue.isEmpty == false {
-            
-            self.userValue.text = newValue
-            
-        } else {
-        self.showErrorToast(withMessage: "Please enter a value!")
+        if let userValue = userValue.text, userValue.isEmpty == false{
+                   self.newValue = userValue
+                   performSegue(withIdentifier: "valueAdded", sender: self)
+               } else {
+                   self.showErrorToast(withMessage: "Please enter a value!")
         }
     }
 }

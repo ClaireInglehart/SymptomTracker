@@ -16,8 +16,7 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
     var selectedCustomTrigger: CustomTrigger?
     
     private var customValues: [CustomTrigger] =  []
-    private var newValues: [String] =  []
-
+    private var newValues: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -189,11 +188,10 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBAction func valueAdded(_ segue: UIStoryboardSegue) {
         if let vc = segue.source as? AddCheckinValueViewController {
-            let values = vc.newValue {
-
-                self.newValues.append(values)
-    }
-}
+            let updateValue = vc.userValue
+            print(updateValue)
+            }
+        }
 
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         guard let currentUser = DataService.shared.currentUser else { return nil }
@@ -270,9 +268,10 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
                 return
             }
         }
+    
         let quantityType = HKQuantityType.quantityType(forIdentifier: identifier)!
         let readRequestTypes:Set<HKQuantityType> = [quantityType]
-        
+    
         SVProgressHUD.show()
         healthStore.requestAuthorization(toShare: nil, read: readRequestTypes) { success, error in
             DispatchQueue.main.async {
@@ -315,7 +314,7 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
         alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: completion)
     }
-    
+
     private func showHealthKitPermissionDeniedAlert(completion: (()->Void)?) {
         let title = "Health Kit"
         let message = "If you change your mind, you can enable access to Health Kit in the Settings app."
