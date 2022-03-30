@@ -44,7 +44,7 @@ class AddCheckinValueViewController: UIViewController, UITextViewDelegate, UITex
     @IBAction func onDone(_ sender: UIButton) {
         if let userValue = userValue.text, userValue.isEmpty == false {
             
-            self.newValue = userValue
+            self.userValue.text = newValue
             
         } else {
         self.showErrorToast(withMessage: "Please enter a value!")

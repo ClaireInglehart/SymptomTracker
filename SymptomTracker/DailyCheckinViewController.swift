@@ -15,7 +15,8 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
     
     var selectedCustomTrigger: CustomTrigger?
     
-    private var customValues: [String] =  []
+    private var customValues: [CustomTrigger] =  []
+    private var newValues: [String] =  []
 
 
     override func viewDidLoad() {
@@ -187,11 +188,11 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     @IBAction func valueAdded(_ segue: UIStoryboardSegue) {
-//        if let vc = segue.source as? AddCheckinValueViewController {
-//            let newValue = vc.newValue {
-//
-//                self.customValues.append(newValue)
-//    }
+        if let vc = segue.source as? AddCheckinValueViewController {
+            let values = vc.newValue {
+
+                self.newValues.append(values)
+    }
 }
 
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {

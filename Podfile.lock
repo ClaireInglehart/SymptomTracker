@@ -1,11 +1,13 @@
 PODS:
+  - CryptoSwift (1.4.3)
   - DZNEmptyDataSet (1.8.1)
   - FSCalendar (2.8.2)
   - Loaf (0.7.0)
-  - lottie-ios (3.2.2)
+  - lottie-ios (3.3.0)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
+  - CryptoSwift (~> 1.4.1)
   - DZNEmptyDataSet
   - FSCalendar
   - Loaf
@@ -14,6 +16,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - CryptoSwift
     - DZNEmptyDataSet
     - FSCalendar
     - Loaf
@@ -21,12 +24,13 @@ SPEC REPOS:
     - SVProgressHUD
 
 SPEC CHECKSUMS:
+  CryptoSwift: a0799ee936271bd2253a006f1e4523df21845000
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
   Loaf: d69937cd00649f3fa260beb8b7aef0a1feb861ef
-  lottie-ios: a033bb989eea77d9f99cc4e2bbdd3788229761ad
+  lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 0c2aa74b34880d8c46481425c00f147ebc9a9b06
+PODFILE CHECKSUM: afaeb2e7855ef3c12c9e85c129c0c8956e05ede6
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.10.1

@@ -6,6 +6,7 @@
 //
 import LocalAuthentication
 import UIKit
+import CryptoKit
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
     
@@ -21,6 +22,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         self.continueButton.layer.cornerRadius = 8.0
     }
     
+    
+
     @IBAction func touchID(_ sender: UIButton) {
             let context = LAContext()
             var error: NSError? = nil

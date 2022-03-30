@@ -38,7 +38,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewWillAppear(animated)
         emailField.text = nil
         passwordField.text = nil
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -52,6 +51,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         guard let password = passwordField.text, password.count > 0 else { return }
 
         if let user = DataService.shared.getUser(forEmail: email, forPassword: password) {
+            
+            
+            
+            
             DataService.shared.currentUser = user
             // if the user has completed set up, go home.
             // Otherwise, continue set up

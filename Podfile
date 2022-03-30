@@ -11,4 +11,6 @@ target 'SymptomTracker' do
   pod 'Loaf'
   pod 'FSCalendar'
   pod 'SVProgressHUD'
+  pod 'CryptoSwift', '~> 1.4.1'
+
 end
