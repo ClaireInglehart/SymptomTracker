@@ -11,13 +11,18 @@ class AddCheckinValueViewController: UIViewController, UITextViewDelegate, UITex
     
 
     var customTrigger: CustomTrigger?
-    @IBOutlet weak var userValue: UITextField!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var valueTextField: UITextField!
     public var newValue: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userValue.delegate = self
+        valueTextField.delegate = self
     
+        if let trigger = self.customTrigger {
+            self.titleLabel.text = "Please add value for \(trigger.name)"
+            self.valueTextField.placeholder = "Enter value in \(trigger.units)"
+        }
         
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(onCancel))
         self.navigationItem.leftBarButtonItem = cancelButton
@@ -31,7 +36,7 @@ class AddCheckinValueViewController: UIViewController, UITextViewDelegate, UITex
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        userValue.becomeFirstResponder()
+        valueTextField.becomeFirstResponder()
 
     }
     
@@ -42,7 +47,7 @@ class AddCheckinValueViewController: UIViewController, UITextViewDelegate, UITex
 
     
     @IBAction func onDone(_ sender: UIButton) {
-        if let userValue = userValue.text, userValue.isEmpty == false{
+        if let userValue = valueTextField.text, userValue.isEmpty == false{
                    self.newValue = userValue
                    performSegue(withIdentifier: "valueAdded", sender: self)
                } else {

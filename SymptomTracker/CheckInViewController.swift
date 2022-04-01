@@ -29,6 +29,9 @@ class CheckInViewController: UIViewController {
         if (DataService.shared.getCheckin(forDate: Date(), forUser: currentUser) != nil) {
             self.checkInButton.isHidden = true
             self.checkInLabel.isHidden = false
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            self.checkInLabel.text = "Check-in complete for today, \(dateFormatter.string(from: Date()))"
         } else {
             self.checkInButton.isHidden = false
             self.checkInLabel.isHidden = true
@@ -43,9 +46,16 @@ class CheckInViewController: UIViewController {
     @IBAction func onDoCheckin(_ sender: Any) {
         // TODO: verify user added at least one symptom
         
-        performSegue(withIdentifier: "DoCheckIn", sender: sender)
+        performSegue(withIdentifier: "DoDailyCheckIn", sender: sender)
 
     }
 
+    @IBAction func dailyCheckinComplete(_ segue: UIStoryboardSegue) {
+        print("dailyCheckinComplete")
+    }
+    
+    @IBAction func dailyCheckinCanceled(_ segue: UIStoryboardSegue) {
+        print("dailyCheckinCanceled")
+   }
 
 }
