@@ -15,5 +15,6 @@ class CustomTrigger: Codable {
     init(name: String, units: String) {
         self.name = name
         self.units = units
+
     }
 }

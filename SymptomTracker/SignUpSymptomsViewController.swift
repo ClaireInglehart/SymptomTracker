@@ -15,7 +15,7 @@ class SignUpSymptomsViewController: UIViewController, UITableViewDelegate, UITab
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.tableView.emptyDataSetSource = self
         self.tableView.emptyDataSetDelegate = self
         

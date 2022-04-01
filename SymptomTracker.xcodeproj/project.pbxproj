@@ -33,6 +33,7 @@
 		27CFECC427E97E0F005F8575 /* TDSelectionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFECBE27E97E0F005F8575 /* TDSelectionCategory.swift */; };
 		27CFECC527E97E0F005F8575 /* TDRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CFECBF27E97E0F005F8575 /* TDRoundButton.swift */; };
 		7E04325427C47D9300BBB825 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E04325327C47D9300BBB825 /* Notifications.swift */; };
+		7E1A724E27F56636006874A7 /* hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1A724D27F56636006874A7 /* hash.swift */; };
 		7E1D424E27D078470053B245 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E1D424D27D078470053B245 /* HealthKit.framework */; };
 		7E3BAD3127ED40FC005A5983 /* CheckinCalendarDateSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3BAD3027ED40FC005A5983 /* CheckinCalendarDateSelectionViewController.swift */; };
 		7E440F1327B707DC00454F1F /* AddSymptomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E440F1227B707DC00454F1F /* AddSymptomViewController.swift */; };
@@ -87,6 +88,7 @@
 		27CFECBF27E97E0F005F8575 /* TDRoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDRoundButton.swift; sourceTree = "<group>"; };
 		369CAFAF737ABD8AA337083E /* Pods-SymptomTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SymptomTracker.debug.xcconfig"; path = "Target Support Files/Pods-SymptomTracker/Pods-SymptomTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		7E04325327C47D9300BBB825 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		7E1A724D27F56636006874A7 /* hash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hash.swift; sourceTree = "<group>"; };
 		7E1D424C27D078470053B245 /* SymptomTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SymptomTracker.entitlements; sourceTree = "<group>"; };
 		7E1D424D27D078470053B245 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		7E3BAD3027ED40FC005A5983 /* CheckinCalendarDateSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinCalendarDateSelectionViewController.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 		7EEFC1B527B041BC001C92C0 /* SymptomTracker */ = {
 			isa = PBXGroup;
 			children = (
+				7E1A724D27F56636006874A7 /* hash.swift */,
 				7EEFC1BF27B041BD001C92C0 /* Assets.xcassets */,
 				7EEFC1C427B041BD001C92C0 /* Info.plist */,
 				7E1D424C27D078470053B245 /* SymptomTracker.entitlements */,
@@ -388,6 +391,7 @@
 				27CFECC227E97E0F005F8575 /* TDSelectionBuildConfig.swift in Sources */,
 				7EEFC1B927B041BC001C92C0 /* SceneDelegate.swift in Sources */,
 				27CFECC527E97E0F005F8575 /* TDRoundButton.swift in Sources */,
+				7E1A724E27F56636006874A7 /* hash.swift in Sources */,
 				2789BC6027D2975700ED54E3 /* AppleHealthTriggerCheckin.swift in Sources */,
 				27CFECC127E97E0F005F8575 /* TDSelectionContainerView.swift in Sources */,
 				7E04325427C47D9300BBB825 /* Notifications.swift in Sources */,

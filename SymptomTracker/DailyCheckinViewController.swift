@@ -14,10 +14,9 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
     var checkin: Checkin!
     
     var selectedCustomTrigger: CustomTrigger?
-    
-    private var customValues: [CustomTrigger] =  []
+    var selectedCustomTriggerValues: CustomTriggerCheckin?
     private var newValues: String?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,15 +50,12 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
         DataService.shared.addCheckin(self.checkin, forUser: currentUser)
     }
     
-    /*
-     // MARK: - Navigation
-     
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
+         if segue.identifier == "addValue", let nav = segue.destination as? UINavigationController, let vc = nav.viewControllers[0] as? AddCheckinValueViewController {
+             vc.customTrigger = self.selectedCustomTrigger
+         }
      }
-     */
     
     func numberOfSections(in tableView: UITableView) -> Int {
         guard let currentUser = DataService.shared.currentUser else { return 0 }
@@ -88,7 +84,7 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
             let cell = tableView.dequeueReusableCell(withIdentifier: "TriggerCell", for: indexPath)
             cell.textLabel?.text = trigger.name
             if (hasCheckin) {
-//                cell.detailTextLabel?.text = CustomTrigger
+                cell.detailTextLabel?.text = newValues
                 cell.detailTextLabel?.textColor = .label
                 cell.accessoryType = .none
             } else {
@@ -188,8 +184,9 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBAction func valueAdded(_ segue: UIStoryboardSegue) {
         if let vc = segue.source as? AddCheckinValueViewController {
-            let updateValue = vc.userValue
-            print(updateValue)
+            let customTrigger = vc.customTrigger
+            
+                        //TODO: Save the trigger value
             }
         }
 
