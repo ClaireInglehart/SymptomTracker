@@ -7,13 +7,13 @@
 
 class User: Codable {
     var email: String
-    var password: String
+    var passwordDigest: String
     
     var symptoms: [Symptom]
     var checkins: [Checkin]
-    init(email: String, password: String) {
+    init(email: String, passwordDigest: String) {
         self.email = email
-        self.password = password
+        self.passwordDigest = passwordDigest
         self.symptoms = []
         self.checkins = []
 

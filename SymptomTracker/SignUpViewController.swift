@@ -6,8 +6,6 @@
 //
 import LocalAuthentication
 import UIKit
-import CryptoKit
-import CommonCrypto
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
     
@@ -75,48 +73,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 
         
         guard let password = passwordField.text, password.count > 0 else { return }
-//
-//        Right now, when you sign up, the password is saved along with the email address. Then when you’re logging in, the app compares the email and password that are entered with the email and password that are stored.
-//        Instead, when signing up, the hash of the password (along with the email) should be saved. Then when signing in, get a hash of the password the user enters and compare that (and the email) to the stored hash. Does that make sense?
-        // Make sure an account with this email doesn't already exist
-        
-        func sha256(str: String) -> String {
-         
-            if let strData = str.data(using: String.Encoding.utf8) {
-                /// #define CC_SHA256_DIGEST_LENGTH     32
-                /// Creates an array of unsigned 8 bit integers that contains 32 zeros
-                var digest = [UInt8](repeating: 0, count:Int(CC_SHA256_DIGEST_LENGTH))
-         
-                /// CC_SHA256 performs digest calculation and places the result in the caller-supplied buffer for digest (md)
-                /// Takes the strData referenced value (const unsigned char *d) and hashes it into a reference to the digest parameter.
-                strData.withUnsafeBytes {
-                    // CommonCrypto
-                    // extern unsigned char *CC_SHA256(const void *data, CC_LONG len, unsigned char *md)  -|
-                    // OpenSSL                                                                             |
-                    // unsigned char *SHA256(const unsigned char *d, size_t n, unsigned char *md)        <-|
-                    CC_SHA256($0.baseAddress, UInt32(strData.count), &digest)
-                }
-         
-                var sha256String = ""
-                /// Unpack each byte in the digest array and add them to the sha256String
-                for byte in digest {
-                    sha256String += String(format:"%02x", UInt8(byte))
-                }
-         
-                if sha256String.uppercased() == "E8721A6EBEA3B23768D943D075035C7819662B581E487456FDB1A7129C769188" {
-                    print("Matching sha256 hash: E8721A6EBEA3B23768D943D075035C7819662B581E487456FDB1A7129C769188")
-                } else {
-                    print("sha256 hash does not match: \(sha256String)")
-                }
-                return sha256String
-            }
-            return ""
-        }
 
-        let sha256Str = sha256(str: password)
-
-        
-        if let _ = DataService.shared.getUser(forEmail: email, forPassword: sha256Str) {
+        let passwordDigest = password.sha256()
+      
+        if DataService.shared.userExists(withEmail: email) {
             let title = "Account Already Exists"
             let message = "An account with this email address already exists. Please sign in."
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -128,7 +88,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 
         } else {
         
-            if let newUser = DataService.shared.addUser(withEmail: email, withPassword: sha256Str) {
+            if let newUser = DataService.shared.addUser(withEmail: email, withPasswordDigest: passwordDigest) {
                 DataService.shared.currentUser = newUser
                 performSegue(withIdentifier: "ShowWelcome", sender: sender)
             } else {

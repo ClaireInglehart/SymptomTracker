@@ -50,11 +50,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         guard let email = emailField.text, email.count > 0 else { return }
         guard let password = passwordField.text, password.count > 0 else { return }
 
-        if let user = DataService.shared.getUser(forEmail: email, forPassword: password) {
-            
-            
-            
-            
+        let passwordDigest = password.sha256()
+
+        if let user = DataService.shared.getUser(forEmail: email, forPasswordDigest: passwordDigest) {
             DataService.shared.currentUser = user
             // if the user has completed set up, go home.
             // Otherwise, continue set up
