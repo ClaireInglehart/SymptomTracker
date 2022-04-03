@@ -541,7 +541,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LeW-nQ-AVH">
-                                <rect key="frame" x="16" y="108" width="382" height="718"/>
+                                <rect key="frame" x="16" y="112" width="382" height="714"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SymptomCell" textLabel="vFy-a2-xug" style="IBUITableViewCellStyleDefault" id="inP-Ha-GUD">
@@ -591,32 +591,11 @@
                                     <outlet property="delegate" destination="2nn-dd-2lV" id="lfp-KT-Zz7"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wdf-4D-8nM">
-                                <rect key="frame" x="16" y="16" width="382" height="92"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Put TDLikertScaleSelectorView here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKU-W6-Dlr">
-                                        <rect key="frame" x="16" y="16" width="350" height="60"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                <constraints>
-                                    <constraint firstItem="uKU-W6-Dlr" firstAttribute="top" secondItem="Wdf-4D-8nM" secondAttribute="top" constant="16" id="0Jq-t7-DCv"/>
-                                    <constraint firstItem="uKU-W6-Dlr" firstAttribute="leading" secondItem="Wdf-4D-8nM" secondAttribute="leading" constant="16" id="3z4-Mw-2B0"/>
-                                    <constraint firstAttribute="trailing" secondItem="uKU-W6-Dlr" secondAttribute="trailing" constant="16" id="Bad-mh-QGy"/>
-                                    <constraint firstAttribute="bottom" secondItem="uKU-W6-Dlr" secondAttribute="bottom" constant="16" id="See-qh-sBh"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oNH-si-jms"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="oNH-si-jms" firstAttribute="trailing" secondItem="Wdf-4D-8nM" secondAttribute="trailing" constant="16" id="1N6-HI-3o9"/>
-                            <constraint firstItem="LeW-nQ-AVH" firstAttribute="top" secondItem="Wdf-4D-8nM" secondAttribute="bottom" id="5Pt-Kg-o2j"/>
-                            <constraint firstItem="Wdf-4D-8nM" firstAttribute="leading" secondItem="oNH-si-jms" secondAttribute="leading" constant="16" id="IiI-AM-GQ3"/>
-                            <constraint firstItem="Wdf-4D-8nM" firstAttribute="top" secondItem="6qx-Hh-beb" secondAttribute="top" constant="16" id="KQ0-bO-sUz"/>
+                            <constraint firstItem="LeW-nQ-AVH" firstAttribute="top" secondItem="oNH-si-jms" secondAttribute="top" constant="56" id="Ce8-Va-2S9"/>
                             <constraint firstItem="oNH-si-jms" firstAttribute="trailing" secondItem="LeW-nQ-AVH" secondAttribute="trailing" constant="16" id="Zzj-Va-OGH"/>
                             <constraint firstItem="oNH-si-jms" firstAttribute="bottom" secondItem="LeW-nQ-AVH" secondAttribute="bottom" constant="16" id="hHH-bz-wAP"/>
                             <constraint firstItem="LeW-nQ-AVH" firstAttribute="leading" secondItem="oNH-si-jms" secondAttribute="leading" constant="16" id="uX7-gF-aC9"/>
@@ -1295,15 +1274,6 @@
                     <view key="view" contentMode="scaleToFill" id="mnF-lm-QoT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Start-up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uhw-9a-Mck">
-                                <rect key="frame" x="186" y="382" width="64" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="BtY-NP-Hbo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -1652,7 +1622,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="WzZ-dz-IIQ"/>
         <segue reference="fzz-42-xPn"/>
-        <segue reference="nO5-gD-SfC"/>
+        <segue reference="ynv-hV-nn7"/>
         <segue reference="fu9-O1-18g"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemIndigoColor"/>
@@ -1669,9 +1639,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

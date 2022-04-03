@@ -20,7 +20,7 @@ class StartupViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let startupAnimationView = AnimationView(name: "chatbot")
+        let startupAnimationView = AnimationView(name: "graph")
         startupAnimationView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(startupAnimationView)
         let constraints = [

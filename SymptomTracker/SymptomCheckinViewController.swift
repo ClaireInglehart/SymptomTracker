@@ -6,8 +6,11 @@
 import UIKit
 import HealthKit
 import SVProgressHUD
+import TDLikertScaleSelectorView
 
-class SymptomCheckinViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SymptomCheckinViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, TDLikertScaleDelegate {
+    
+        
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,13 +23,17 @@ class SymptomCheckinViewController: UIViewController, UITableViewDelegate, UITab
     private var customTriggerCheckins: [CustomTriggerCheckin] = []
     private var appleHealthTriggerCheckins: [AppleHealthTriggerCheckin] = []
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        TDLikertScaleSelectorView.init(frame: CGRect.zero)
+        
         if let symptom = self.symptom {
             self.navigationItem.title = "Check-in for \(symptom.name)"
         }
         
+
+
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(onCancel))
         self.navigationItem.leftBarButtonItem = cancelButton
 
@@ -34,15 +41,26 @@ class SymptomCheckinViewController: UIViewController, UITableViewDelegate, UITab
         self.navigationItem.rightBarButtonItem = doneButton
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-    }
+        }
+        
     
+    func didSelect(category cat: TDSelectionCategory, tag: Int) {
+        print("Question with tag \(tag) has answer \(cat.localizedName)")
+
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-    }
     
+        }
+
+    
+
+
     @objc func onCancel() {
         self.performSegue(withIdentifier: "SymptomCheckinCanceled", sender: self)
     }

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "99313990C1D76A6D1D017868B6975CC8"
-               BuildableName = "CryptoSwift.framework"
-               BlueprintName = "CryptoSwift"
+               BlueprintIdentifier = "84D2DA643AC69A0FD8369C232D7E00D4"
+               BuildableName = "TDLikertScaleSelectorView.framework"
+               BlueprintName = "TDLikertScaleSelectorView"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

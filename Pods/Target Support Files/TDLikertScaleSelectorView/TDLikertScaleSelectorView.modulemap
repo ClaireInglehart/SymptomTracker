@@ -1,0 +1,6 @@
+framework module TDLikertScaleSelectorView {
+  umbrella header "TDLikertScaleSelectorView-umbrella.h"
+
+  export *
+  module * { export * }
+}
