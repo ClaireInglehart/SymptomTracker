@@ -26,7 +26,15 @@ public final class AppSettings: NSObject {
             setBoolValue(forKeyName: "notification2.enabled.setting", value: newValue)
         }
     }
-    
+    public static var faceIdSwitchEnabled: Bool {
+        get {
+            return getBoolValue(forKeyName: "faceIDSwitch.enabled.setting") ?? false
+        }
+        set {
+            setBoolValue(forKeyName: "faceIDSwitch.enabled.setting", value: newValue)
+        }
+    }
+
     public static var notification1Time: String? {
         get {
             return getStringValue(forKeyName: "notification1.time.setting")

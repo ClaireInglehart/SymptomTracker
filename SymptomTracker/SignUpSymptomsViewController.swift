@@ -7,6 +7,7 @@
 
 import UIKit
 import DZNEmptyDataSet
+import Lottie
 
 class SignUpSymptomsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
@@ -23,6 +24,8 @@ class SignUpSymptomsViewController: UIViewController, UITableViewDelegate, UITab
         self.continueButton.layer.cornerRadius = 8.0
 
         self.title = "Your Symptoms"
+        
+
     }
     
     

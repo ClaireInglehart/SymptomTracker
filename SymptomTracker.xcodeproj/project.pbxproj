@@ -36,8 +36,10 @@
 		7E04325427C47D9300BBB825 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E04325327C47D9300BBB825 /* Notifications.swift */; };
 		7E1A724E27F56636006874A7 /* hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1A724D27F56636006874A7 /* hash.swift */; };
 		7E1D424E27D078470053B245 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E1D424D27D078470053B245 /* HealthKit.framework */; };
-		7E35864227FA09B400A7D5D9 /* graph.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E35864127FA09B400A7D5D9 /* graph.json */; };
 		7E3BAD3127ED40FC005A5983 /* CheckinCalendarDateSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3BAD3027ED40FC005A5983 /* CheckinCalendarDateSelectionViewController.swift */; };
+		7E42072D280F5E8D0042ECDD /* welcome-bot2.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E42072C280F5E8D0042ECDD /* welcome-bot2.json */; };
+		7E42072F280F5ECB0042ECDD /* welcome-bot.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E42072E280F5ECA0042ECDD /* welcome-bot.json */; };
+		7E420731280F668D0042ECDD /* bot_1.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E420730280F668C0042ECDD /* bot_1.json */; };
 		7E440F1327B707DC00454F1F /* AddSymptomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E440F1227B707DC00454F1F /* AddSymptomViewController.swift */; };
 		7E440F1527B84DB100454F1F /* AddTriggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E440F1427B84DB100454F1F /* AddTriggerViewController.swift */; };
 		7EC1B7E127DA638000FB72C0 /* HistoryDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1B7E027DA638000FB72C0 /* HistoryDateViewController.swift */; };
@@ -94,8 +96,10 @@
 		7E1A724D27F56636006874A7 /* hash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hash.swift; sourceTree = "<group>"; };
 		7E1D424C27D078470053B245 /* SymptomTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SymptomTracker.entitlements; sourceTree = "<group>"; };
 		7E1D424D27D078470053B245 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		7E35864127FA09B400A7D5D9 /* graph.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = graph.json; sourceTree = "<group>"; };
 		7E3BAD3027ED40FC005A5983 /* CheckinCalendarDateSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinCalendarDateSelectionViewController.swift; sourceTree = "<group>"; };
+		7E42072C280F5E8D0042ECDD /* welcome-bot2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "welcome-bot2.json"; sourceTree = "<group>"; };
+		7E42072E280F5ECA0042ECDD /* welcome-bot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "welcome-bot.json"; sourceTree = "<group>"; };
+		7E420730280F668C0042ECDD /* bot_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bot_1.json; sourceTree = "<group>"; };
 		7E440F1227B707DC00454F1F /* AddSymptomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSymptomViewController.swift; sourceTree = "<group>"; };
 		7E440F1427B84DB100454F1F /* AddTriggerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTriggerViewController.swift; sourceTree = "<group>"; };
 		7EC1B7E027DA638000FB72C0 /* HistoryDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDateViewController.swift; sourceTree = "<group>"; };
@@ -209,13 +213,15 @@
 				7EEFC1BF27B041BD001C92C0 /* Assets.xcassets */,
 				7EEFC1C427B041BD001C92C0 /* Info.plist */,
 				7E1D424C27D078470053B245 /* SymptomTracker.entitlements */,
+				7E42072C280F5E8D0042ECDD /* welcome-bot2.json */,
 				7EEFC1C127B041BD001C92C0 /* LaunchScreen.storyboard */,
 				2789BC5B27D2917900ED54E3 /* AddAppleHealthTriggerViewController.swift */,
 				7E440F1227B707DC00454F1F /* AddSymptomViewController.swift */,
 				7E440F1427B84DB100454F1F /* AddTriggerViewController.swift */,
 				7EEFC1B627B041BC001C92C0 /* AppDelegate.swift */,
-				7E35864127FA09B400A7D5D9 /* graph.json */,
+				7E420730280F668C0042ECDD /* bot_1.json */,
 				272C0EBE27C5B8AD00587930 /* AppSettings.swift */,
+				7E42072E280F5ECA0042ECDD /* welcome-bot.json */,
 				272C0EBC27C0673500587930 /* chatbot.json */,
 				7EEFC1DC27B0AE14001C92C0 /* CheckInViewController.swift */,
 				2784752127E2AB26001EFA84 /* DailyCheckinViewController.swift */,
@@ -316,7 +322,9 @@
 			files = (
 				7EEFC1C327B041BD001C92C0 /* LaunchScreen.storyboard in Resources */,
 				272C0EBD27C0673500587930 /* chatbot.json in Resources */,
-				7E35864227FA09B400A7D5D9 /* graph.json in Resources */,
+				7E420731280F668D0042ECDD /* bot_1.json in Resources */,
+				7E42072F280F5ECB0042ECDD /* welcome-bot.json in Resources */,
+				7E42072D280F5E8D0042ECDD /* welcome-bot2.json in Resources */,
 				7EEFC1C027B041BD001C92C0 /* Assets.xcassets in Resources */,
 				7EEFC1BE27B041BC001C92C0 /* Main.storyboard in Resources */,
 			);

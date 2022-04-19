@@ -41,6 +41,7 @@ class SettingsViewController: UIViewController {
         self.notification1Switch.onTintColor = .systemIndigo
         self.notification2Switch.onTintColor = .systemIndigo
         
+        
         self.notification1Switch.isOn = AppSettings.notification1Enabled
         self.notification2Switch.isOn = AppSettings.notification2Enabled
         
@@ -268,5 +269,9 @@ extension Date {
         let components = calendar.dateComponents([.weekday], from: self)
         return components.weekday ?? 0
     }
+    
+    
+    
+    
     
 }

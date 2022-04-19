@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Lottie
+
 
 class SymptomsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -22,6 +24,8 @@ class SymptomsViewController: UIViewController, UITableViewDelegate, UITableView
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAddSymptom))
         self.navigationItem.rightBarButtonItem = addButton
+        
+
     }
     
 

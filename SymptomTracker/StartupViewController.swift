@@ -10,6 +10,7 @@ import Lottie
 
 class StartupViewController: UIViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,7 +21,7 @@ class StartupViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let startupAnimationView = AnimationView(name: "graph")
+        let startupAnimationView = AnimationView(name: "chatbot")
         startupAnimationView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(startupAnimationView)
         let constraints = [
@@ -35,8 +36,7 @@ class StartupViewController: UIViewController {
                 self.performSegue(withIdentifier: "ShowLogin", sender: self)
             }
         }
-
-    }
+        }
     
     @IBAction func setupComplete(_ segue: UIStoryboardSegue) {
         DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {

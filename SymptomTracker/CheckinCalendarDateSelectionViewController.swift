@@ -8,23 +8,30 @@
 import UIKit
 import HealthKit
 import SVProgressHUD
+import FSCalendar
 
-class CheckinCalendarDateSelectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+class CheckinCalendarDateSelectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FSCalendarDataSource, FSCalendarDelegate  {
+    var formatter = DateFormatter()
 
     @IBOutlet weak var tableView: UITableView!
     
     var checkin: Checkin!
+    var calendar:FSCalendar!
     
     var selectedCustomTrigger: CustomTrigger?
     
+    public var date = Date()
     
+        
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let checkinDate = Checkin(date: Date(), symptomCheckins: [])
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
-        self.navigationItem.title = "Check-in for \(dateFormatter.string(from: Date()))"
+        self.navigationItem.title = "Check-in for \(Date())"
         
         let signOutButton = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(onSignOut))
         self.navigationItem.leftBarButtonItem = signOutButton

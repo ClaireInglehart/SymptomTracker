@@ -39,9 +39,6 @@ class HistoryDateViewController: UIViewController, FSCalendarDelegate, FSCalenda
         
         
         
-        
-        
-        
         self.view.addSubview(calendar)
         
         calendar.dataSource = self
@@ -58,25 +55,41 @@ class HistoryDateViewController: UIViewController, FSCalendarDelegate, FSCalenda
     
    
     
-
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        formatter.dateFormat = "dd-MMM-yyyy"
-        var dateSelected = formatter.string(from: date)
+        guard let currentUser = DataService.shared.currentUser else { return }
+
+        let startDate = Foundation.Date()
+
+        performSegue(withIdentifier: "showDateCheckin", sender: self)
+        
+
         
     //for date selected, present the Checkin for that day, how severe symtpms were and what the trigger values were
 //        performSegue(withIdentifier: "showCheckin", sender: FSCalendar.self)
-        Checkin(date: date, symptomCheckins: [])
+
     }
     
     func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
 
             formatter.dateFormat = "dd-MMM-yyyy"
-            var dateSelected = formatter.string(from: date)
-
-            
-            
+//            var dateSelected = formatter.string(from: date)
         }
+    
+    
+//    func calendar(_ calendar: FSCalendar, shouldDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
+//        formatter.dateFormat = "dd-MM-yyyy"
+//
+//    }
+//
 
+
+    func minimumDate(for calendar: FSCalendar) -> Date {
+        return Date().dateBySubtractingDays(365)
+    }
+    
+    func maximumDate(for calendar: FSCalendar) -> Date {
+        return Date()
+    }
     
     /*
     // MARK: - Navigation
