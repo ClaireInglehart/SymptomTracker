@@ -109,6 +109,14 @@ class HistoryDateViewController: UIViewController, FSCalendarDelegate, FSCalenda
 //    }
 //
 
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        guard let currentUser = DataService.shared.currentUser else { return 0 }
+        
+        if let _ = (DataService.shared.getCheckin(forDate: date, forUser: currentUser)) {
+            return 1
+        }
+        return 0
+    }
 
     func minimumDate(for calendar: FSCalendar) -> Date {
         return Date().dateBySubtractingDays(365)
