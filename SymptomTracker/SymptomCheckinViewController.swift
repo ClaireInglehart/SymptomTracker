@@ -6,11 +6,12 @@
 import UIKit
 import HealthKit
 import SVProgressHUD
-import TDLikertScaleSelectorView
 
-class SymptomCheckinViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, TDLikertScaleDelegate {
+class SymptomCheckinViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-        
+    
+    @IBOutlet weak var likertContainerView: UIView!
+    var likertView: TDLikertScaleSelectorView?
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -23,74 +24,86 @@ class SymptomCheckinViewController: UIViewController, UITableViewDelegate, UITab
     private var customTriggerCheckins: [CustomTriggerCheckin] = []
     private var appleHealthTriggerCheckins: [AppleHealthTriggerCheckin] = []
     
-
+    
+    struct LikertViewConfig: TDSelectionBuildConfig {
+        var font: UIFont? = UIFont.systemFont(ofSize: 13)
+        var textColor: UIColor?  = UIColor.systemBlue
+        var backgroundColorNormal: UIColor? = UIColor.clear
+        var backgroundColorHighlighted: UIColor? = UIColor.lightGray
+        var backgroundColorSelected: UIColor? = UIColor.systemBlue.withAlphaComponent(0.5)
+        var backgroundColorHighlightedSelected: UIColor? = UIColor.lightGray
+        var borderColor: UIColor? = .systemBlue
+        var borderWidth: CGFloat? = 2.0
+        var buttonRadius: CGFloat? = 22
+        var lineColor: UIColor? = .systemBlue
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        TDLikertScaleSelectorView.init(frame: CGRect.zero)
         
         if let symptom = self.symptom {
             self.navigationItem.title = "Check-in for \(symptom.name)"
         }
         
-
-
+        let config = LikertViewConfig()
+        let likertView = TDLikertScaleSelectorView(withConfig: config)
+        likertView.delegate = self
+        likertView.tag = 2
+        likertView.translatesAutoresizingMaskIntoConstraints = false
+        self.likertContainerView.addSubview(likertView)
+        NSLayoutConstraint.activate([
+            likertView.leadingAnchor.constraint(equalTo: self.likertContainerView.leadingAnchor),
+            likertView.trailingAnchor.constraint(equalTo: self.likertContainerView.trailingAnchor),
+            likertView.topAnchor.constraint(equalTo: self.likertContainerView.topAnchor),
+            likertView.bottomAnchor.constraint(equalTo: self.likertContainerView.bottomAnchor)
+        ])
+        self.likertView = likertView
+        
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(onCancel))
         self.navigationItem.leftBarButtonItem = cancelButton
-
+        
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(onDone))
         self.navigationItem.rightBarButtonItem = doneButton
     }
-    
-    
+        
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        }
-        
-    
-    func didSelect(category cat: TDSelectionCategory, tag: Int) {
-        print("Question with tag \(tag) has answer \(cat.localizedName)")
-
     }
-
+        
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+    }
     
-        }
-
-    
-
-
     @objc func onCancel() {
         self.performSegue(withIdentifier: "SymptomCheckinCanceled", sender: self)
     }
-
+    
     @objc func onDone() {
         // TODO: display an "are you sure?" alert if some triggers don't have values.
-                
+        
         guard let symptom = self.symptom else { return }
-        
-        // For now, hard-code severity to moderate
-        self.symptomSeverity = .moderate
-
-        guard let symptomSeverity = self.symptomSeverity else { return }
-
-        let symptomCheckin = SymptomCheckin(symptom: symptom, severity: symptomSeverity)
-        symptomCheckin.customTriggerCheckins = self.customTriggerCheckins
-        symptomCheckin.appleHealthTriggerCheckins = self.appleHealthTriggerCheckins
-        
-        self.symptomCheckin = symptomCheckin
-        
-        self.performSegue(withIdentifier: "SymptomCheckinComplete", sender: self)
-
+               
+        if let symptomSeverity = self.symptomSeverity {
+            let symptomCheckin = SymptomCheckin(symptom: symptom, severity: symptomSeverity)
+            symptomCheckin.customTriggerCheckins = self.customTriggerCheckins
+            symptomCheckin.appleHealthTriggerCheckins = self.appleHealthTriggerCheckins
+            
+            self.symptomCheckin = symptomCheckin
+            
+            self.performSegue(withIdentifier: "SymptomCheckinComplete", sender: self)
+        } else {
+            self.showErrorToast(withMessage: "Please indicate symptom severity")
+        }        
     }
     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         if segue.identifier == "addValue", let nav = segue.destination as? UINavigationController, let vc = nav.viewControllers[0] as? AddCheckinValueViewController {
-             vc.customTrigger = self.selectedCustomTrigger
-         }
-     }
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addValue", let nav = segue.destination as? UINavigationController, let vc = nav.viewControllers[0] as? AddCheckinValueViewController {
+            vc.customTrigger = self.selectedCustomTrigger
+        }
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -99,7 +112,7 @@ class SymptomCheckinViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         guard let symptom = self.symptom else { return 0 }
-
+        
         if (section == 0) {
             return symptom.customTriggers.count
         } else {
@@ -110,13 +123,13 @@ class SymptomCheckinViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let symptom = self.symptom else { return UITableViewCell() }
-
+        
         if (indexPath.section == 0) {
             let trigger = symptom.customTriggers[indexPath.row]
             let triggerCheckin: CustomTriggerCheckin? = self.customTriggerCheckins.first(where: { t in
                 return t.trigger.name == trigger.name
             })
-
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: "TriggerCell", for: indexPath)
             cell.textLabel?.text = trigger.name
             if let checkin = triggerCheckin {
@@ -137,7 +150,7 @@ class SymptomCheckinViewController: UIViewController, UITableViewDelegate, UITab
                 return t.trigger.identifier == trigger.identifier
             })
             
-
+            
             if let triggerCheckin = triggerCheckin {
                 cell.detailTextLabel?.text = "\(triggerCheckin.quantity)"
                 cell.detailTextLabel?.textColor = .label
@@ -154,7 +167,7 @@ class SymptomCheckinViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         guard let symptom = self.symptom else { return 0.0 }
-
+        
         if (section == 0) {
             return symptom.customTriggers.count > 0 ? UITableView.automaticDimension : 0.0
         } else {
@@ -188,7 +201,7 @@ class SymptomCheckinViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         guard let symptom = self.symptom else { return false }
-
+        
         if (indexPath.section == 0) {
             let customTrigger = symptom.customTriggers[indexPath.row]
             let hasCheckin = self.customTriggerCheckins.contains { checkin in
@@ -212,10 +225,10 @@ class SymptomCheckinViewController: UIViewController, UITableViewDelegate, UITab
             self.tableView.reloadData()
         }
     }
-
+    
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         guard let symptom = self.symptom else { return nil }
-
+        
         if (indexPath.section == 0) {
             let customTrigger = symptom.customTriggers[indexPath.row]
             let hasCheckin = self.customTriggerCheckins.contains { customTriggerCheckin in
@@ -231,12 +244,12 @@ class SymptomCheckinViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-
+        
         guard let symptom = self.symptom else { return }
-
+        
         // If it's a custom trigger, show a screen to prompt user to enter value
         // If it's a custom trigger, show a screen to prompt user to enter value
         
@@ -255,9 +268,8 @@ class SymptomCheckinViewController: UIViewController, UITableViewDelegate, UITab
                 }
             }
         }
-        
     }
-
+    
     
     func queryHealthKit(forIdentifier identifier: HKQuantityTypeIdentifier, completion: @escaping (Double) -> Void) {
         
@@ -272,10 +284,10 @@ class SymptomCheckinViewController: UIViewController, UITableViewDelegate, UITab
                 return
             }
         }
-    
+        
         let quantityType = HKQuantityType.quantityType(forIdentifier: identifier)!
         let readRequestTypes:Set<HKQuantityType> = [quantityType]
-    
+        
         SVProgressHUD.show()
         healthStore.requestAuthorization(toShare: nil, read: readRequestTypes) { success, error in
             DispatchQueue.main.async {
@@ -310,7 +322,7 @@ class SymptomCheckinViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
-
+    
     private func showHealthKitNotSupportedAlert(completion: (()->Void)?) {
         let title = "Health Kit"
         let message = "Apple Health is not supported on this device."
@@ -318,7 +330,7 @@ class SymptomCheckinViewController: UIViewController, UITableViewDelegate, UITab
         alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: completion)
     }
-
+    
     private func showHealthKitPermissionDeniedAlert(completion: (()->Void)?) {
         let title = "Health Kit"
         let message = "If you change your mind, you can enable access to Health Kit in the Settings app."
@@ -327,4 +339,23 @@ class SymptomCheckinViewController: UIViewController, UITableViewDelegate, UITab
         self.present(alert, animated: true, completion: completion)
     }
     
+}
+
+extension SymptomCheckinViewController: TDLikertScaleDelegate {
+    func didSelect(category cat: TDSelectionCategory, tag: Int) {
+        print("Question with tag \(tag) has answer \(cat.localizedName)")
+        switch (cat) {
+        case .none:
+            self.symptomSeverity = .none
+        case .mild:
+            self.symptomSeverity = .mild
+        case .moderate:
+            self.symptomSeverity = .moderate
+        case .difficult:
+            self.symptomSeverity = .difficult
+        case .severe:
+            self.symptomSeverity = .severe
+        }
+
+    }
 }

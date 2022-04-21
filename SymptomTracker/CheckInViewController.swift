@@ -23,9 +23,12 @@ class CheckInViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+                
+        update()
+    }
+
+    func update() {
         guard let currentUser = DataService.shared.currentUser else { return }
-        
         if (DataService.shared.getCheckin(forDate: Date(), forUser: currentUser) != nil) {
             self.checkInButton.isHidden = true
             self.checkInLabel.isHidden = false
@@ -36,8 +39,9 @@ class CheckInViewController: UIViewController {
             self.checkInButton.isHidden = false
             self.checkInLabel.isHidden = true
         }
+
     }
-    
+
     @objc func onSignOut() {
         performSegue(withIdentifier: "SignOut", sender: nil)
     }
@@ -52,10 +56,12 @@ class CheckInViewController: UIViewController {
 
     @IBAction func dailyCheckinComplete(_ segue: UIStoryboardSegue) {
         print("dailyCheckinComplete")
+        self.update()
     }
     
     @IBAction func dailyCheckinCanceled(_ segue: UIStoryboardSegue) {
         print("dailyCheckinCanceled")
+        self.update()
    }
 
 }

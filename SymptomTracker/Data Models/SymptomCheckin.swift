@@ -13,7 +13,7 @@ enum Severity: Int, Codable {
     case moderate
     case difficult
     case severe
-    case verySevere
+    case extreme
 }
 
 class SymptomCheckin: Codable {

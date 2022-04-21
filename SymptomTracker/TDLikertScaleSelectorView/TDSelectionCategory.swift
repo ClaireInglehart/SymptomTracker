@@ -9,25 +9,25 @@
 import Foundation
 
 public enum TDSelectionCategory: Int, CaseIterable {
-    case stronglyAgree = 0
-    case agree = 1
-    case neutral = 2
-    case disagree = 3
-    case stronglyDisagree = 4
-    
+    case none = 0
+    case mild = 1
+    case moderate = 2
+    case difficult = 3
+    case severe = 4
+
     public var localizedName: String {
         get {
             switch self {
-            case .stronglyAgree:
-                return NSLocalizedString("strongly agree", comment: "Localised text for selection")
-            case .agree:
-                return NSLocalizedString("agree", comment: "Localised text for selection")
-            case .neutral:
-                return NSLocalizedString("neutral", comment: "Localised text for selection")
-            case .disagree:
-                return NSLocalizedString("disagree", comment: "Localised text for selection")
-            case .stronglyDisagree:
-                return NSLocalizedString("strongly disagree", comment: "Localised text for selection")
+            case .none:
+                return NSLocalizedString("none", comment: "none")
+            case .mild:
+                return NSLocalizedString("mild", comment: "mild")
+            case .moderate:
+                return NSLocalizedString("moderate", comment: "moderate")
+            case .difficult:
+                return NSLocalizedString("difficult", comment: "difficult")
+            case .severe:
+                return NSLocalizedString("severe", comment: "severe")
             }
         }
     }

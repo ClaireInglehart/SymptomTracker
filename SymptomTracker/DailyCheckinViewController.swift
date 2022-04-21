@@ -60,8 +60,7 @@ class DailyCheckinViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBAction func symtomCheckinComplete(_ segue: UIStoryboardSegue) {
         print("symtomCheckinComplete")
-        if let vc = segue.source as? SymptomCheckinViewController, let checkin = vc.symptomCheckin {
-            
+        if let vc = segue.source as? SymptomCheckinViewController, let checkin = vc.symptomCheckin {            
             self.checkin.symptomCheckins.append(checkin)
             self.tableView.reloadData()
         }

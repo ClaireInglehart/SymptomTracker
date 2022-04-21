@@ -4,7 +4,6 @@ PODS:
   - Loaf (0.7.0)
   - lottie-ios (3.3.0)
   - SVProgressHUD (2.2.5)
-  - TDLikertScaleSelectorView (1.0.6)
 
 DEPENDENCIES:
   - DZNEmptyDataSet
@@ -12,7 +11,6 @@ DEPENDENCIES:
   - Loaf
   - lottie-ios
   - SVProgressHUD
-  - TDLikertScaleSelectorView
 
 SPEC REPOS:
   trunk:
@@ -21,7 +19,6 @@ SPEC REPOS:
     - Loaf
     - lottie-ios
     - SVProgressHUD
-    - TDLikertScaleSelectorView
 
 SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
@@ -29,8 +26,7 @@ SPEC CHECKSUMS:
   Loaf: d69937cd00649f3fa260beb8b7aef0a1feb861ef
   lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  TDLikertScaleSelectorView: dce6fac9ebda21f5deb00eca74dcad15a4fb6269
 
-PODFILE CHECKSUM: fd77bb550ef36bb84ef3e70fe38e620416c75379
+PODFILE CHECKSUM: 3498b77a163d23f9aee8726206d34502cb66f5ae
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2

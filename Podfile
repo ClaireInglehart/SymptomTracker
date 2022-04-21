@@ -11,6 +11,5 @@ target 'SymptomTracker' do
   pod 'Loaf'
   pod 'FSCalendar'
   pod 'SVProgressHUD'
-  pod 'TDLikertScaleSelectorView'
 
 end

@@ -69,10 +69,10 @@ open class TDSelectionContainerView: UIView {
         lineRight.isUserInteractionEnabled = false
 
         switch category {
-        case .some(.stronglyAgree):
+        case .some(.none):
             lineLeft.isHidden = true
             lineRight.isHidden = false
-        case .some(.stronglyDisagree):
+        case .some(.severe):
             lineLeft.isHidden = false
             lineRight.isHidden = true
         default:
