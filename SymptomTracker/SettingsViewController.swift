@@ -12,6 +12,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var notification1Switch: UISwitch!
     @IBOutlet weak var notification2Switch: UISwitch!
     
+    @IBOutlet weak var faceIdSwitch: UISwitch!
+    
     @IBOutlet weak var notifPicker2: UIDatePicker!
     @IBOutlet weak var notifPicker1: UIDatePicker!
     
@@ -38,9 +40,9 @@ class SettingsViewController: UIViewController {
         
         self.navigationItem.title = "Settings"
 
-        self.notification1Switch.onTintColor = .systemIndigo
-        self.notification2Switch.onTintColor = .systemIndigo
-        
+        self.notification1Switch.onTintColor = .systemBlue
+        self.notification2Switch.onTintColor = .systemBlue
+        self.faceIdSwitch.onTintColor = .systemBlue
         
         self.notification1Switch.isOn = AppSettings.notification1Enabled
         self.notification2Switch.isOn = AppSettings.notification2Enabled
@@ -48,6 +50,7 @@ class SettingsViewController: UIViewController {
         self.notifPicker1.isEnabled = AppSettings.notification1Enabled
         self.notifPicker2.isEnabled = AppSettings.notification2Enabled
         
+
         let notification1TimeString = AppSettings.notification1Time ?? "17:00"
         let notification2TimeString = AppSettings.notification2Time ?? "17:00"
         

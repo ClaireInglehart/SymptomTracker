@@ -7,12 +7,15 @@
 
 import UIKit
 import FSCalendar
+import Foundation
+
 
 class HistoryDateViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
 
     var calendar:FSCalendar!
     var formatter = DateFormatter()
-    
+    private var checkins: [Checkin] = []
+
     override func viewDidLoad() {
         
         self.navigationItem.title = "Settings"
@@ -35,7 +38,7 @@ class HistoryDateViewController: UIViewController, FSCalendarDelegate, FSCalenda
         calendar.appearance.titleTodayColor = .white
         calendar.appearance.titleDefaultColor = .darkGray
         calendar.appearance.weekdayTextColor = .black
-        calendar.appearance.selectionColor = .systemPurple
+        calendar.appearance.selectionColor = .systemBlue
         
         
         
@@ -58,9 +61,33 @@ class HistoryDateViewController: UIViewController, FSCalendarDelegate, FSCalenda
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         guard let currentUser = DataService.shared.currentUser else { return }
 
-        let startDate = Foundation.Date()
+        
+        let dateFormatter = DateFormatter()
 
-        performSegue(withIdentifier: "showDateCheckin", sender: self)
+        // Set Date Format
+        dateFormatter.dateFormat = "YY/MM/dd"
+
+        // Convert Date to String
+        let dateString = dateFormatter.string(from: date as Date)
+        
+        print(dateString)
+
+        let checkinUser = DataService.shared.getCheckins(forUser: currentUser)
+        
+        
+        print("date: ", date)
+        
+        print("checkin", checkinUser)
+        
+        let dateCheckin = (DataService.shared
+            .getCheckin(forDate: date, forUser: currentUser))
+//        let dateCheckinString = dateFormatter.string(from: dateCheckin)
+        print("date of checkin: ", dateCheckin)
+        
+        
+        
+        
+//        performSegue(withIdentifier: "showDateCheckin", sender: self)
         
 
         

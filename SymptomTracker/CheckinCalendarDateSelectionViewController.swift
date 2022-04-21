@@ -27,7 +27,7 @@ class CheckinCalendarDateSelectionViewController: UIViewController, UITableViewD
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let checkinDate = Checkin(date: Date(), symptomCheckins: [])
+
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
