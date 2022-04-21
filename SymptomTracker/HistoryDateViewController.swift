@@ -11,21 +11,20 @@ import Foundation
 
 
 class HistoryDateViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
-
+    
     var calendar:FSCalendar!
     var formatter = DateFormatter()
     private var checkins: [Checkin] = []
-
+    
     override func viewDidLoad() {
         
+        super.viewDidLoad()
+
         self.navigationItem.title = "Settings"
         
         let signOutButton = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(onSignOut))
         self.navigationItem.leftBarButtonItem = signOutButton
-    
-
-
-        super.viewDidLoad()
+                 
         calendar = FSCalendar(frame:CGRect(x: 0.0, y: 100.0, width: self.view.frame.size.width, height: 300.0))
         calendar.scrollDirection = .vertical
         calendar.scope = .month
@@ -39,9 +38,7 @@ class HistoryDateViewController: UIViewController, FSCalendarDelegate, FSCalenda
         calendar.appearance.titleDefaultColor = .darkGray
         calendar.appearance.weekdayTextColor = .black
         calendar.appearance.selectionColor = .systemBlue
-        
-        
-        
+                        
         self.view.addSubview(calendar)
         
         calendar.dataSource = self
@@ -52,63 +49,29 @@ class HistoryDateViewController: UIViewController, FSCalendarDelegate, FSCalenda
     @objc func onSignOut() {
         performSegue(withIdentifier: "SignOut", sender: nil)
     }
-
-
+    
+    
     //MARK: - datasource
     
-   
+    
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         guard let currentUser = DataService.shared.currentUser else { return }
-
         
-        let dateFormatter = DateFormatter()
-
-        // Set Date Format
-        dateFormatter.dateFormat = "YY/MM/dd"
-
-        // Convert Date to String
-        let dateString = dateFormatter.string(from: date as Date)
-        
-        print(dateString)
-
-        let checkinUser = DataService.shared.getCheckins(forUser: currentUser)
-        
-        
-        print("date: ", date)
-        
-        print("checkin", checkinUser)
-        
-        let dateCheckin = (DataService.shared
-            .getCheckin(forDate: date, forUser: currentUser))
-//        let dateCheckinString = dateFormatter.string(from: dateCheckin)
-        print("date of checkin: ", dateCheckin)
-        
-        
-        
-        
-//        performSegue(withIdentifier: "showDateCheckin", sender: self)
-        
-
-        
-    //for date selected, present the Checkin for that day, how severe symtpms were and what the trigger values were
-//        performSegue(withIdentifier: "showCheckin", sender: FSCalendar.self)
-
+        if let dateCheckin = (DataService.shared.getCheckin(forDate: date, forUser: currentUser)) {
+            performSegue(withIdentifier: "showDateCheckin", sender: self)
+        } else {
+            self.showErrorToast(withMessage: "There is no check-in for that date")
+        }
     }
     
-    func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
-
-            formatter.dateFormat = "dd-MMM-yyyy"
-//            var dateSelected = formatter.string(from: date)
-        }
     
+    func calendar(_ calendar: FSCalendar, shouldSelect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
+        guard let currentUser = DataService.shared.currentUser else { return false }
+        
+        return (DataService.shared.getCheckin(forDate: date, forUser: currentUser) != nil)
+    }
     
-//    func calendar(_ calendar: FSCalendar, shouldDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
-//        formatter.dateFormat = "dd-MM-yyyy"
-//
-//    }
-//
-
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         guard let currentUser = DataService.shared.currentUser else { return 0 }
         
@@ -117,7 +80,7 @@ class HistoryDateViewController: UIViewController, FSCalendarDelegate, FSCalenda
         }
         return 0
     }
-
+    
     func minimumDate(for calendar: FSCalendar) -> Date {
         return Date().dateBySubtractingDays(365)
     }
@@ -127,13 +90,13 @@ class HistoryDateViewController: UIViewController, FSCalendarDelegate, FSCalenda
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    }
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+}
 
