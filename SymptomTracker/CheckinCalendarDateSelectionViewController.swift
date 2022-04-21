@@ -101,7 +101,7 @@ class CheckinCalendarDateSelectionViewController: UIViewController, UITableViewD
                 cell.accessoryType = .none
             } else {
                 cell.detailTextLabel?.text = "Check In"
-                cell.detailTextLabel?.textColor = .systemIndigo
+                cell.detailTextLabel?.textColor = .systemBlue
                 cell.accessoryType = .disclosureIndicator
             }
             return cell
@@ -123,7 +123,7 @@ class CheckinCalendarDateSelectionViewController: UIViewController, UITableViewD
             } else {
                 cell.detailTextLabel?.text = "Check In"
                 
-                cell.detailTextLabel?.textColor = .systemIndigo
+                cell.detailTextLabel?.textColor = .systemBlue
                 cell.accessoryType = .disclosureIndicator
             }
             return cell
@@ -139,7 +139,7 @@ class CheckinCalendarDateSelectionViewController: UIViewController, UITableViewD
         let symptom = currentUser.symptoms[section]
         
         let view = UIView()
-        view.backgroundColor = UIColor.systemIndigo
+        view.backgroundColor = UIColor.systemBlue
         
         let symptomLabel = UILabel()
         symptomLabel.translatesAutoresizingMaskIntoConstraints = false

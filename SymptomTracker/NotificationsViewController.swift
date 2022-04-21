@@ -39,8 +39,8 @@ class NotificationsViewController: UIViewController {
         
         self.navigationItem.title = "Settings"
 
-        self.notification1Switch.onTintColor = .systemIndigo
-        self.notification2Switch.onTintColor = .systemIndigo
+        self.notification1Switch.onTintColor = .systemBlue
+        self.notification2Switch.onTintColor = .systemBlue
         
         self.notification1Switch.isOn = AppSettings.notification1Enabled
         self.notification2Switch.isOn = AppSettings.notification2Enabled

@@ -106,7 +106,7 @@ class SignUpSymptomsViewController: UIViewController, UITableViewDelegate, UITab
         let symptom = currentUser.symptoms[section]
 
         let view = UIView()
-        view.backgroundColor = UIColor.systemIndigo
+        view.backgroundColor = UIColor.systemBlue
         
         let symptomLabel = UILabel()
         symptomLabel.translatesAutoresizingMaskIntoConstraints = false

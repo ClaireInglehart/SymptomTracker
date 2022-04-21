@@ -125,7 +125,7 @@ class SymptomCheckinViewController: UIViewController, UITableViewDelegate, UITab
                 cell.accessoryType = .none
             } else {
                 cell.detailTextLabel?.text = "Check In"
-                cell.detailTextLabel?.textColor = .systemIndigo
+                cell.detailTextLabel?.textColor = .systemBlue
                 cell.accessoryType = .disclosureIndicator
             }
             return cell
@@ -145,7 +145,7 @@ class SymptomCheckinViewController: UIViewController, UITableViewDelegate, UITab
             } else {
                 cell.detailTextLabel?.text = "Check In"
                 
-                cell.detailTextLabel?.textColor = .systemIndigo
+                cell.detailTextLabel?.textColor = .systemBlue
                 cell.accessoryType = .disclosureIndicator
             }
             return cell
@@ -164,7 +164,7 @@ class SymptomCheckinViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-        view.backgroundColor = UIColor.systemIndigo
+        view.backgroundColor = UIColor.systemBlue
         
         let symptomLabel = UILabel()
         symptomLabel.translatesAutoresizingMaskIntoConstraints = false
