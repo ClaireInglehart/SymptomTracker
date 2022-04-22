@@ -14,7 +14,8 @@ open class TDLikertScaleSelectorView : UIView {
     
     var buildConfig: TDSelectionBuildConfig?
     public weak var delegate: TDLikertScaleDelegate?
-
+    public var selectedCategory: TDSelectionCategory?
+    
     private override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -35,7 +36,7 @@ open class TDLikertScaleSelectorView : UIView {
     
     func initViews() {
         self.accessibilityIdentifier = "TDLikertScaleSelectorView"
-
+        
         stackView = UIStackView(frame: CGRect.zero)
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
@@ -55,13 +56,21 @@ open class TDLikertScaleSelectorView : UIView {
         stackView.pin(to: self)
     }
     
+    func selectCategory(_ category: TDSelectionCategory) {
+        for case let containerView as TDSelectionContainerView in stackView.arrangedSubviews {
+            containerView.button.isSelected = containerView.button.tag == category.rawValue
+        }
+        self.selectedCategory = category
+    }
+    
     @objc func didPressSelectorBtn(sender: UIButton) {
         if let category = TDSelectionCategory(rawValue: sender.tag) {
+            self.selectedCategory = category
             delegate?.didSelect(category: category, tag: self.tag)
         }
         
         for case let containerView as TDSelectionContainerView in stackView.arrangedSubviews {
-                containerView.button.isSelected = containerView.button == sender
+            containerView.button.isSelected = containerView.button == sender
         }
     }
 }

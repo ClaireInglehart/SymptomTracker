@@ -13,13 +13,12 @@ enum Severity: Int, Codable {
     case moderate
     case difficult
     case severe
-    case extreme
 }
 
 class SymptomCheckin: Codable {
 
     var symptom: Symptom
-    var severity: Severity?
+    var severity: Severity
     var customTriggerCheckins: [CustomTriggerCheckin]
     var appleHealthTriggerCheckins: [AppleHealthTriggerCheckin]
     

@@ -15,12 +15,13 @@ class HistoryDateViewController: UIViewController, FSCalendarDelegate, FSCalenda
     var calendar:FSCalendar!
     var formatter = DateFormatter()
     private var checkins: [Checkin] = []
+    private var selectedCheckin: Checkin?
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
 
-        self.navigationItem.title = "Settings"
+        self.navigationItem.title = "Check-in History"
         
         let signOutButton = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(onSignOut))
         self.navigationItem.leftBarButtonItem = signOutButton
@@ -59,7 +60,8 @@ class HistoryDateViewController: UIViewController, FSCalendarDelegate, FSCalenda
         guard let currentUser = DataService.shared.currentUser else { return }
         
         if let dateCheckin = (DataService.shared.getCheckin(forDate: date, forUser: currentUser)) {
-            performSegue(withIdentifier: "showDateCheckin", sender: self)
+            self.selectedCheckin = dateCheckin
+            performSegue(withIdentifier: "ShowCheckin", sender: self)
         } else {
             self.showErrorToast(withMessage: "There is no check-in for that date")
         }
@@ -89,14 +91,13 @@ class HistoryDateViewController: UIViewController, FSCalendarDelegate, FSCalenda
         return Date()
     }
     
-    /*
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
+         if segue.identifier == "ShowCheckin", let vc = segue.destination as? CheckinHistoryViewController {
+             vc.checkin = self.selectedCheckin
+         }
      }
-     */
 }
 
