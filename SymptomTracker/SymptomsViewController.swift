@@ -23,9 +23,9 @@ class SymptomsViewController: UIViewController, UITableViewDelegate, UITableView
         self.navigationItem.leftBarButtonItem = signOutButton
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAddSymptom))
-        self.navigationItem.rightBarButtonItem = addButton
-        
 
+        let testButton = UIBarButtonItem(title: "test", style: .plain, target: self, action: #selector(onMakeTestData))
+        self.navigationItem.rightBarButtonItems = [addButton, testButton]
     }
     
 
@@ -40,6 +40,13 @@ class SymptomsViewController: UIViewController, UITableViewDelegate, UITableView
     @IBAction func symptomAdded(_ segue: UIStoryboardSegue) {
         tableView.reloadData()
     }
+    
+    @objc func onMakeTestData() {
+        guard let currentUser = DataService.shared.currentUser else { return }
+
+        DataService.shared.mlTest(forUser: currentUser)
+    }
+
 
     /*
     // MARK: - Navigation

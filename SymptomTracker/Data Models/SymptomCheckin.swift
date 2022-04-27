@@ -13,6 +13,21 @@ enum Severity: Int, Codable {
     case moderate
     case difficult
     case severe
+    
+    public func toString() -> String {
+        switch (self) {
+        case .none:
+            return "none"
+        case .mild:
+            return "mild"
+        case .moderate:
+            return "moderate"
+        case .difficult:
+            return "difficult"
+        case .severe:
+            return "severe"
+        }
+    }
 }
 
 class SymptomCheckin: Codable {
