@@ -324,6 +324,34 @@
             </objects>
             <point key="canvasLocation" x="2066.666666666667" y="906.69642857142856"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="bGn-uH-ZQW">
+            <objects>
+                <viewController id="poJ-6n-bKM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8OW-TS-QVJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jTc-0S-pAT">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="PF6-5M-AN3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jTc-0S-pAT" firstAttribute="leading" secondItem="PF6-5M-AN3" secondAttribute="leading" id="41a-dm-8W3"/>
+                            <constraint firstItem="PF6-5M-AN3" firstAttribute="bottom" secondItem="jTc-0S-pAT" secondAttribute="bottom" id="AeC-0m-DtM"/>
+                            <constraint firstItem="jTc-0S-pAT" firstAttribute="top" secondItem="PF6-5M-AN3" secondAttribute="top" id="UFY-b0-r4j"/>
+                            <constraint firstItem="PF6-5M-AN3" firstAttribute="trailing" secondItem="jTc-0S-pAT" secondAttribute="trailing" id="Zuv-I6-2Pr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="cc2-g0-pBY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gKO-KS-tf5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2152" y="2455"/>
+        </scene>
         <!--Symptoms-->
         <scene sceneID="QFt-QU-WKY">
             <objects>
@@ -759,6 +787,7 @@
                         <segue destination="isM-ei-KBZ" kind="relationship" relationship="viewControllers" id="BXI-mi-5n0"/>
                         <segue destination="ZDB-h6-ols" kind="relationship" relationship="viewControllers" id="QVg-mx-fdb"/>
                         <segue destination="ucT-GW-8Xl" kind="relationship" relationship="viewControllers" id="qH6-oY-ru8"/>
+                        <segue destination="VuT-uN-WCj" kind="relationship" relationship="viewControllers" id="LM5-kJ-wqw"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mSa-lX-qrc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1400,6 +1429,23 @@
             </objects>
             <point key="canvasLocation" x="-239" y="1738"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="2bw-ts-y5I">
+            <objects>
+                <navigationController id="VuT-uN-WCj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="rwe-sc-8i8"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MeS-ZW-I7k">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="poJ-6n-bKM" kind="relationship" relationship="rootViewController" id="pbr-Nb-uIy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7dD-qN-vEe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2168" y="1754"/>
+        </scene>
         <!--Symptoms Navigation Controller-->
         <scene sceneID="WyC-M4-GDq">
             <objects>
@@ -1851,10 +1897,13 @@
             <point key="canvasLocation" x="547.82608695652175" y="3210.9375"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="sdM-Pk-Zp9"/>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="e43-X5-A9l"/>
         <segue reference="fzz-42-xPn"/>
-        <segue reference="nO5-gD-SfC"/>
+        <segue reference="ynv-hV-nn7"/>
         <segue reference="eY5-gm-aDr"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemBlueColor"/>
