@@ -11,5 +11,6 @@ target 'SymptomTracker' do
   pod 'Loaf'
   pod 'FSCalendar'
   pod 'SVProgressHUD'
+  pod 'FLCharts'
 
 end

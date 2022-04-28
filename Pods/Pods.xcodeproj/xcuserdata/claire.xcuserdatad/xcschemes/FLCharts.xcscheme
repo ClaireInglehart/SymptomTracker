@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "84D2DA643AC69A0FD8369C232D7E00D4"
-               BuildableName = "TDLikertScaleSelectorView.framework"
-               BlueprintName = "TDLikertScaleSelectorView"
+               BlueprintIdentifier = "4C9AD16BA052ADC7F6542A93539C391A"
+               BuildableName = "FLCharts.framework"
+               BlueprintName = "FLCharts"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

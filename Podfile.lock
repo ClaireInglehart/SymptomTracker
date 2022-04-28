@@ -1,5 +1,6 @@
 PODS:
   - DZNEmptyDataSet (1.8.1)
+  - FLCharts (1.6.0)
   - FSCalendar (2.8.2)
   - Loaf (0.7.0)
   - lottie-ios (3.3.0)
@@ -7,6 +8,7 @@ PODS:
 
 DEPENDENCIES:
   - DZNEmptyDataSet
+  - FLCharts
   - FSCalendar
   - Loaf
   - lottie-ios
@@ -15,6 +17,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - DZNEmptyDataSet
+    - FLCharts
     - FSCalendar
     - Loaf
     - lottie-ios
@@ -22,11 +25,12 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  FLCharts: d657c28c471c9fbe4cb9a18e316f82685200fc49
   FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
   Loaf: d69937cd00649f3fa260beb8b7aef0a1feb861ef
   lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 3498b77a163d23f9aee8726206d34502cb66f5ae
+PODFILE CHECKSUM: b11979aa256d1a18c529de478299dc5d188ecb0f
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.10.1
