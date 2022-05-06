@@ -12,6 +12,7 @@ class CheckInViewController: UIViewController {
     @IBOutlet weak var checkInLabel: UILabel!
     @IBOutlet weak var checkInButton: UIButton!
     
+    //load title label m add signOutButton, format
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,13 +21,14 @@ class CheckInViewController: UIViewController {
         let signOutButton = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(onSignOut))
         self.navigationItem.leftBarButtonItem = signOutButton
     }
-    
+    //update appearence each time it loads
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
                 
         update()
     }
 
+    //function for updating data on currentUser
     func update() {
         guard let currentUser = DataService.shared.currentUser else { return }
         if (DataService.shared.getCheckin(forDate: Date(), forUser: currentUser) != nil) {
@@ -47,9 +49,8 @@ class CheckInViewController: UIViewController {
     }
 
 
+    
     @IBAction func onDoCheckin(_ sender: Any) {
-        // TODO: verify user added at least one symptom
-        
         performSegue(withIdentifier: "DoDailyCheckIn", sender: sender)
 
     }

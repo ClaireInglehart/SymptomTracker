@@ -438,11 +438,11 @@
             <objects>
                 <viewController title="Check-ins" id="HHn-Il-eT8" customClass="CheckInViewController" customModule="SymptomTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DL5-Ax-1cQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="5PI-Z0-yil">
-                                <rect key="frame" x="44" y="60" width="326" height="102"/>
+                                <rect key="frame" x="44" y="104" width="326" height="102"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check-in complete for &lt;today&gt;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTg-ra-X9d">
                                         <rect key="frame" x="31.5" y="0.0" width="263" height="23"/>
@@ -1433,7 +1433,7 @@
         <scene sceneID="2bw-ts-y5I">
             <objects>
                 <navigationController id="VuT-uN-WCj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="rwe-sc-8i8"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="chart.xyaxis.line" catalog="system" id="rwe-sc-8i8"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MeS-ZW-I7k">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1904,12 +1904,13 @@
         <segue reference="e43-X5-A9l"/>
         <segue reference="fzz-42-xPn"/>
         <segue reference="ynv-hV-nn7"/>
-        <segue reference="eY5-gm-aDr"/>
+        <segue reference="fu9-O1-18g"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemBlueColor"/>
     <resources>
         <image name="StartUp" width="174" height="160"/>
         <image name="archivebox.circle" catalog="system" width="128" height="121"/>
+        <image name="chart.xyaxis.line" catalog="system" width="128" height="101"/>
         <image name="cross.circle" catalog="system" width="128" height="121"/>
         <image name="gear.circle" catalog="system" width="128" height="121"/>
         <image name="stethoscope.circle" catalog="system" width="128" height="121"/>
