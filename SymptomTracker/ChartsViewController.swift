@@ -7,53 +7,85 @@
 
 import UIKit
 import FLCharts
+import Charts
+import TinyConstraints
+
+
 
 class ChartsViewController: UIViewController {
     
     var symptomCheckin: SymptomCheckin?
-    var barChart = FLChartBarCell()
     
-    
-    let monthsData = [MultiPlotable(name: "none", values: [0]),
-                      MultiPlotable(name: "mild", values: [20, 60]),
-                      MultiPlotable(name: "moderate", values: [100, 110]),
-                      MultiPlotable(name: "difficult", values: [120]),
-                      MultiPlotable(name: "severe", values: [150, 200, 250])]
-
-    override func viewDidLoad() {
-
-        super.viewDidLoad()
+    lazy var lineChartView: LineChartView = {
+        let chartView = LineChartView()
+        chartView.backgroundColor = .systemBlue
         
- 
-        let chartData = FLChartData(title: "Trigger1",
-                                    data: monthsData,
-                                    legendKeys: [
-                        Key(key: "F1", color: .Gradient.lightBlue),
-                        Key(key: "F2", color: .darkBlue),
-                        Key(key: "F3", color: .Gradient.purpleLightBlue)],
-                                     unitOfMeasure: "milligrams")
-        let chart = FLChart(data: chartData, type: .bar())
+        
+        chartView.rightAxis.enabled = false
+        
+        let yAxis = chartView.leftAxis
+        
+        yAxis.labelFont = .boldSystemFont(ofSize: 12)
+        
+        yAxis.setLabelCount(6, force: false)
+        yAxis.labelTextColor = .white
+        yAxis.axisLineColor = .white
+        
+        yAxis.labelPosition = .insideChart
+        
+        chartView.xAxis.labelPosition = .bottom
+        chartView.xAxis.labelFont = .boldSystemFont(ofSize: 12)
+        chartView.xAxis.setLabelCount(6, force: false)
+        chartView.xAxis.labelTextColor = .white
+        chartView.xAxis.axisLineColor = .systemBlue
+        
+        chartView.animate(xAxisDuration: 2.5)
+        return chartView
+    } ()
     
-        //        chart.config = FLChartConfig(granularityY: 20)
-
-
-        let card = FLCard(chart: chart, style: .rounded)
-        card.showAverage = true
-        card.showLegend = false
-
-        // Do any additional setup after loading the view.
-        view.addSubview(card)
-        card.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            card.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-          card.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-          card.heightAnchor.constraint(equalToConstant: 300),
-          card.widthAnchor.constraint(equalToConstant: 300)
-        ])
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.addSubview(lineChartView)
+        lineChartView.centerInSuperview()
+        lineChartView.width(to: view)
+        lineChartView.heightToWidth(of: view)
+        setData()
+   
+    
+    }
+    
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        print(entry)
+    }
+    func setData() {
+        let set1 = LineChartDataSet(entries: yValues, label: "Numbers")
+        let data = LineChartData(dataSet: set1)
+        set1.mode = .cubicBezier
+        set1.lineWidth = 3
+        set1.setColor(.white)
+        set1.fill = ColorFill(color: .white)
+        
+        
+        set1.fillAlpha = 0.8
+        set1.drawFilledEnabled = true
+        
+        data.setDrawValues(false)
+        lineChartView.data = data
+        set1.drawCirclesEnabled = false
         
     }
     
+    
+    let yValues: [ChartDataEntry] = [
+        ChartDataEntry(x: 0.0, y: 0.0),
+        ChartDataEntry(x: 1.0, y: 10.0),
+        ChartDataEntry(x: 2.0, y: 12.0),
+        ChartDataEntry(x: 3.0, y: 15.0),
+        ChartDataEntry(x: 4.0, y: 2.0),
+        ChartDataEntry(x: 5.0, y: 10.0),
+    
+    ]
 
     /*
     // MARK: - Navigation

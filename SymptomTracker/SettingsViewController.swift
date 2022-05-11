@@ -12,7 +12,6 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var notification1Switch: UISwitch!
     @IBOutlet weak var notification2Switch: UISwitch!
     
-    @IBOutlet weak var faceIdSwitch: UISwitch!
     
     @IBOutlet weak var notifPicker2: UIDatePicker!
     @IBOutlet weak var notifPicker1: UIDatePicker!
@@ -42,7 +41,6 @@ class SettingsViewController: UIViewController {
 
         self.notification1Switch.onTintColor = .systemBlue
         self.notification2Switch.onTintColor = .systemBlue
-        self.faceIdSwitch.onTintColor = .systemBlue
         
         self.notification1Switch.isOn = AppSettings.notification1Enabled
         self.notification2Switch.isOn = AppSettings.notification2Enabled

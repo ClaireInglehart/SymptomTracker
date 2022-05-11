@@ -31,42 +31,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let trashButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(onTrash))
         self.navigationItem.rightBarButtonItem = trashButton
 
-//            let context = LAContext()
-//            var error: NSError? = nil
-//            if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-//                    let reason = "Please evaluate with touch id"
-//                
-//                context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { [weak self] success, error in
-//                    DispatchQueue.main.async {
-//                        
-//                        guard success, error == nil else {
-//                            //failed
-//                            
-//                                //cannot evaluate faceid
-//                                let alert = UIAlertController(title: "Failed to Authenticate",
-//                                message: "Please try again",
-//                                                              preferredStyle: .alert)
-//                                alert.addAction(UIAlertAction(title: "Dismiss",
-//                                                              style: .cancel, handler: nil))
-//                            self?.present(alert, animated: true)
-//                            return
-//                        }
-//        
-//                        self?.performSegue(withIdentifier: "ShowWelcome", sender: self)
-//                    }
-//                }
-//            }
-//        
-//        else {
-//            //cannot evaluate faceid
-//            let alert = UIAlertController(title: "Unavailable",
-//            message: "You cant use this feature",
-//                                          preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "Dismiss",
-//                                          style: .cancel, handler: nil))
-//            present(alert, animated: true)
-//            }
-        }
+    }
+
 
     @objc func onTrash() {
         DataService.shared.trash()
@@ -120,18 +86,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if (textField == self.emailField) {
-            if let email = textField.text, email.count > 0 {
+//            if let email = textField.text, email.count {
                 self.passwordField.becomeFirstResponder()
                 return true
-            }
+            
         } else if (textField == self.passwordField) {
-            if let email = textField.text, email.count > 0,
-               let password = passwordField.text, password.count > 0{
+//            if let email = textField.text, email.count > 0,
+//               let password = passwordField.text, password.count > 0{
                 self.onContinue(textField)
+            passwordField.resignFirstResponder()
                 return true
-            }
+        
         }
         return false
     }
-}
 
+}

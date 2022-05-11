@@ -1,36 +1,50 @@
 PODS:
+  - Charts (4.0.2):
+    - Charts/Core (= 4.0.2)
+  - Charts/Core (4.0.2):
+    - SwiftAlgorithms (~> 1.0)
   - DZNEmptyDataSet (1.8.1)
   - FLCharts (1.6.0)
   - FSCalendar (2.8.2)
   - Loaf (0.7.0)
   - lottie-ios (3.3.0)
   - SVProgressHUD (2.2.5)
+  - SwiftAlgorithms (1.0.0)
+  - TinyConstraints (4.0.2)
 
 DEPENDENCIES:
+  - Charts
   - DZNEmptyDataSet
   - FLCharts
   - FSCalendar
   - Loaf
   - lottie-ios
   - SVProgressHUD
+  - TinyConstraints
 
 SPEC REPOS:
   trunk:
+    - Charts
     - DZNEmptyDataSet
     - FLCharts
     - FSCalendar
     - Loaf
     - lottie-ios
     - SVProgressHUD
+    - SwiftAlgorithms
+    - TinyConstraints
 
 SPEC CHECKSUMS:
+  Charts: cfa4e911e6dc289582c2fe011a0e87c03d96727f
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FLCharts: d657c28c471c9fbe4cb9a18e316f82685200fc49
   FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
   Loaf: d69937cd00649f3fa260beb8b7aef0a1feb861ef
   lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
+  TinyConstraints: 7b7ccc0c485bb3bb47082138ff28bc33cd49897f
 
-PODFILE CHECKSUM: b11979aa256d1a18c529de478299dc5d188ecb0f
+PODFILE CHECKSUM: 17f25085071a9607a0758a035c20cce0870b899a
 
 COCOAPODS: 1.10.1

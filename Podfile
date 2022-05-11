@@ -12,5 +12,7 @@ target 'SymptomTracker' do
   pod 'FSCalendar'
   pod 'SVProgressHUD'
   pod 'FLCharts'
+  pod 'Charts'
+  pod 'TinyConstraints'
 
 end
