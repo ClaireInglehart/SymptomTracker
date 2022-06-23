@@ -9,6 +9,8 @@ Built with Xcode Version 13.4.1
 
 **OR**
 
-**Download in the app store**
+**Download in the app store** :
 SymptomTrackrr
+
+
 ![Screenshot](AppIcon98x98%402x.png)
