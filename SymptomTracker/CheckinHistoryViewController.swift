@@ -45,15 +45,14 @@ class CheckinHistoryViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        guard let currentUser = DataService.shared.currentUser else { return 0 }
-        return currentUser.symptoms.count
+                
+        guard let checkin = self.checkin else { return 0 }
+        return checkin.symptomCheckins.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let checkin = self.checkin else { return UITableViewCell() }
-        
+
         let symptomCheckin = checkin.symptomCheckins[indexPath.row]
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "SymptomCell", for: indexPath)
@@ -62,6 +61,7 @@ class CheckinHistoryViewController: UIViewController, UITableViewDelegate, UITab
         return cell
     }
     
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return UITableView.automaticDimension
     }

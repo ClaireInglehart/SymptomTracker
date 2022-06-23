@@ -37,6 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+//    Screenshots dimensions should be: 1242x2688 2688x1242 1284x2778 2778x1284
+
+
     
     
 }
