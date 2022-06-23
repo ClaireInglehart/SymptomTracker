@@ -11,5 +11,4 @@ Built with Xcode Version 13.4.1
 
 **Download in the app store**
 SymptomTrackrr
-
-!([http://url/to/img.png](https://github.com/ClaireInglehart/SymptomTracker/blob/main/AppIcon98x98%402x.png))
+![Screenshot](AppIcon98x98%402x.png)
