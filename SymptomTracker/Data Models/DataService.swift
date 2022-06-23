@@ -146,53 +146,53 @@ class DataService {
         print("🗑 all user accounts deleted")
     }
     
-    public func mlTest(forUser user: User) {
-        print("🔆🔆🔆 ML Test 🔆🔆🔆")
-        // For each symptom:
-        // date, <symptom name>, <trigger 1 name>, <trigger 2 name>, ...
-        //
-        // Generate dummy data for this user for the past week.
-        let today = Date()
-        let dates = [today.dateBySubtractingDays(6),
-                     today.dateBySubtractingDays(5),
-                     today.dateBySubtractingDays(4),
-                     today.dateBySubtractingDays(3),
-                     today.dateBySubtractingDays(2),
-                     today.dateBySubtractingDays(1),
-                     today]
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        for symptom in self.getSymptoms(forUser: user) {
-            let fileName = "\(symptom.name).csv"
-            var fileLines: [String] = []
-
-            fileLines.append(self.makeHeaderString(forSymptom: symptom))
-            print("\(self.makeHeaderString(forSymptom: symptom))")
-
-            for date in dates {
-                var values: [String] = []
-                values.append(dateFormatter.string(from: date))
-                values.append(self.randomSeverity().toString())
-                for _ in symptom.customTriggers {
-                    values.append("\(self.randomValue(min: 0, max: 20))")
-                }
-                for _ in symptom.appleHealthTriggers {
-                    values.append("\(self.randomValue(min: 0, max: 20))")
-                }
-                fileLines.append(values.joined(separator: ", "))
-                print(values.joined(separator: ", "))
-            }
-            let stringToSave = fileLines.joined(separator: "\n")
-            let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(fileName)
-
-            if let stringData = stringToSave.data(using: .utf8) {
-                try? stringData.write(to: path)
-            }
-            print("\(fileName) data written to:")
-            print(path.absoluteString)
-        }
-        
-    }
+//    public func mlTest(forUser user: User) {
+//        print("🔆🔆🔆 ML Test 🔆🔆🔆")
+//        // For each symptom:
+//        // date, <symptom name>, <trigger 1 name>, <trigger 2 name>, ...
+//        //
+//        // Generate dummy data for this user for the past week.
+//        let today = Date()
+//        let dates = [today.dateBySubtractingDays(6),
+//                     today.dateBySubtractingDays(5),
+//                     today.dateBySubtractingDays(4),
+//                     today.dateBySubtractingDays(3),
+//                     today.dateBySubtractingDays(2),
+//                     today.dateBySubtractingDays(1),
+//                     today]
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd"
+//        for symptom in self.getSymptoms(forUser: user) {
+//            let fileName = "\(symptom.name).csv"
+//            var fileLines: [String] = []
+//
+//            fileLines.append(self.makeHeaderString(forSymptom: symptom))
+//            print("\(self.makeHeaderString(forSymptom: symptom))")
+//
+//            for date in dates {
+//                var values: [String] = []
+//                values.append(dateFormatter.string(from: date))
+//                values.append(self.randomSeverity().toString())
+//                for _ in symptom.customTriggers {
+//                    values.append("\(self.randomValue(min: 0, max: 20))")
+//                }
+//                for _ in symptom.appleHealthTriggers {
+//                    values.append("\(self.randomValue(min: 0, max: 20))")
+//                }
+//                fileLines.append(values.joined(separator: ", "))
+//                print(values.joined(separator: ", "))
+//            }
+//            let stringToSave = fileLines.joined(separator: "\n")
+//            let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(fileName)
+//
+//            if let stringData = stringToSave.data(using: .utf8) {
+//                try? stringData.write(to: path)
+//            }
+//            print("\(fileName) data written to:")
+//            print(path.absoluteString)
+//        }
+//        
+//    }
     
     private func makeHeaderString(forSymptom symptom: Symptom) -> String {
         var headers = ["date", symptom.name]

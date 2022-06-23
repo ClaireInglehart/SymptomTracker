@@ -65,17 +65,19 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if (textField == self.emailField) {
-            if let email = textField.text, email.count > 0 {
+//            if let email = textField.text, email.count > 0 {
                 self.passwordField.becomeFirstResponder()
                 return true
-            }
+            
         } else if (textField == self.passwordField) {
-            if let email = textField.text, email.count > 0,
-               let password = textField.text, password.count > 0 {
-                }
+//            if let email = textField.text, email.count > 0,
+//               let password = textField.text, password.count > 0 {
+//                }
                 self.onContinue(textField)
+                passwordField.resignFirstResponder()
+
                 return true
             }
         return false
         }
-    }
+}

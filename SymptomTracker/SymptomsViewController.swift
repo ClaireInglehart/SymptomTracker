@@ -24,8 +24,8 @@ class SymptomsViewController: UIViewController, UITableViewDelegate, UITableView
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAddSymptom))
 
-        let testButton = UIBarButtonItem(title: "test", style: .plain, target: self, action: #selector(onMakeTestData))
-        self.navigationItem.rightBarButtonItems = [addButton, testButton]
+//        let testButton = UIBarButtonItem(title: "test", style: .plain, target: self, action: #selector(onMakeTestData))
+//        self.navigationItem.rightBarButtonItems = [addButton, testButton]
     }
     
 
@@ -41,11 +41,11 @@ class SymptomsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.reloadData()
     }
     
-    @objc func onMakeTestData() {
-        guard let currentUser = DataService.shared.currentUser else { return }
-
-        DataService.shared.mlTest(forUser: currentUser)
-    }
+//    @objc func onMakeTestData() {
+//        guard let currentUser = DataService.shared.currentUser else { return }
+//
+//        DataService.shared.mlTest(forUser: currentUser)
+//    }
 
 
     /*

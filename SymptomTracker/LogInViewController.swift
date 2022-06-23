@@ -28,15 +28,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.continueButton.layer.cornerRadius = 8.0
         self.signUpButton.layer.cornerRadius = 8.0
 
-        let trashButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(onTrash))
-        self.navigationItem.rightBarButtonItem = trashButton
+//        let trashButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(onTrash))
+//        self.navigationItem.rightBarButtonItem = trashButton
 
     }
 
 
-    @objc func onTrash() {
-        DataService.shared.trash()
-    }
+//    @objc func onTrash() {
+//        DataService.shared.trash()
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
